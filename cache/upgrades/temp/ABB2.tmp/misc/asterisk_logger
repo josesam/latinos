@@ -1,0 +1,75 @@
+#! /bin/sh
+
+### BEGIN INIT INFO
+# chkconfig: 2345 80 30
+# Provides:          asterisk_logger
+# Required-Start:    $local_fs $network
+# Required-Stop:     $local_fs $network
+# Should-Start:      apache2 asterisk mysql
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: starts asterisk logger daemon
+# Description:       starts asterisk logger using
+### END INIT INFO
+
+# EDIT the USER and SUGAR_ROOT Variables below and read note in start_logger() below
+# USER isn't used unless you use the more secure version in start_logger
+USER=apache
+SUGAR_ROOT=/var/www/html/sugarcrm
+
+# Shouldn't need to edit any of these...
+PROC="asteriskLogger"
+DAEMON="php $SUGAR_ROOT/custom/modules/Asterisk/$PROC.php"
+LOGFILE="/tmp/$PROC.log"
+NAME=asterisk_logger
+DESC=asterisk_logger
+
+
+set -e
+
+. /lib/lsb/init-functions
+
+start_logger() {
+        # Note: the commented line starting with "sudo" is the more secure approach but I've encountered
+        # errors such as "sorry, you must have a tty to run sudo" on certain boxes. So, the default method below
+        # will work more universally. You can try commenting the first line and uncommenting the second line
+        # and hope it works. Suggestions are welcomed on ways to improve this script.
+        $DAEMON > $LOGFILE < /dev/null &
+        #sudo -u $USER $DAEMON > $LOGFILE < /dev/null &
+}
+
+stop_logger() {
+	for i in `ps ax | grep -v grep | grep $PROC | cut -d ' ' -f 1`
+    do
+        kill -9 $i
+    done
+    for i in `ps ax | grep -v grep | grep $PROC | cut -d ' ' -f 2`
+    do
+        kill -9 $i
+    done
+}
+
+case "$1" in
+  start)
+	echo -n "Starting $DESC: "
+	start_logger
+	echo "$NAME."
+	;;
+  stop)
+	echo -n "Stopping $DESC: "
+	stop_logger
+	echo "$NAME."
+	;;
+  restart)
+	echo -n "Restarting $DESC: "
+	stop_logger
+	start_logger
+	echo "$NAME."
+	;;
+     *)
+	echo "Usage: $NAME {start|stop|restart}" >&2
+	exit 1
+	;;
+esac
+
+exit 0

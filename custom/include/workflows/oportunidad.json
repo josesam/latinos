@@ -1,0 +1,25 @@
+{
+    "estado":
+            ["application_sent","application_incomplete","application_complete","application_unsuccessful","conditional_offer","unconditional_offer","acceptance_sent","coe_received","visa_sent","visa_denied","Closed Won","Closed Lost","cancelled_application_incomplete","deferral_process"],
+"transiciones":{
+    "sent-complete":{"inicial":"application_sent","final":"application_complete"},
+    "sent-incomplete":{"inicial":"application_sent","final":"application_incomplete"},        
+    "incomplete-cancelled":{"inicial":"application_incomplete","final":"Closed Lost"},
+    "incomplete-complete":{"inicial":"application_incomplete","final":"application_complete"},
+    "complete-unsuccessful":{"inicial":"application_complete","final":"application_unsuccessful"},
+    "complete-conditional":{"inicial":"application_complete","final":"conditional_offer"},
+    "complete-unconditional":{"inicial":"application_complete","final":"unconditional_offer"},
+    "conditional-cancelled":{"inicial":"conditional_offer","final":"Closed Lost"},
+    "conditional-deferral":{"inicial":"conditional_offer","final":"deferral_process"},
+    "unconditional-cancelled":{"inicial":"unconditional_offer","final":"Closed Lost"},
+    "unconditional-acceptance":{"inicial":"unconditional_offer","final":"acceptance_sent"},
+    "acceptance-coe":{"inicial":"acceptance_sent","final":"coe_received"},
+    "coe-cancelled":{"inicial":"coe_received","final":"Closed Lost"},
+    "coe-visa-sent":{"inicial":"coe_received","final":"visa_sent"},
+    "visa-sent-denied":{"inicial":"visa_sent","final":"visa_denied"},
+    "visa-sent-received":{"inicial":"visa_sent","final":"visa_received"},
+    "visa-received-studying-course":{"inicial":"visa_received","final":"Closed Won"},
+    "visa-received-cancelled":{"inicial":"visa_received","final":"Closed Lost"},
+    "visa-received-deferreal":{"inicial":"visa_received","final":"deferral_process"}
+}
+}
