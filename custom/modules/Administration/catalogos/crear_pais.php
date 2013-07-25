@@ -62,13 +62,13 @@ $().ready(function() {
 	
 
 	// validate signup form on keyup and submit
-	$("#catalogo-form").validate({
+	jQuery("#catalogo-form").validate({
 		rules: {
 			pais: "required",
 			
 		},
 		messages: {
-			pais: "Por favor ingrese el pais",
+			pais: "Por favor ingrese el pais"
 			
 		}
 	});

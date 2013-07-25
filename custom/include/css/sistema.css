@@ -11,63 +11,198 @@
    Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 */
 
-label{
-    width: 100px;
-    float:left;
+#resultado{
+    background-color: #CCC;
+    width: 80%;
+    height: 28px;
+    padding: 20px;
+    
+    
+    
 }
- .datos
-{
-        font-family:Arial, Helvetica, sans-serif;
-        font-size:12px;
-        background: white;
-        color:black;
-        cursor:text;
-
-        border-bottom: 1px solid #104A7B;
-        border-right: 1px solid #104A7B;
-        border-left: 1px solid #104A7B;
-        border-top:1px solid #104A7B;
-        width: 60px;
-
+#resultado p{
+    
+    font-family: Arial;
+    font-size: 12px;
+    font-style: italic;
+      
+}
+#resultado .error{
+    color: red;
+    
+}
+#resultado .correcto{
+    color: black;
+}
+.comandos {
+	float:right;
+	border:2px solid #ccc;
+	width:150px;
+	padding:5px;
+	color:#000000;
+	background-color:#fff;
+	clear:right;
+}
+.comandos ul{
+	margin:0;
+	padding:0;
+	list-style: none;
+}
+.comandos li {
+	margin-top:2px;
+	list-style-type:none;
+	background-image: none;
+	margin-left: 0px;
 
 }
-
- .numeric
-{
-        font-family:Arial, Helvetica, sans-serif;
-        font-size:12px;
-        background: white;
-        color:black;
-        cursor:text;
-
-        border-bottom: 1px solid #104A7B;
-        border-right: 1px solid #104A7B;
-        border-left: 1px solid #104A7B;
-        border-top:1px solid #104A7B;
-        width: 60px;
-
+.comandos a {
+	color:#000;
 }
+.comandos a:hover{
+	font-weight:bold;
+}
+
+.comandos h4 {
+	
+	background-image: url("../images/bg_top.jpg");
+	color:#fff;
+	margin:1px;
+	padding:2px;
+	margin-bottom:5px;
+}
+
+
+
+/* errores */
+div.errorMessage{
+	float:left;
+	padding-left: 5px;
+	color:red;
+	margin:0;
+}
+br {
+	clear:both;
+}
+label.error{
+	background:0;
+}
+input.error{
+	padding-left:20px;
+}
+div.elem{
+	float:left;
+	border:1px solid #ccc;
+	padding:2px;
+}
+
+
 .seccion{
 	border: 1px solid black;
 	padding: 5px;
 	margin:5px;
-	width:80%;
+	width:43%;
 	float:left;
 }
-
 .seccion_head{
 	font-weight: bold;
 	padding:2px;
 	text-align: center;
-	background-image: url("bg_top.jpg");
-
+	background-image: url("./custom/include/images/bg_top.jpg");
 	color:#CCC;
 }
-
 .seccion label{
-	width:200px !important;
+	text-align: left;
+	width:120px;
 }
-.seccion input select{
 
-    width: 150px !important;
+
+.seccion_consolidada{
+	border: 1px solid black;
+	padding: 5px;
+	margin:5px;
+	width:98%;
+	float:left;
 }
+
+
+.mensaje_top {
+	background-image: url("../images/icons/accept.png");
+	background-repeat: no-repeat;
+	background-position: 2px;
+	padding:3px;
+	padding-left: 20px;
+	margin:3px;
+	border:1px solid green;
+	font-style: italic;
+}
+
+.error_top {
+	background-image: url("../images/icons/exclamation.png");
+	background-repeat: no-repeat;
+	background-position: 2px;
+	padding:3px;
+	padding-left: 20px;
+	margin:3px;
+	border:1px solid red;
+	font-style: italic;
+}
+
+textarea{
+	font-size: 10px;
+	font-family: inherit;
+}
+
+.download_file{
+	background-image: url("../images/icons/disk.png");
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}
+
+label{
+    float: left;
+    width:100px;
+
+}
+
+#catalogo-form { width: 500px; }
+#catalogo-form label { width: 250px; }
+#catalogo-form label.error, #catalogo-form input.submit { margin-left: 253px; }
+
+#catalogo-form fieldset {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: url("../images/cmxform-fieldset.png") repeat-x scroll left bottom #F8FDEF;
+    border-color: #C9DCA6 -moz-use-text-color -moz-use-text-color;
+    border-image: none;
+    border-right: medium none;
+    border-style: solid none none;
+    border-width: 1px medium medium;
+}
+
+#catalogo-form fieldset p, form.cmxform fieldset fieldset {
+	padding: 5px 10px 7px;
+	background: url(../images/cmxform-divider.gif) left bottom repeat-x;
+}
+#catalogo-form legend {
+	padding-left: 0;
+        font-size: 14px;
+}
+
+#catalogo-form legend, #catalogo-form label {
+	color: #333;
+}
+
+
+#catalogo-form label.error, label.error {
+	/* remove the next line when you have trouble in IE6 with labels in list */
+	color: red;
+	font-style: italic
+}
+div.error { display: none; }
+input {	border: 1px solid black; }
+input.checkbox { border: none }
+input:focus { border: 1px dotted black; }
+input.error { border: 1px dotted red; }
+#catalogo-form .gray * { color: gray; }
