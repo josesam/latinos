@@ -158,6 +158,21 @@ $dictionary['Account']['fields']['medioingreso']=array(
             'duplicate_merge' => 'disabled',
 );
 
+$dictionary['Account']['fields']['estado_estudiante']=array(
+            'name' => 'estado_estudiante',
+		    'vname' => 'LBL_ESTADOCLIENTE',
+		    'type' => 'enum',
+		    'required' => false,
+		    'options' => 'estado_cliente_dom',
+		    'len' => '35',
+		    'default'=>'Prospecto',
+		    'comment' => 'Es un cliente o Prospecto',
+			'help' => 'Es un cliente o Prospecto',
+			'importable' => 'true',
+			'duplicate_merge' => 'disabled',
+			'audited' => true,
+);
+
 
 
  // created: 2013-04-27 06:20:31

@@ -8,6 +8,13 @@ array (
     'link' => true,
     'default' => true,
   ),
+  'ESTADO_ESTUDIANTE' => 
+  array (
+    'type' => 'enum',
+    'default' => true,
+    'label' => 'LBL_ESTADOCLIENTE',
+    'width' => '10%',
+  ),
   'STATUS' => 
   array (
     'type' => 'enum',

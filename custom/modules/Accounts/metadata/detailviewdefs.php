@@ -18,7 +18,7 @@ array (
           4 => 
           array (
             'customCode' => '{if $fields.status.value eq "interview-not-attended"}<input type="submit" class="button" value="Reagendar" id="reagendar" name="reagendar"/>{/if}',
-          ),  
+          ),
         ),
       ),
       'maxColumns' => '2',
@@ -89,10 +89,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'status',
-            'comment' => 'Estado Estudiante',
-            'label' => 'LBL_STATUS',
-            'customCode'=>'{$fields.status.value} <input type="hidden" id="parent_id" name="parent_id" value="{$fields.id.value}">',
+            'name' => 'estado_estudiante',
+            'comment' => 'Es un cliente o Prospecto',
+            'label' => 'LBL_ESTADOCLIENTE',
           ),
         ),
         1 => 
@@ -103,7 +102,13 @@ array (
             'comment' => 'Medio ingreso',
             'label' => 'LBL_MEDIOINGRESO',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'status',
+            'comment' => 'Estado Estudiante',
+            'label' => 'LBL_STATUS',
+            'customCode' => '{$fields.status.value} <input type="hidden" id="parent_id" name="parent_id" value="{$fields.id.value}">',
+          ),
         ),
         2 => 
         array (

@@ -75,9 +75,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'status',
-            'comment' => 'Estado Estudiante',
-            'label' => 'LBL_STATUS',
+            'name' => 'estado_estudiante',
+            'comment' => 'Es un cliente o Prospecto',
+            'label' => 'LBL_ESTADOCLIENTE',
           ),
         ),
         1 => 
@@ -88,7 +88,12 @@ array (
             'comment' => 'Medio ingreso',
             'label' => 'LBL_MEDIOINGRESO',
           ),
-          1 => '',
+          1 => 
+          array (
+            'name' => 'status',
+            'comment' => 'Estado Estudiante',
+            'label' => 'LBL_STATUS',
+          ),
         ),
         2 => 
         array (

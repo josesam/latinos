@@ -11,6 +11,14 @@ array (
         'default' => true,
         'width' => '10%',
       ),
+      'estado_estudiante' => 
+      array (
+        'type' => 'enum',
+        'default' => true,
+        'label' => 'LBL_ESTADOCLIENTE',
+        'width' => '10%',
+        'name' => 'estado_estudiante',
+      ),
       'lae' => 
       array (
         'type' => 'multienum',
@@ -75,6 +83,14 @@ array (
         'name' => 'name',
         'default' => true,
         'width' => '10%',
+      ),
+      'estado_estudiante' => 
+      array (
+        'type' => 'enum',
+        'default' => true,
+        'label' => 'LBL_ESTADOCLIENTE',
+        'width' => '10%',
+        'name' => 'estado_estudiante',
       ),
       'lae' => 
       array (
