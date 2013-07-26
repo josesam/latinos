@@ -52,7 +52,9 @@ class OpportunitiesViewEdit extends ViewEdit
                <link rel="stylesheet" type="text/css" href="custom/include/scripts/genericas/jquery/css/jquery-ui.css" />
                <link rel="stylesheet" type="text/css" href="custom/include/css/tabla/style.css" />
                ';
-
+echo '<div id="institucion_dlg" style="display:none;">
+<div id="institucion_div"></div>
+</div>';
              if(file_exists('custom/include/clases/popups/EtapasPopup.php'))
                 include_once 'custom/include/clases/popups/EtapasPopup.php';
              

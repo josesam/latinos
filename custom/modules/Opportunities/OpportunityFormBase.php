@@ -471,6 +471,7 @@ function handleSave($prefix,$redirect=true, $useRequired=false){
                 if($estadoAnterior == $estadoActual){
                     //ETAPAS DE VENTAS POR ARCHIVOS
                     $datos = $_POST;
+                    $focus->sales_stage = $estadoActual;
                     foreach ($datos as $key => $value) {
                         $pos = strpos($key, 'prodf_');
                         if ($pos === false || $pos > 0)
