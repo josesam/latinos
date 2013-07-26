@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
-// created: 2013-07-25 18:18:38
-=======
-// created: 2013-07-26 01:23:43
->>>>>>> f9efc85935ae112b2273d8db41fca60c7e03af4e
+// created: 2013-07-25 22:38:44
 $mod_strings = array (
   'LBL_FW' => 'RV:',
   'LBL_RE' => 'RE:',
