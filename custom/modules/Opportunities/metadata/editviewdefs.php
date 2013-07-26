@@ -89,21 +89,23 @@ array (
           0 => 
           array (
             'name' => 'institution',
+            'customCode' => '<input type="text" name="institution" readonly="yes" size="35" id="institution" value="{$fields.institution.value}"/><a href="javascript:void(0);" onclick="javascript:openInstitucion();" >Seleccionar Institución</a>',
             'comment' => 'Institución',
             'label' => 'LBL_INSTITUTION',
           ),
           1 => 
           array (
             'name' => 'city',
+            'customCode' => '<input type="text" name="city" readonly="yes" size="35" id="city" value="{$fields.city.value}"/>',
             'comment' => 'Ciudad',
             'label' => 'LBL_CITY',
           ),
         ),
         4 => 
-        array (
-          0 => 
+        array (          0 => 
           array (
             'name' => 'destination',
+              'customCode' => '<input type="text" name="destination" readonly="yes" size="35" id="destination" value="{$fields.destination.value}"/>',
             'comment' => 'Destino',
             'label' => 'LBL_DESTINATION',
           ),
