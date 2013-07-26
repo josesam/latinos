@@ -19,6 +19,7 @@ class AccountsViewPaisinteres extends SugarView{
             
            
            if(file_exists("custom/include/clases/varios/Catalogos/PaisInteres.php")){
+               include_once("custom/include/clases/varios/Catalogos/CatalogoInterface.php");
              include_once("custom/include/clases/varios/Catalogos/PaisInteres.php");
              $form=$_REQUEST;
          

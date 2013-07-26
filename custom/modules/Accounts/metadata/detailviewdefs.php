@@ -182,7 +182,7 @@ array (
           ),
           1 => 
           array (
-            'name' => 'areainteres',
+            'name' => 'areainterest',
             'comment' => 'Area de interes',
             'label' => 'LBL_AREAINTEREST',
           ),

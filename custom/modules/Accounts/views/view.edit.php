@@ -46,11 +46,11 @@ class AccountsViewEdit extends ViewEdit
  		$this->useModuleQuickCreateTemplate = false;
  	}
         function display() {
-        
+            global $app_list_strings;
             $this->ev->showVCRControl = false ;
-		echo '<link rel="stylesheet" type="text/css" href="custom/include/scripts/genericas/jquery/css/jquery-ui.css" />
+		echo '
                   <link rel="stylesheet" type="text/css" href="custom/include/css/tablas/style.css" />
-                  <link rel="stylesheet" type="text/css" href="custom/include/css/sistema.css" />
+                  
                     ';
  		 if(file_exists('custom/include/clases/popups/modules/Accounts/popPaisInteres.php')){
                     include_once 'custom/include/clases/popups/modules/Accounts/popPaisInteres.php';
@@ -59,7 +59,7 @@ class AccountsViewEdit extends ViewEdit
                 if(file_exists('custom/include/clases/popups/modules/Accounts/VerificarPopup.php')){
                     include_once 'custom/include/clases/popups/modules/Accounts/VerificarPopup.php';
                  }
-
+             $this->bean->status=$app_list_strings['estatus_dom'][$this->bean->status];    
              parent::display();
                           
              
