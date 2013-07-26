@@ -7,8 +7,8 @@
  */
 interface CatalogoInterface{
     
-    public function buscar($valor="",$limit=10);
-    public function crear($valor,$padre_id=null);
+    public static function buscar($valor="");
+    public function crear($contexto,$valor,$padre_id);
     public function cargar($data=array());
     public function editar($codigo,$valor);
     public function eliminar($codigo);

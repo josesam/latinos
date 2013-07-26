@@ -20,7 +20,7 @@ class InstitucionInteres implements CatalogoInterface{
         $data=array();
         $filtro=(!empty($valor)) ? " and (c.valor like '%$valor%' or p.valor like '%$valor%') " : "" ;
         $limite="";
-       if((int)$limit>0)
+        if((int)$limit>0)
             $limite="limit 0,$limit";
         $sql="SELECT i.valor as institucion ,c.id idciudad,c.valor ciudad , p.id idpais,p.valor as pais
               FROM 
