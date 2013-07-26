@@ -114,6 +114,53 @@ openEtapas=function(etapa){
                 });
 }
 
+openInstitucion=function(){
+      var data={
+            etapa:'hola'
+        }
+
+             jQuery("#institucion_dlg").dialog({
+                            closeOnEscape: true,
+                            height: 500 ,
+                            hide: 'slide',
+                            modal: true ,
+                            title: 'Etapas',
+                            width: 500
+                });
+
+
+
+ var urllista = "index.php?&module=Opportunities&action=buscarinstitucion";
+                jQuery("#institucion_div").text("Buscando instituciones...");
+                jQuery("#institucion_div").load(urllista,data, function(response, status, xhr){
+                    if(status=="success"){
+                        jQuery("#institucion_div").html(response);
+                    }else
+                        return false;
+                });
+}
+
+buscarInstitucion=function(){
+    var data={
+            filtro:jQuery("#filtro").val()
+        }
+    var urllista = "index.php?&module=Opportunities&action=resultadobuscarinstitucion";
+    jQuery("#resultado_institucion_div").text("Buscando instituciones.....");
+    jQuery("#resultado_institucion_div").load(urllista,data, function(response, status, xhr){
+        if(status=="success"){
+            jQuery("#resultado_institucion_div").html(response);
+        }else
+            return false;
+    });
+} 
+
+cargarInstitucion=function(pais,ciudad,institucion){
+    jQuery("#destination").val(pais);
+    jQuery("#city").val(ciudad);
+    jQuery("#institution").val(institucion);
+    jQuery("#institucion_dlg").dialog("close");
+} 
+
 copiarEtapa=function(valor,probabilidad){
     jQuery("#probability").val(probabilidad);
     jQuery("#sales_stage").val(valor);
