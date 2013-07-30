@@ -196,6 +196,7 @@ $dictionary['Account']['fields']['estado_estudiante']=array(
 	    'help' => 'Estado del estudiante',
 	    'importable' => 'true',
 	    'duplicate_merge' => 'disabled',
+            'default'=>'Prospecto'
 );
 
 

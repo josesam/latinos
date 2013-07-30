@@ -123,7 +123,7 @@ $dictionary['Account']['fields']['status']=array(
 		    'required' => false,
 			'options' => 'estatus_dom',
 		    'len' => '35',
-			'default'=>'Prospecto',
+			'default'=>'',
 		    'comment' => 'Estado Estudiante',
 			'help' => 'Estado Estudiante',
 			'importable' => 'true',
@@ -199,6 +199,7 @@ $dictionary['Account']['fields']['estado_estudiante']=array(
 	    'help' => 'Estado del estudiante',
 	    'importable' => 'true',
 	    'duplicate_merge' => 'disabled',
+            'default'=>'Prospecto'
 );
 
 
