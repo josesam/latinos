@@ -186,4 +186,17 @@ $dictionary['Account']['fields']['lead_source']=array(
 			
             
 );
+$dictionary['Account']['fields']['estado_estudiante']=array(
+            'name' => 'estado_estudiante',
+            'vname' => 'LBL_ESTADOESTUDIANTE',
+	    'type' => 'enum',
+	    'required' => false,
+	    'options' => 'estado_cliente_dom',
+	    'comment' => 'Estado del Estudiante',
+	    'help' => 'Estado del estudiante',
+	    'importable' => 'true',
+	    'duplicate_merge' => 'disabled',
+);
+
+
 ?>

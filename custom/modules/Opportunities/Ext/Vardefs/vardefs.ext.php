@@ -102,6 +102,8 @@ $dictionary['Opportunity']['fields']['files'] = array (
 'group' => 'files',
 'merge_filter' => 'enabled',
 );
+
+
 $dictionary['Opportunity']['fields']['fecha_inicio_curso']=array(
     'name' => 'fecha_inicio_curso',
     'vname' => 'LBL_FECHA_INICIO_CURSO',

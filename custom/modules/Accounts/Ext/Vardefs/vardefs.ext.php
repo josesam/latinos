@@ -174,6 +174,35 @@ $dictionary['Account']['fields']['medioingreso']=array(
             'duplicate_merge' => 'disabled',
 );
 
+$dictionary['Account']['fields']['lead_source']=array(
+            'name' => 'lead_source',
+		    'vname' => 'LBL_LEAD_SOURCE',
+		    'type' => 'text',
+		    'required' => false,
+			'len' => '255',
+    
+		    'comment' => 'Nombre corto',
+			'help' => 'nombre corto',
+			'importable' => 'true',
+			'duplicate_merge' => 'disabled',
+			
+			
+            
+);
+$dictionary['Account']['fields']['estado_estudiante']=array(
+            'name' => 'estado_estudiante',
+            'vname' => 'LBL_ESTADOESTUDIANTE',
+	    'type' => 'enum',
+	    'required' => false,
+	    'options' => 'estado_cliente_dom',
+	    'comment' => 'Estado del Estudiante',
+	    'help' => 'Estado del estudiante',
+	    'importable' => 'true',
+	    'duplicate_merge' => 'disabled',
+);
+
+
+
 
 
  // created: 2013-04-27 06:20:31
