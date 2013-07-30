@@ -10,6 +10,14 @@ class OpportunitiesController extends SugarController
         $this->view = 'controletapas';
     }
     
+    function action_Procesosabiertos(){
+        $this->view = 'procesosabiertos';
+    }
+    
+    function action_Cerraraplicacion(){
+        $this->view = 'cerraraplicacion';
+    }
+    
     function action_Buscarinstitucion(){
         $this->view = 'buscarinstitucion';
     }

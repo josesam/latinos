@@ -1,92 +1,7 @@
 /* 
  @author Jose Sambrano
  */
-jQuery.noConflict();
-jQuery(document).ready(function() {
 
-
-
-        jQuery("#name").bind('blur',function(){
-            if(bandera==0){
-                // solo la primera vez
-                nombre=jQuery("#name").val();
-
-
-                  if(typeof(nombre)=='undefined')
-                    nombre=''
-                  if(nombre==null)
-                   nombre=''
-
-
-
-                if (jQuery("#name").val()!="")
-                    bandera=1;
-            }
-
-        });
-
-
-
-       jQuery("#feedback_motivonocompro").autocomplete({
-
-            //define callback to format results
-            source: function(req, add){
-                //pass request to server
-                jQuery.getJSON("index.php?callback=?&module=Opportunities&action=motivos&tipo=feedback_status", req, function(data) {
-                   //create array for response objects
-                    var suggestions = [];
-                    //process response
-                    jQuery.each(data, function(i, val){
-                    suggestions.push(val.name);
-                });
-                //pass array to callback
-                add(suggestions);
-            });
-        }
-        });
-
-
-jQuery("#feedback_motivoprueba").autocomplete({
-
-            //define callback to format results
-            source: function(req, add){
-                //pass request to server
-                jQuery.getJSON("index.php?callback=?&module=Opportunities&action=motivos&tipo=feedback_motivos", req, function(data) {
-                   //create array for response objects
-                    var suggestions = [];
-                    //process response
-                    jQuery.each(data, function(i, val){
-                    suggestions.push(val.name);
-                });
-                //pass array to callback
-                add(suggestions);
-            });
-        }
-        });
-
-
-
-jQuery("#comentario_motivos").autocomplete({
-
-            //define callback to format results
-            source: function(req, add){
-                //pass request to server
-                jQuery.getJSON("index.php?callback=?&module=Opportunities&action=motivos&tipo=comentarios", req, function(data) {
-                   //create array for response objects
-                    var suggestions = [];
-                    //process response
-                    jQuery.each(data, function(i, val){
-                    suggestions.push(val.name);
-                });
-                //pass array to callback
-                add(suggestions);
-            });
-        }
-        });
-
-
-
-});
 
 openEtapas=function(etapa){
       var data={
@@ -360,6 +275,47 @@ copiarRepuesto=function(repuesto){
     jQuery("#repuesto").val(repuesto);
 
     jQuery("#repuesto_dlg").dialog("close");
+}
+
+procesosAbiertos=function(idAplicacion){
+    var data={
+            idAplicacion:idAplicacion
+        }
+
+             jQuery("#procesos_dlg").dialog({
+                            closeOnEscape: true,
+                            height: 300 ,
+                            hide: 'slide',
+                            modal: true ,
+                            title: 'Procesos Abiertos',
+                            width: 700
+                });
+
+
+
+ var urllista = "index.php?&module=Opportunities&action=procesosabiertos";
+                jQuery("#procesos_div").text("Buscando procesos abiertos...");
+                jQuery("#procesos_div").load(urllista,data, function(response, status, xhr){
+                    if(status=="success"){
+                        jQuery("#procesos_div").html(response);
+                    }else
+                        return false;
+                });
+}
+
+cerrarAplicacion=function(idAplicacion){
+    var data={
+        idAplicacion:idAplicacion
+    }
+    
+    var urllista = "index.php?&module=Opportunities&action=cerraraplicacion";
+    jQuery("#cerrar_aplicacion_div").text("Cerrando aplicación...");
+    jQuery("#cerrar_aplicacion_div").load(urllista,data, function(response, status, xhr){
+        if(status=="success"){
+            jQuery("#cerrar_aplicacion_div").html(response);
+        }else
+            return false;
+    });
 }
 
 

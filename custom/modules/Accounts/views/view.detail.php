@@ -54,8 +54,7 @@ class AccountsViewDetail extends ViewDetail {
  	}
 
         function  display() {
-            global $app_list_strings;
-            echo '
+            echo '<link rel="stylesheet" type="text/css" href="custom/include/scripts/genericas/jquery/css/jquery-ui.css" />
                   <link rel="stylesheet" type="text/css" href="custom/include/css/tablas/style.css" />
                   <link rel="stylesheet" type="text/css" href="custom/include/css/sistema.css" />
                     ';
@@ -63,39 +62,52 @@ class AccountsViewDetail extends ViewDetail {
                     include_once 'custom/include/clases/popups/modules/Accounts/popworkflowView.php';
                  }
 
-
-           $this->bean->status=$app_list_strings['estatus_dom'][$this->bean->status];
-                 parent::display();
+//            if($this->bean->tipocliente_c=="Natural")
+//                unset($this->dv->defs['panels']['lbl_editview_panel2']);
+//            else
+//                unset($this->dv->defs['panels']['lbl_editview_panel3']);
+            parent::display();
     }
 
-   function  _displaySubPanels() {           
-         require_once ('include/SubPanel/SubPanelTiles.php');
-         $subpanel = new SubPanelTiles($this->bean, $this->module);
-         
-           $subpanel->subpanel_definitions->layout_defs['subpanel_setup']['opportunities']['top_buttons'][0]['widget_class']='SubPanelTopCreateButton';
-          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['accounts']);
-          //unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['quotes']);
-          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['campaigns']);
-          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['contacts']);
-          //unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['contracts']);
-          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['project']);
-          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['documents']);
-          //unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['leads']);
-          //unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['products']);
-          //$subpanel->subpanel_definitions->layout_defs['subpanel_setup']['contacts']['top_buttons'][0]['widget_class']='SubPanelTopCreateButton';
-          //$subpanel->subpanel_definitions->layout_defs['subpanel_setup']['cases']['top_buttons'][0]['widget_class']='SubPanelTopCreateButton';
-          
-          
-          $subpanel->subpanel_definitions->layout_defs['subpanel_setup']['accounts_ee_auspicio']['top_buttons'][0]['widget_class']='SubPanelTopCreateButton';
-          $subpanel->subpanel_definitions->layout_defs['subpanel_setup']['accounts_ee_fidelizacion']['top_buttons'][0]['widget_class']='SubPanelTopCreateButton';
-          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['accounts_ee_fidelizacion']['top_buttons'][1]);
-          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['accounts_ee_auspicio']['top_buttons'][1]);
-           
-        
 
-	   echo $subpanel->display();
-          
-        }
+//        function  _displaySubPanels() {           
+//            global $mod_strings;
+//            echo '<link rel="stylesheet" type="text/css" href="custom/include/css/subpannel/subpannel.css" />';
+//           require_once ('include/SubPanel/SubPanelTiles.php');
+//           $subpanel = new SubPanelTiles($this->bean, $this->module);
+//         
+//           $subpanel->subpanel_definitions->layout_defs['subpanel_setup']['opportunities']['top_buttons'][0]['widget_class']='SubPanelTopCreateButton';
+//          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['accounts']);
+//          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['quotes']);
+//          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['campaigns']);
+//                    unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['contact_history']);
+//          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['contracts']);
+//          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['project']);
+//          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['bugs']);
+//          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['leads']);
+//          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['products']);
+//          $subpanel->subpanel_definitions->layout_defs['subpanel_setup']['contacts']['top_buttons'][0]['widget_class']='SubPanelTopCreateButton';
+//          $subpanel->subpanel_definitions->layout_defs['subpanel_setup']['cases']['top_buttons'][0]['widget_class']='SubPanelTopCreateButton';
+//          
+//          
+//          $subpanel->subpanel_definitions->layout_defs['subpanel_setup']['accounts_ee_auspicio']['top_buttons'][0]['widget_class']='SubPanelTopCreateButton';
+//          $subpanel->subpanel_definitions->layout_defs['subpanel_setup']['accounts_ee_fidelizacion']['top_buttons'][0]['widget_class']='SubPanelTopCreateButton';
+//          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['accounts_ee_fidelizacion']['top_buttons'][1]);
+//          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['accounts_ee_auspicio']['top_buttons'][1]);
+//           
+//        //  var_dump($subpanel->subpanel_definitions->layout_defs['subpanel_setup']);
+//          if(file_exists('custom/include/clases/varios/SubPannel.php')){
+//               include_once 'custom/include/clases/varios/SubPannel.php';
+//               $sub=new SubPannel($subpanel->subpanel_definitions->layout_defs['subpanel_setup'],$mod_strings);
+//               $sub->_triggerOnLoad();
+//               $sub->generaScript();
+//               $sub->generaLinks();
+//               
+//           }
+//
+//	   echo $subpanel->display();
+//          
+//        }
 //
 //        function  getModuleTitle() {     
 //          global $sugar_version, $sugar_flavor, $server_unique_key, $current_language, $action,$mod_strings;

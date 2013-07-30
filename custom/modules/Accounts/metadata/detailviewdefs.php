@@ -89,25 +89,25 @@ array (
           ),
           1 => 
           array (
-            'name' => 'estado_estudiante',
-            'comment' => 'Es un cliente o Prospecto',
-            'label' => 'LBL_ESTADOCLIENTE',
+            'name' => 'status',
+            'comment' => 'Estado Estudiante',
+            'label' => 'LBL_STATUS',
+            'customCode' => '{$fields.status.value} <input type="hidden" id="parent_id" name="parent_id" value="{$fields.id.value}">',
           ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'medioingreso',
-            'comment' => 'Medio ingreso',
-            'label' => 'LBL_MEDIOINGRESO',
+            'name' => 'nombrecorto',
+            'comment' => 'Nombre corto',
+            'label' => 'LBL_NOMBRECORTO',
           ),
           1 => 
           array (
-            'name' => 'status',
-            'comment' => 'Estado Estudiante',
-            'label' => 'LBL_STATUS',
-            'customCode' => '{$fields.status.value} <input type="hidden" id="parent_id" name="parent_id" value="{$fields.id.value}">',
+            'name' => 'medioingreso',
+            'comment' => 'Medio ingreso',
+            'label' => 'LBL_MEDIOINGRESO',
           ),
         ),
         2 => 
@@ -187,7 +187,7 @@ array (
           ),
           1 => 
           array (
-            'name' => 'areainterest',
+            'name' => 'areainteres',
             'comment' => 'Area de interes',
             'label' => 'LBL_AREAINTEREST',
           ),

@@ -134,5 +134,5 @@ $mod_strings = array (
   'LBL_PANEL_ADVANCED' => 'Estudios Propuestos',
   'LBL_REGISTRATIONDATE' => 'Fecha de registro',
   'LBL_OPPORTUNITY' => 'Aplicación',
-  'LBL_STATUS'=>'Estado Pre-Aplicación',  
+  'LBL_NOMBRECORTO' => 'Nombre corto:',
 );

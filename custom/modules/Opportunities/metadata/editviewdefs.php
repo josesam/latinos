@@ -5,9 +5,8 @@ array (
   array (
     'templateMeta' => 
     array (
-        'form' => 
+      'form' => 
       array (
-        
         'enctype' => 'multipart/form-data',
       ),
       'maxColumns' => '2',
@@ -78,7 +77,8 @@ array (
         ),
         2 => 
         array (
-          0 => array (
+          0 => 
+          array (
             'name' => 'sales_stage',
             'customCode' => '<input type="text" name="sales_stage" readonly="yes" size="35" id="sales_stage" value="{$fields.sales_stage.value}"/>{if $fields.sales_stage.value!="Perdido"}<a href="javascript:void(0);" onclick="javascript:openEtapas(\'{$fields.sales_stage.value}\');" >Seleccionar Etapa</a>{/if}',
           ),
@@ -102,10 +102,11 @@ array (
           ),
         ),
         4 => 
-        array (          0 => 
+        array (
+          0 => 
           array (
             'name' => 'destination',
-              'customCode' => '<input type="text" name="destination" readonly="yes" size="35" id="destination" value="{$fields.destination.value}"/>',
+            'customCode' => '<input type="text" name="destination" readonly="yes" size="35" id="destination" value="{$fields.destination.value}"/>',
             'comment' => 'Destino',
             'label' => 'LBL_DESTINATION',
           ),
@@ -133,10 +134,25 @@ array (
         ),
         6 => 
         array (
+          0 => 
+          array (
+            'name' => 'fecha_inicio_curso',
+            'comment' => 'fecha de inicio del curso',
+            'label' => 'LBL_FECHA_INICIO_CURSO',
+          ),
+          1 => 
+          array (
+            'name' => 'fecha_fin_curso',
+            'comment' => 'fecha fin del curso',
+            'label' => 'LBL_FECHA_FIN_CURSO',
+          ),
+        ),
+        7 => 
+        array (
           0 => 'next_step',
           1 => 'description',
         ),
-        7 => 
+        8 => 
         array (
           0 => 'campaign_name',
         ),
@@ -148,7 +164,6 @@ array (
           0 => 
           array (
             'name' => 'files',
-        
             'label' => 'LBL_FILES',
           ),
         ),

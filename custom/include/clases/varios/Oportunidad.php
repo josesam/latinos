@@ -314,6 +314,69 @@ class Oportunidad {
 
         }
   }
+    
+    function estadoAnterior($id){
+        global $db;
+        $sql="SELECT sales_stage FROM opportunities WHERE id='".$id."' AND deleted=0";
+        $result=$db->query($sql);
+        $estado='';
+        while($a = $db->fetchByAssoc($result)) {
+            $estado = $a['sales_stage'];
+        }
+        return $estado;
+    }
+    
+    function validarEstado($anterior,$actual){
+        $respuesta = false;
+        if(($anterior == 'application_sent') && 
+          (($actual == 'application_unsuccessful')||($actual == 'conditional_offer')
+          ||($actual == 'unconditional_offer')||($actual == 'coe_received'))){
+            $respuesta = true;
+        }
+                        
+
+        if(($anterior == 'conditional_offer') && 
+          (($actual == 'unconditional_offer')||($actual == 'Closed Lost')
+          ||($actual == 'deferral_process'))){
+            $respuesta = true;
+        }
+
+        if(($anterior == 'unconditional_offer') && 
+          (($actual == 'Closed Lost')||($actual == 'acceptance_sent')
+          ||($actual == 'coe_received'))){
+            $respuesta = true;
+        }
+
+        if(($anterior == 'acceptance_sent') && ($actual == 'coe_received')){
+            $respuesta = true;
+        }
+
+        if(($anterior == 'coe_received') && 
+          (($actual == 'Closed Lost')||($actual == 'visa_sent'))){
+            $respuesta = true;
+        }
+
+        if(($anterior == 'visa_sent') && 
+          (($actual == 'visa_denied')||($actual == 'visa_received'))){
+            $respuesta = true;
+        }
+
+        if(($anterior == 'visa_received') && 
+          (($actual == 'deferral_process')||($actual == 'Closed Lost')
+          ||($actual == 'Closed Won'))){
+            $respuesta = true;
+        }
+
+        if(($anterior == 'application_incomplete') && 
+          (($actual == 'application_sent')||($actual == 'Closed Lost'))){
+            $respuesta = true;
+        }
+
+        if(($anterior == 'deferral_process') && ($actual == 'unconditional_offer')){
+            $respuesta = true;
+        }
+        return $respuesta;
+    }
 
 
     

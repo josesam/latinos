@@ -99,4 +99,27 @@ $dictionary['Opportunity']['fields']['files'] = array (
 'group' => 'files',
 'merge_filter' => 'enabled',
 );
+
+
+$dictionary['Opportunity']['fields']['fecha_inicio_curso']=array(
+    'name' => 'fecha_inicio_curso',
+    'vname' => 'LBL_FECHA_INICIO_CURSO',
+    'type' => 'date',
+    'audited'=>true,
+    'required' => true,
+    'comment' => 'fecha de inicio del curso',
+    'enable_range_search' => true,
+    'options' => 'date_range_search_dom',
+  );
+
+$dictionary['Opportunity']['fields']['fecha_fin_curso']=array(
+    'name' => 'fecha_fin_curso',
+    'vname' => 'LBL_FECHA_FIN_CURSO',
+    'type' => 'date',
+    'audited'=>true,
+    'required' => true,
+    'comment' => 'fecha fin del curso',
+    'enable_range_search' => true,
+    'options' => 'date_range_search_dom',
+  );
 ?>

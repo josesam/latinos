@@ -21,14 +21,14 @@ $dictionary['Account']['fields']['lae']=array(
 $dictionary['Account']['fields']['levelinterest']=array(
             'name' => 'levelinterest',
 		    'vname' => 'LBL_LEVELINTEREST',
-		    'type' => 'enum',
+		    'type' => 'multienum',
 		    'required' => false,
 			'options' => 'levelinteres_dom',
-		    'len' => '100',
-		    'comment' => 'Nivel de interes',
-			'help' => 'Nivel de interes',
+		    'comment' => 'Area de interes',
+			'help' => 'Area de interes',
 			'importable' => 'true',
 			'duplicate_merge' => 'disabled',
+			'isMultiSelect'=>true
 			
             
 );
@@ -60,6 +60,22 @@ $dictionary['Account']['fields']['paisinterest']=array(
     
 		    'comment' => 'Pais de interes',
 			'help' => 'Pais de interes',
+			'importable' => 'true',
+			'duplicate_merge' => 'disabled',
+			
+			
+            
+);
+
+$dictionary['Account']['fields']['nombrecorto']=array(
+            'name' => 'nombrecorto',
+		    'vname' => 'LBL_NOMBRECORTO',
+		    'type' => 'varchar',
+		    'required' => false,
+			'len' => '255',
+    
+		    'comment' => 'Nombre corto',
+			'help' => 'nombre corto',
 			'importable' => 'true',
 			'duplicate_merge' => 'disabled',
 			
@@ -155,18 +171,19 @@ $dictionary['Account']['fields']['medioingreso']=array(
             'duplicate_merge' => 'disabled',
 );
 
-$dictionary['Account']['fields']['estado_estudiante']=array(
-            'name' => 'estado_estudiante',
-		    'vname' => 'LBL_ESTADOCLIENTE',
-		    'type' => 'enum',
+$dictionary['Account']['fields']['lead_source']=array(
+            'name' => 'lead_source',
+		    'vname' => 'LBL_LEAD_SOURCE',
+		    'type' => 'text',
 		    'required' => false,
-		    'options' => 'estado_cliente_dom',
-		    'len' => '35',
-		    'default'=>'Prospecto',
-		    'comment' => 'Es un cliente o Prospecto',
-			'help' => 'Es un cliente o Prospecto',
+			'len' => '255',
+    
+		    'comment' => 'Nombre corto',
+			'help' => 'nombre corto',
 			'importable' => 'true',
 			'duplicate_merge' => 'disabled',
-			'audited' => true,
+			
+			
+            
 );
 ?>

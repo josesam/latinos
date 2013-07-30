@@ -13,6 +13,10 @@ array (
           1 => 'DUPLICATE',
           2 => 'DELETE',
           3 => 'FIND_DUPLICATES',
+          4 => 
+          array (
+            'customCode' => '{if $fields.sales_stage.value eq "Closed Won"}<input type="button" class="button" value="Procesos Abiertos" id="procesos_abiertos" onclick="javascript:procesosAbiertos(\'{$fields.id.value}\')" name="procesos_abiertos"/>{/if}',
+          ),
         ),
       ),
       'maxColumns' => '2',
@@ -29,6 +33,14 @@ array (
           'field' => '30',
         ),
       ),
+      'includes' => 
+      array (
+        0 => 
+        array (
+          'file' => 'custom/include/scripts/sistema/SpOportunidad.js',
+        ),
+      ),
+      'javascript' => '{$PROBABILITY_SCRIPT}',
       'useTabs' => false,
       'tabDefs' => 
       array (
@@ -120,6 +132,21 @@ array (
         ),
         6 => 
         array (
+          0 => 
+          array (
+            'name' => 'fecha_inicio_curso',
+            'comment' => 'fecha de inicio del curso',
+            'label' => 'LBL_FECHA_INICIO_CURSO',
+          ),
+          1 => 
+          array (
+            'name' => 'fecha_fin_curso',
+            'comment' => 'fecha fin del curso',
+            'label' => 'LBL_FECHA_FIN_CURSO',
+          ),
+        ),
+        7 => 
+        array (
           0 => 'next_step',
           1 => 
           array (
@@ -127,7 +154,7 @@ array (
             'nl2br' => true,
           ),
         ),
-        7 => 
+        8 => 
         array (
           0 => 'campaign_name',
         ),
@@ -138,8 +165,7 @@ array (
         array (
           0 => 
           array (
-           'name' => 'files',
-        
+            'name' => 'files',
             'label' => 'LBL_FILES',
           ),
         ),
