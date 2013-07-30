@@ -98,10 +98,10 @@ type="submit" name="button" value="Guardar">',
           ),
           1 => 
           array (
-            'name' => 'status',
-            'comment' => 'Estado Estudiante',
-            'label' => 'LBL_STATUS',
-            'customCode' => '{$fields.status.value}',
+            'name' => 'estado_estudiante',
+            'comment' => 'Estado del Estudiante',
+            'label' => 'LBL_ESTADOESTUDIANTE',
+            'customCode'=>'{$fields.estado_estudiante.value}'  
           ),
         ),
         1 => 
@@ -114,12 +114,23 @@ type="submit" name="button" value="Guardar">',
           ),
           1 => 
           array (
+            'name' => 'status',
+            'comment' => 'Estado Estudiante',
+            'label' => 'LBL_STATUS',
+            'customCode' => '{$fields.status.value}',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
             'name' => 'medioingreso',
             'comment' => 'Medio ingreso',
             'label' => 'LBL_MEDIOINGRESO',
           ),
+          1 => '',
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -138,7 +149,7 @@ type="submit" name="button" value="Guardar">',
             ),
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -151,7 +162,7 @@ type="submit" name="button" value="Guardar">',
             'label' => 'LBL_FAX',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -161,7 +172,7 @@ type="submit" name="button" value="Guardar">',
           ),
           1 => '',
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (

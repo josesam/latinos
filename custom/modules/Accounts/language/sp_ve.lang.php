@@ -135,4 +135,6 @@ $mod_strings = array (
   'LBL_REGISTRATIONDATE' => 'Fecha de registro',
   'LBL_OPPORTUNITY' => 'Aplicación',
   'LBL_NOMBRECORTO' => 'Nombre corto:',
+  'LBL_STATUS' => 'Estado del Proceso',
+    
 );

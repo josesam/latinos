@@ -89,10 +89,9 @@ array (
           ),
           1 => 
           array (
-            'name' => 'status',
-            'comment' => 'Estado Estudiante',
-            'label' => 'LBL_STATUS',
-            'customCode' => '{$fields.status.value} <input type="hidden" id="parent_id" name="parent_id" value="{$fields.id.value}">',
+            'name' => 'estado_estudiante',
+            'comment' => 'Estado del Estudiante',
+            'label' => 'LBL_ESTADOESTUDIANTE',
           ),
         ),
         1 => 
@@ -105,12 +104,22 @@ array (
           ),
           1 => 
           array (
+            'name' => 'status',
+            'comment' => 'Estado Estudiante',
+            'label' => 'LBL_STATUS',
+            'customCode' => '{$fields.status.value} <input type="hidden" id="parent_id" name="parent_id" value="{$fields.id.value}">',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
             'name' => 'medioingreso',
             'comment' => 'Medio ingreso',
             'label' => 'LBL_MEDIOINGRESO',
           ),
         ),
-        2 => 
+        3 => 
         array (
           0 => 
           array (
@@ -125,7 +134,7 @@ array (
             'label' => 'LBL_EMAIL',
           ),
         ),
-        3 => 
+        4 => 
         array (
           0 => 
           array (
@@ -140,7 +149,7 @@ array (
             'label' => 'LBL_FAX',
           ),
         ),
-        4 => 
+        5 => 
         array (
           0 => 
           array (
@@ -150,7 +159,7 @@ array (
           ),
           1 => '',
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
@@ -165,7 +174,7 @@ array (
             'label' => 'LBL_LAE',
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (
@@ -187,7 +196,7 @@ array (
           ),
           1 => 
           array (
-            'name' => 'areainteres',
+            'name' => 'areainterest',
             'comment' => 'Area de interes',
             'label' => 'LBL_AREAINTEREST',
           ),
