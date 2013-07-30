@@ -54,113 +54,33 @@ class AccountsViewDetail extends ViewDetail {
  	}
 
         function  display() {
-            echo '<link rel="stylesheet" type="text/css" href="custom/include/scripts/genericas/jquery/css/jquery-ui.css" />
-                  <link rel="stylesheet" type="text/css" href="custom/include/css/tablas/style.css" />
+            global $app_list_strings;
+            echo '             <link rel="stylesheet" type="text/css" href="custom/include/css/tablas/style.css" />
                   <link rel="stylesheet" type="text/css" href="custom/include/css/sistema.css" />
                     ';
  		 if(file_exists('custom/include/clases/popups/modules/Accounts/popworkflowView.php')){
                     include_once 'custom/include/clases/popups/modules/Accounts/popworkflowView.php';
                  }
 
-//            if($this->bean->tipocliente_c=="Natural")
-//                unset($this->dv->defs['panels']['lbl_editview_panel2']);
-//            else
-//                unset($this->dv->defs['panels']['lbl_editview_panel3']);
+             $this->bean->status=$app_list_strings['estatus_dom'][$this->bean->status];    
             parent::display();
     }
 
 
-//        function  _displaySubPanels() {           
-//            global $mod_strings;
-//            echo '<link rel="stylesheet" type="text/css" href="custom/include/css/subpannel/subpannel.css" />';
-//           require_once ('include/SubPanel/SubPanelTiles.php');
-//           $subpanel = new SubPanelTiles($this->bean, $this->module);
-//         
-//           $subpanel->subpanel_definitions->layout_defs['subpanel_setup']['opportunities']['top_buttons'][0]['widget_class']='SubPanelTopCreateButton';
-//          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['accounts']);
-//          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['quotes']);
-//          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['campaigns']);
-//                    unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['contact_history']);
-//          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['contracts']);
-//          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['project']);
-//          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['bugs']);
-//          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['leads']);
-//          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['products']);
-//          $subpanel->subpanel_definitions->layout_defs['subpanel_setup']['contacts']['top_buttons'][0]['widget_class']='SubPanelTopCreateButton';
-//          $subpanel->subpanel_definitions->layout_defs['subpanel_setup']['cases']['top_buttons'][0]['widget_class']='SubPanelTopCreateButton';
-//          
-//          
-//          $subpanel->subpanel_definitions->layout_defs['subpanel_setup']['accounts_ee_auspicio']['top_buttons'][0]['widget_class']='SubPanelTopCreateButton';
-//          $subpanel->subpanel_definitions->layout_defs['subpanel_setup']['accounts_ee_fidelizacion']['top_buttons'][0]['widget_class']='SubPanelTopCreateButton';
-//          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['accounts_ee_fidelizacion']['top_buttons'][1]);
-//          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['accounts_ee_auspicio']['top_buttons'][1]);
-//           
-//        //  var_dump($subpanel->subpanel_definitions->layout_defs['subpanel_setup']);
-//          if(file_exists('custom/include/clases/varios/SubPannel.php')){
-//               include_once 'custom/include/clases/varios/SubPannel.php';
-//               $sub=new SubPannel($subpanel->subpanel_definitions->layout_defs['subpanel_setup'],$mod_strings);
-//               $sub->_triggerOnLoad();
-//               $sub->generaScript();
-//               $sub->generaLinks();
-//               
-//           }
-//
-//	   echo $subpanel->display();
-//          
-//        }
-//
-//        function  getModuleTitle() {     
-//          global $sugar_version, $sugar_flavor, $server_unique_key, $current_language, $action,$mod_strings;
-//        $theTitle = "<div class='moduleTitle'>\n";
-//
-//        $module = preg_replace("/ /","",$this->module);
-//
-//        $params = $this->_getModuleTitleParams();
-//        
-//        $count = count($params);
-//        $index = 0;
-//
-//		if(SugarThemeRegistry::current()->directionality == "rtl") {
-//			$params = array_reverse($params);
-//		}
-//
-//        $paramString = '';
-//        $puso=false;
-//        foreach($params as $parm){
-//            $index++;
-//            $paramString .= $parm;
-//            if($index < $count){
-//                $paramString .= $this->getBreadCrumbSymbol();
-//                if(!$puso){
-//                 $paramString.=$mod_strings['LBL_MODULE_NAME']."  ";
-//                 $paramString .= $this->getBreadCrumbSymbol();
-//                    $puso=true;
-//                }
-//            }
-//        }
-//        
-//        if(!empty($paramString)){
-//               $theTitle .= "<h2>$paramString </h2>\n";
-//           }
-//
-//        if ($show_help) {
-//            $theTitle .= "<span class='utils'>";
-//
-//            $createImageURL = SugarThemeRegistry::current()->getImageURL('create-record.gif');
-//            $url = ajaxLink("index.php?module=$module&action=EditView&return_module=$module&return_action=DetailView");
-//            $theTitle .= <<<EOHTML
-//&nbsp;
-//<a id="create_image" href="{$url}" class="utilsLink">
-//<img src='{$createImageURL}' alt='{$GLOBALS['app_strings']['LNK_CREATE']}'></a>
-//<a id="create_link" href="{$url}" class="utilsLink">
-//{$GLOBALS['app_strings']['LNK_CREATE']}
-//</a>
-//EOHTML;
-//        }
-//
-//        $theTitle .= "</span></div>\n";
-//        return $theTitle;
-//        }
+        function  _displaySubPanels() {           
+            global $mod_strings;
 
+           require_once ('include/SubPanel/SubPanelTiles.php');
+           $subpanel = new SubPanelTiles($this->bean, $this->module);
+//         
+           $subpanel->subpanel_definitions->layout_defs['subpanel_setup']['opportunities']['top_buttons'][0]['widget_class']='SubPanelTopCreateButton';
+           unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['accounts']);
+           unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['contacts']);
+          unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['campaigns']);
+           unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['documents']);
+
+	   echo $subpanel->display();
+          
+        }
 
 }
