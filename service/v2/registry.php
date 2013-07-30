@@ -184,6 +184,13 @@ class registry {
 		    'get_entries_count',
 	        array('session'=>'xsd:string', 'module_name'=>'xsd:string', 'query'=>'xsd:string', 'deleted' => 'xsd:int'),
 	        array('return'=>'tns:get_entries_count_result'));
+                
+                $this->serviceClass->registerFunction(
+		    'set_entry_estudiantes',
+		    array('session'=>'xsd:string', 'module_name'=>'xsd:string','email'=>'xsd:string',  'name_value_list'=>'tns:name_value_list'),
+		    array('return'=>'tns:new_set_entry_result'));
+                
+                
 
     		
 	    $GLOBALS['log']->info('END: registry->registerFunction');

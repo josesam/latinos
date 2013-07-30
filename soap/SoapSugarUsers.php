@@ -1298,6 +1298,8 @@ function handle_set_relationship($set_relationship_value, $session='')
     $module2 = $set_relationship_value['module2'];
     $module2_id = $set_relationship_value['module2_id'];
 
+    
+    
     if(empty($beanList[$module1]) || empty($beanList[$module2]) )
     {
         $error->set_error('no_module');
@@ -1316,9 +1318,12 @@ function handle_set_relationship($set_relationship_value, $session='')
 	}
 	else{
     	$key = array_search(strtolower($module2),$mod->relationship_fields);
+        $GLOBALS['log']->fatal('key test '.$key);
+    
+    
     	if(!$key) {
     	    $key = Relationship::retrieve_by_modules($module1, $module2, $GLOBALS['db']);
-
+            $GLOBALS['log']->fatal('key test 2 '.$key);
             // BEGIN SnapLogic fix for bug 32064
             if ($module1 == "Quotes" && $module2 == "ProductBundles") {
                 // Alternative solution is perhaps to

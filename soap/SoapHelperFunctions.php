@@ -612,7 +612,10 @@ function get_return_value_for_link_fields($bean, $module, $link_name_to_value_fi
  */
 function new_handle_set_relationship($module_name, $module_id, $link_field_name, $related_ids) {
     global  $beanList, $beanFiles;
-
+    $GLOBALS['log']->fatal('Modulo 1'.$module_name);
+    $GLOBALS['log']->fatal('array = '.$related_ids[0]);
+    $GLOBALS['log']->fatal('id 1'.$module_id);
+    $GLOBALS['log']->fatal('id 2'.$link_field_name);
     if(empty($beanList[$module_name])) {
         return false;
     } // if
@@ -624,14 +627,19 @@ function new_handle_set_relationship($module_name, $module_id, $link_field_name,
 		return false;
 	}
 
+        
+    $GLOBALS['log']->fatal('2');
+    
     foreach($related_ids as $ids) {
     	$GLOBALS['log']->debug("ids = " . $ids );
     }
-
+    $GLOBALS['log']->fatal('3');
 	if ($mod->load_relationship($link_field_name)) {
 		$mod->$link_field_name->add($related_ids);
+                $GLOBALS['log']->fatal('4');
 		return true;
 	} else {
+            $GLOBALS['log']->fatal('5');
 		return false;
 	}
 }
