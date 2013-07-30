@@ -98,4 +98,7 @@ $mod_strings = array (
   'LBL_EXPORT_NAME' => 'Nombre',
   'LBL_CONTACT_HISTORY_SUBPANEL_TITLE' => 'Correos contactos relacionados',
   'LBL_EDITVIEW_PANEL1' => 'Documentos',
+  'LBL_DATE_CLOSED' => 'Siguiente fecha de seguimiento:',
+  'LBL_FECHA_INICIO_CURSO' => 'Fecha inicio de curso:',
+  'LBL_FECHA_FIN_CURSO' => 'Fecha fin de curso:',
 );

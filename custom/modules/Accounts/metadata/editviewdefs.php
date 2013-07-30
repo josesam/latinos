@@ -98,26 +98,25 @@ type="submit" name="button" value="Guardar">',
           ),
           1 => 
           array (
-            'name' => 'estado_estudiante',
-            'comment' => 'Es un cliente o Prospecto',
-            'label' => 'LBL_ESTADOCLIENTE',
-            'customCode'=>'{$fields.estado_estudiante.value}',  
+            'name' => 'status',
+            'comment' => 'Estado Estudiante',
+            'label' => 'LBL_STATUS',
+            'customCode' => '{$fields.status.value}',
           ),
         ),
         1 => 
         array (
           0 => 
           array (
-            'name' => 'medioingreso',
-            'comment' => 'Medio ingreso',
-            'label' => 'LBL_MEDIOINGRESO',
+            'name' => 'nombrecorto',
+            'comment' => 'Nombre corto',
+            'label' => 'LBL_NOMBRECORTO',
           ),
           1 => 
           array (
-            'name' => 'status',
-            'comment' => 'Estado Estudiante',
-            'label' => 'LBL_STATUS',
-            'customCode' => '{$fields.status.value}',
+            'name' => 'medioingreso',
+            'comment' => 'Medio ingreso',
+            'label' => 'LBL_MEDIOINGRESO',
           ),
         ),
         2 => 

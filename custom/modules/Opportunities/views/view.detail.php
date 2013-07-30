@@ -37,28 +37,23 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  ********************************************************************************/
 
 
-class AccountsViewEdit extends ViewEdit
+class OpportunitiesViewDetail extends ViewDetail
 {
  	public function __construct()
  	{
- 		parent::ViewEdit();
- 		$this->useForSubpanel = false;
- 		$this->useModuleQuickCreateTemplate = false;
+ 		parent::ViewDetail();
  	}
         function display() {
         
-            $this->ev->showVCRControl = false ;
-		echo '<link rel="stylesheet" type="text/css" href="custom/include/scripts/genericas/jquery/css/jquery-ui.css" />
-                  <link rel="stylesheet" type="text/css" href="custom/include/css/tablas/style.css" />
-                  <link rel="stylesheet" type="text/css" href="custom/include/css/sistema.css" />
-                    ';
- 		 if(file_exists('custom/include/clases/popups/modules/Accounts/popPaisInteres.php')){
-                    include_once 'custom/include/clases/popups/modules/Accounts/popPaisInteres.php';
-                 }
+            echo '
 
-                if(file_exists('custom/include/clases/popups/modules/Accounts/VerificarPopup.php')){
-                    include_once 'custom/include/clases/popups/modules/Accounts/VerificarPopup.php';
-                 }
+               <link rel="stylesheet" type="text/css" href="custom/include/scripts/genericas/jquery/css/jquery-ui.css" />
+               <link rel="stylesheet" type="text/css" href="custom/include/css/tabla/style.css" />
+               ';
+echo '<div id="procesos_dlg" style="display:none;">
+<div id="procesos_div"></div>
+</div>';
+             
 
              parent::display();
                           
