@@ -132,6 +132,93 @@ function set_entry_estudiantes($session,$module_name,$email,$name_value_list) {
 }
 
 $server->register(
+    'set_entry_documentos',
+    array('session'=>'xsd:string', 'module_name'=>'xsd:string',  'name_value_list'=>'tns:name_value_list'),
+    array('return'=>'tns:set_entry_result'),
+    $NAMESPACE);
+
+
+function set_entry_documentos($session,$module_name,$name_value_list) {
+    	global  $beanList, $beanFiles;
+        
+	$error = new SoapError();
+	if(!validate_authenticated($session)){
+		$error->set_error('invalid_login');
+		return array('id'=>-1, 'error'=>$error->get_soap_array());
+	}
+	if(empty($beanList[$module_name])){
+		$error->set_error('no_module');
+		return array('id'=>-1, 'error'=>$error->get_soap_array());
+	}
+	global $current_user;
+	if(!check_modules_access($current_user, $module_name, 'write')){
+		$error->set_error('no_access');
+		return array('id'=>-1, 'error'=>$error->get_soap_array());
+	}
+
+	$class_name = $beanList[$module_name];
+	require_once($beanFiles[$class_name]);
+	$seed = new $class_name();
+
+	foreach($name_value_list as $value){
+        if($value['name'] == 'id' && isset($value['value']) && strlen($value['value']) > 0){
+	    $result = $seed->retrieve($value['value']);
+            //bug: 44680 - check to ensure the user has access before proceeding.
+            if(is_null($result))
+            {
+                $error->set_error('no_access');
+		        return array('id'=>-1, 'error'=>$error->get_soap_array());
+            }
+            else
+            {
+                break;
+            }
+
+		}
+	}
+	foreach($name_value_list as $value){
+        $GLOBALS['log']->debug($value['name']." : ".$value['value']);
+		$seed->$value['name'] = $value['value'];
+	}
+	if(! $seed->ACLAccess('Save') || ($seed->deleted == 1  &&  !$seed->ACLAccess('Delete')))
+	{
+		$error->set_error('no_access');
+		return array('id'=>-1, 'error'=>$error->get_soap_array());
+	}
+        $seed->assigned_user_id=$current_user->id;
+        
+        
+            $path_historico="custom/include/clases/varios/Historico/HistoricoModelo.php"; 
+        
+            if(file_exists($path_historico)){
+                include_once $path_historico;
+                $GLOBALS['log']->fatal("Ingreso a path_historico");
+                $historico=new HistoricoModelo();
+                $historico->setBeanModule($module_name);
+                $historico->setDateCreated(gmdate($GLOBALS['timedate']->get_db_date_time_format()));
+                $historico->setDateModified(gmdate($GLOBALS['timedate']->get_db_date_time_format()));
+                $historico->setDeleted(0);
+                $historico->setFecha(gmdate($GLOBALS['timedate']->get_db_date_time_format()));
+                $historico->setModifiedUserId($current_user->id);
+                $historico->setOrigen("outlook");
+                $historico->setDatos(json_encode($name_value_list));
+                $GLOBALS['log']->fatal("Ingreso a historico");
+                $seed->save();
+                $historico->setParentId($seed->id);
+                $historico->save();
+            
+            }
+        if($seed->deleted == 1){
+			$seed->mark_deleted($seed->id);
+	}
+	return array('id'=>$seed->id, 'error'=>$error->get_soap_array());
+
+}
+
+
+
+
+$server->register(
     'set_relationship_v2',
     
     array('session'=>'xsd:string',
