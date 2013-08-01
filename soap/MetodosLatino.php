@@ -383,4 +383,37 @@ function get_entries_bymail($session, $module_name, $ids,$select_fields,$email )
 	return array( 'field_list'=>$field_list, 'entry_list'=>$output_list, 'error'=>$error->get_soap_array());
 }
 
+
+$server->register(
+        'set_document_revision_latinos',
+        array('session'=>'xsd:string','note'=>'tns:document_revision'),
+        array('return'=>'tns:set_entry_result'),
+        $NAMESPACE);
+
+/**
+ * Enter description here...
+ *
+ * @param String $session -- Session ID returned by a previous call to login.
+ * @param unknown_type $document_revision
+ * @return unknown
+ */
+function set_document_revision_latinos($session,$document_revision)
+{
+        $retorno=array();
+	$error = new SoapError();
+	if(!validate_authenticated($session)){
+		$error->set_error('invalid_login');
+		return array('id'=>-1, 'error'=>$error->get_soap_array());
+	}
+
+	require_once('modules/Documents/DocumentSoap.php');
+	$dr = new DocumentSoap();
+	$retorno=array('id'=>$dr->saveFile($document_revision), 'error'=>$error->get_soap_array());
+        /*
+         * Aca poner la logica de workflow
+         */
+        
+        return $retorno;
+        
+}
 ?>
