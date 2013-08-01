@@ -78,7 +78,7 @@ function set_entry_estudiantes($session,$module_name,$email,$name_value_list) {
 		}
 	}
 	foreach($name_value_list as $value){
-        $GLOBALS['log']->debug($value['name']." : ".$value['value']);
+       // $GLOBALS['log']->debug($value['name']." : ".$value['value']);
 		$seed->$value['name'] = $value['value'];
 	}
 	if(! $seed->ACLAccess('Save') || ($seed->deleted == 1  &&  !$seed->ACLAccess('Delete')))
@@ -96,10 +96,10 @@ function set_entry_estudiantes($session,$module_name,$email,$name_value_list) {
             $helper=new WebServiceHelpers();
             $id=$helper->validaEmail($email);
             $path_historico="custom/include/clases/varios/Historico/HistoricoModelo.php"; 
-            $GLOBALS['log']->fatal($path_historico);
+         //   $GLOBALS['log']->fatal($path_historico);
             if(file_exists($path_historico)){
                 include_once $path_historico;
-                $GLOBALS['log']->fatal("Ingreso a path_historico");
+              //  $GLOBALS['log']->fatal("Ingreso a path_historico");
                 $historico=new HistoricoModelo();
                 $historico->setBeanModule($module_name);
                 $historico->setDateCreated(gmdate($GLOBALS['timedate']->get_db_date_time_format()));
@@ -109,15 +109,15 @@ function set_entry_estudiantes($session,$module_name,$email,$name_value_list) {
                 $historico->setModifiedUserId($current_user->id);
                 $historico->setOrigen($seed->medioingreso);
                 $historico->setDatos(json_encode($name_value_list));
-                $GLOBALS['log']->fatal("Ingreso a historico");
+           //     $GLOBALS['log']->fatal("Ingreso a historico");
             }
-            $GLOBALS['log']->fatal("despues de historico");
+          //  $GLOBALS['log']->fatal("despues de historico");
             if ((strlen($id)>0)&&(!empty($id))){
-                $GLOBALS['log']->fatal("existe");
+            //    $GLOBALS['log']->fatal("existe");
                 $historico->setParentId($id);
                 $historico->save();
             }else{
-                $GLOBALS['log']->fatal("no existe");
+              //  $GLOBALS['log']->fatal("no existe");
                 $seed->save();
                 $historico->setParentId($seed->id);
                 $historico->save();
@@ -192,7 +192,7 @@ function set_entry_documentos($session,$module_name,$name_value_list) {
         
             if(file_exists($path_historico)){
                 include_once $path_historico;
-                $GLOBALS['log']->fatal("Ingreso a path_historico");
+               // $GLOBALS['log']->fatal("Ingreso a path_historico");
                 $historico=new HistoricoModelo();
                 $historico->setBeanModule($module_name);
                 $historico->setDateCreated(gmdate($GLOBALS['timedate']->get_db_date_time_format()));
@@ -202,7 +202,7 @@ function set_entry_documentos($session,$module_name,$name_value_list) {
                 $historico->setModifiedUserId($current_user->id);
                 $historico->setOrigen("outlook");
                 $historico->setDatos(json_encode($name_value_list));
-                $GLOBALS['log']->fatal("Ingreso a historico");
+               // $GLOBALS['log']->fatal("Ingreso a historico");
                 $seed->save();
                 $historico->setParentId($seed->id);
                 $historico->save();
@@ -331,9 +331,9 @@ function get_entries_bymail($session, $module_name, $ids,$select_fields,$email )
             $helper=new WebServiceHelpers();
             $ids=$helper->buscarAplicaciones($email);
         }
-        $GLOBALS['log']->fatal("ids");
+       // $GLOBALS['log']->fatal("ids");
 	$class_name = $beanList[$module_name];
-        $GLOBALS['log']->fatal($class_name);
+       // $GLOBALS['log']->fatal($class_name);
 	require_once($beanFiles[$class_name]);
 	//todo can modify in there to call bean->get_list($order_by, $where, 0, -1, -1, $deleted);
 	//that way we do not have to call retrieve for each bean
@@ -341,7 +341,7 @@ function get_entries_bymail($session, $module_name, $ids,$select_fields,$email )
 	//and not do a select *
 	if(is_array($ids)&& count($ids)>0){
             foreach($ids as $id){
-                $GLOBALS['log']->fatal($id);
+         //       $GLOBALS['log']->fatal($id);
 		$seed = new $class_name();
 
                 if($using_cp){
@@ -366,7 +366,7 @@ function get_entries_bymail($session, $module_name, $ids,$select_fields,$email )
                             return array('field_list'=>$field_list, 'entry_list'=>array(), 'error'=>$error->get_soap_array());
                     }
 		$output_list[] = get_return_value($seed, $module_name);
-                $GLOBALS['log']->fatal($output_list);
+                //$GLOBALS['log']->fatal($output_list);
 		if(empty($field_list)){
 				$field_list = get_field_list($seed);
 
@@ -379,7 +379,7 @@ function get_entries_bymail($session, $module_name, $ids,$select_fields,$email )
         
 	$output_list = filter_return_list($output_list, $select_fields, $module_name);
 	$field_list = filter_field_list($field_list,$select_fields, $module_name);
-        $GLOBALS['log']->fatal("2  ".$output_list);
+       // $GLOBALS['log']->fatal("2  ".$output_list);
 	return array( 'field_list'=>$field_list, 'entry_list'=>$output_list, 'error'=>$error->get_soap_array());
 }
 

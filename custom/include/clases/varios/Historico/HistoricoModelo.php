@@ -93,7 +93,7 @@ class HistoricoModelo {
              '".$this->date_created ."','".$this->date_modified ."','".$this->modified_user_id ."','".$this->deleted ."',
              '".$this->fecha ."'    
              )";
-       $GLOBALS['log']->fatal($sql);
+      // $GLOBALS['log']->fatal($sql);
        return $db->query($sql);
        
     }
@@ -114,7 +114,7 @@ class HistoricoModelo {
               modified_user_id='".$this->modified_user_id."',
               deleted='".$this->deleted." 
               where id=$id";
-        $GLOBALS['log']->fatal($sql);
+        //$GLOBALS['log']->fatal($sql);
         return $db->query($sql);
     }
     /*
@@ -125,7 +125,7 @@ class HistoricoModelo {
     function delete($id){
         global $db;
         $sql="Update historico set deleted=0 where id=$id";
-        $GLOBALS['log']->fatal($sql);
+        //$GLOBALS['log']->fatal($sql);
         return $db->query($sql);
     }
     /**/

@@ -55,7 +55,7 @@ class WebServiceHelpers {
                     and h.primary_address=1 
                     and em.email_address='$email'
               ";
-        $GLOBALS['log']->fatal($sql);
+        //$GLOBALS['log']->fatal($sql);
         $result=$db->query($sql);
         while ($a =$db->fetchByAssoc($result)){
             $retorno[]=$a['id'];
