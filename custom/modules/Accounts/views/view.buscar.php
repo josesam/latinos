@@ -148,8 +148,8 @@ function display(){
         if($form['fecha_registro1']!='' && $form['fecha_registro2']!='')
             $filtros .= ' AND a.registrationdate BETWEEN "'.$form['fecha_registro1'].'" AND "'.$form['fecha_registro2'].'"';
 
-        if($form['fecha_ultimo_contacto1']!='' && $form['fecha_ultimo_contacto2']!='')
-            $filtros .= ' AND h.fecha BETWEEN "'.$form['fecha_ultimo_contacto1'].'" AND "'.$form['fecha_ultimo_contacto2'].'"';
+//        if($form['fecha_ultimo_contacto1']!='' && $form['fecha_ultimo_contacto2']!='')
+//            $filtros .= ' AND h.fecha BETWEEN "'.$form['fecha_ultimo_contacto1'].'" AND "'.$form['fecha_ultimo_contacto2'].'"';
 
         if($form['estado_estudiante']!='' &&  $form['estado_estudiante']!='null')
             $filtros .= ' AND a.status = "'.$form['estado_estudiante'].'"';
@@ -169,8 +169,8 @@ function display(){
         $sql = 'SELECT a.id idestudiante,a.name estudiante, a.status status, a.levelinterest levelinterest, a.areainterest areainterest, 
                        a.groupassociation groupassociation, a.registrationdate registrationdate, a.phone_office phone_office, 
                        CONCAT(u.first_name," ",u.last_name) usuario, a.date_entered date_entered
-                FROM accounts a, users u, historico h
-                WHERE a.assigned_user_id=u.id AND h.parent_id=a.id AND a.deleted=0  '.$filtros;
+                FROM accounts a, users u
+                WHERE a.assigned_user_id=u.id AND a.deleted=0  '.$filtros;
 
         $result=$db->query($sql);
         echo "<table width='80%' border='1' class='display' id='example'>
