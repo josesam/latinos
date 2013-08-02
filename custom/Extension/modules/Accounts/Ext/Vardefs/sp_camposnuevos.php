@@ -120,7 +120,7 @@ $dictionary['Account']['fields']['status']=array(
 		    'required' => false,
 			'options' => 'estatus_dom',
 		    'len' => '35',
-			'default'=>'Prospecto',
+			'default'=>'',
 		    'comment' => 'Estado Estudiante',
 			'help' => 'Estado Estudiante',
 			'importable' => 'true',
@@ -182,4 +182,18 @@ $dictionary['Account']['fields']['lead_source']=array(
     'importable' => 'true',
     'duplicate_merge' => 'disabled',
 );
+$dictionary['Account']['fields']['estado_estudiante']=array(
+            'name' => 'estado_estudiante',
+            'vname' => 'LBL_ESTADOESTUDIANTE',
+	    'type' => 'enum',
+	    'required' => false,
+	    'options' => 'estado_cliente_dom',
+	    'comment' => 'Estado del Estudiante',
+	    'help' => 'Estado del estudiante',
+	    'importable' => 'true',
+	    'duplicate_merge' => 'disabled',
+            'default'=>'Prospecto'
+);
+
+
 ?>
