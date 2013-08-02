@@ -29,9 +29,9 @@ openEtapas=function(etapa){
                 });
 }
 
-openInstitucion=function(){
+openInstitucion=function(opcion){
       var data={
-            etapa:'hola'
+            opcion:opcion
         }
 
              jQuery("#institucion_dlg").dialog({
@@ -57,7 +57,8 @@ openInstitucion=function(){
 
 buscarInstitucion=function(){
     var data={
-            filtro:jQuery("#filtro").val()
+            filtro:jQuery("#filtro").val(),
+            opcion:jQuery("#opcion").val()
         }
     var urllista = "index.php?&module=Opportunities&action=resultadobuscarinstitucion";
     jQuery("#resultado_institucion_div").text("Buscando instituciones.....");
@@ -73,6 +74,20 @@ cargarInstitucion=function(pais,ciudad,institucion){
     jQuery("#destination").val(pais);
     jQuery("#city").val(ciudad);
     jQuery("#institution").val(institucion);
+    jQuery("#institucion_dlg").dialog("close");
+} 
+
+cargarCiudad=function(pais,ciudad){
+    jQuery("#destination").val(pais);
+    jQuery("#city").val(ciudad);
+    jQuery("#institution").val("");
+    jQuery("#institucion_dlg").dialog("close");
+} 
+
+cargarPais=function(pais){
+    jQuery("#destination").val(pais);
+    jQuery("#city").val("");
+    jQuery("#institution").val("");
     jQuery("#institucion_dlg").dialog("close");
 } 
 

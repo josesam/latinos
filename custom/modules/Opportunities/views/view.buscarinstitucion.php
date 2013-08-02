@@ -18,7 +18,10 @@ class OpportunitiesViewBuscarinstitucion extends ViewEdit {
                 <table>
                 <tr>
                     <td>Filtro:</td>
-                    <td><input type="text" name="filtro" id="filtro" /></td>
+                    <td>
+                        <input type="text" name="filtro" id="filtro" />
+                        <input type="hidden" name="opcion" id="opcion" value="'.$_REQUEST['opcion'].'" />
+                    </td>
                 </tr>
                 </table>
                 <input type="button" name="buscar" id="buscar" value="Buscar" onclick="buscarInstitucion();" />

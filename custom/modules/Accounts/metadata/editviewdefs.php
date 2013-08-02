@@ -176,6 +176,16 @@ type="submit" name="button" value="Guardar">',
             'label' => 'LBL_LAE',
           ),
         ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'lead_source',
+            'comment' => 'Lead Source',
+            'label' => 'LBL_LEAD_SOURCE',
+          ),
+          1 => '',
+        ),
       ),
       'LBL_PANEL_ADVANCED' => 
       array (

@@ -19,6 +19,10 @@ class AccountsController extends SugarController{
     public function action_Buscar(){
         $this->view='buscar';
     }
+    
+    public function action_Mostrararchivo(){
+        $this->view='mostrararchivo';
+    }
 }
 ?>
 

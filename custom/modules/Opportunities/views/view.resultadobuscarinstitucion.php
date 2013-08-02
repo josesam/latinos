@@ -36,10 +36,14 @@ class OpportunitiesViewResultadobuscarinstitucion extends ViewEdit {
                     <td align="center"><strong>Institución</strong></td>
                 </tr>';
             while ($a=$db->fetchByAssoc($result)){
-                echo "<tr>
-                        <td>".$a["pais"]."</td>
-                        <td>".$a["ciudad"]."</td>
-                        <td><a href='javascript:void(0)' onclick='cargarInstitucion(\"$a[pais]\",\"$a[ciudad]\",\"$a[institucion]\")'>".$a['institucion']."</a></td>
+                echo "<tr>";
+                if($_REQUEST['opcion']=='reporte')
+                    echo "<td><a href='javascript:void(0)' onclick='cargarPais(\"$a[pais]\")'>".$a["pais"]."</td>
+                          <td><a href='javascript:void(0)' onclick='cargarCiudad(\"$a[pais]\",\"$a[ciudad]\")'>".$a["ciudad"]."</td>";
+                else
+                    echo "<td>".$a["pais"]."</td>
+                          <td>".$a["ciudad"]."</td>";
+                echo "<td><a href='javascript:void(0)' onclick='cargarInstitucion(\"$a[pais]\",\"$a[ciudad]\",\"$a[institucion]\")'>".$a['institucion']."</a></td>
                     </tr>";
             }
             echo '</table>';

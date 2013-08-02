@@ -174,6 +174,18 @@ $dictionary['Account']['fields']['medioingreso']=array(
             'duplicate_merge' => 'disabled',
 );
 
+$dictionary['Account']['fields']['lead_source']=array(
+    'name' => 'lead_source',
+    'vname' => 'LBL_LEAD_SOURCE',
+    'type' => 'text',
+    'required' => false,
+    'len' => '255',
+    'comment' => 'Lead Source',
+    'help' => 'nombre corto',
+    'importable' => 'true',
+    'duplicate_merge' => 'disabled',
+);
+
 
 
  // created: 2013-04-27 06:20:31

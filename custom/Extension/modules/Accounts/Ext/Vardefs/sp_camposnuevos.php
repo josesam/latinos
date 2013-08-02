@@ -172,18 +172,14 @@ $dictionary['Account']['fields']['medioingreso']=array(
 );
 
 $dictionary['Account']['fields']['lead_source']=array(
-            'name' => 'lead_source',
-		    'vname' => 'LBL_LEAD_SOURCE',
-		    'type' => 'text',
-		    'required' => false,
-			'len' => '255',
-    
-		    'comment' => 'Nombre corto',
-			'help' => 'nombre corto',
-			'importable' => 'true',
-			'duplicate_merge' => 'disabled',
-			
-			
-            
+    'name' => 'lead_source',
+    'vname' => 'LBL_LEAD_SOURCE',
+    'type' => 'text',
+    'required' => false,
+    'len' => '255',
+    'comment' => 'Lead Source',
+    'help' => 'nombre corto',
+    'importable' => 'true',
+    'duplicate_merge' => 'disabled',
 );
 ?>

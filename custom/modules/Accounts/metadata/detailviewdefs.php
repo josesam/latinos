@@ -169,6 +169,16 @@ array (
         array (
           0 => 
           array (
+            'name' => 'lead_source',
+            'comment' => 'Lead Source',
+            'label' => 'LBL_LEAD_SOURCE',
+          ),
+          1 => '',
+        ),
+        7 => 
+        array (
+          0 => 
+          array (
             'name' => 'date_modified',
             'label' => 'LBL_DATE_MODIFIED',
             'customCode' => '{$fields.date_modified.value} {$APP.LBL_BY} {$fields.modified_by_name.value}',
