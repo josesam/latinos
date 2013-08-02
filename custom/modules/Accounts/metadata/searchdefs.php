@@ -41,7 +41,7 @@ array (
         'label' => 'LBL_AREAINTEREST',
         'width' => '10%',
         'default' => true,
-        'name' => 'areainteres',
+        'name' => 'areainterest',
       ),
       'potential' => 
       array (
