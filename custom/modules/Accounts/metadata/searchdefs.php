@@ -35,7 +35,7 @@ array (
         'default' => true,
         'name' => 'levelinterest',
       ),
-      'areainteres' => 
+      'areainterest' => 
       array (
         'type' => 'multienum',
         'label' => 'LBL_AREAINTEREST',
