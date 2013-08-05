@@ -73,11 +73,6 @@ type="submit" name="button" value="Guardar">',
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_PANEL_ASSIGNMENT' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
       ),
       'syncDetailEditViews' => false,
     ),
@@ -101,7 +96,7 @@ type="submit" name="button" value="Guardar">',
             'name' => 'estado_estudiante',
             'comment' => 'Estado del Estudiante',
             'label' => 'LBL_ESTADOESTUDIANTE',
-            'customCode'=>'{$fields.estado_estudiante.value}'  
+            'customCode' => '{$fields.estado_estudiante.value}',
           ),
         ),
         1 => 
@@ -128,17 +123,16 @@ type="submit" name="button" value="Guardar">',
             'comment' => 'Medio ingreso',
             'label' => 'LBL_MEDIOINGRESO',
           ),
-          1 => '',
-        ),
-        3 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'dateofbirth',
             'comment' => 'Fecha de Nacimiento del Estudiante',
             'label' => 'LBL_DATEOFBIRTH',
           ),
-          1 => 
+        ),
+        3 => 
+        array (
+          0 => 
           array (
             'name' => 'email1',
             'studio' => 'false',
@@ -148,13 +142,19 @@ type="submit" name="button" value="Guardar">',
               'required' => true,
             ),
           ),
+          1 => 
+          array (
+            'name' => 'phone_office',
+            'label' => 'LBL_PHONE_OFFICE',
+          ),
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'phone_office',
-            'label' => 'LBL_PHONE_OFFICE',
+            'name' => 'phone_alternate',
+            'comment' => 'An alternate phone number',
+            'label' => 'LBL_PHONE_ALT',
           ),
           1 => 
           array (
@@ -166,25 +166,15 @@ type="submit" name="button" value="Guardar">',
         array (
           0 => 
           array (
-            'name' => 'phone_alternate',
-            'comment' => 'An alternate phone number',
-            'label' => 'LBL_PHONE_ALT',
+            'name' => 'lae',
+            'comment' => 'Donde escuchaste sobre LAE?',
+            'label' => 'LBL_LAE',
           ),
-          1 => '',
-        ),
-        6 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'groupassociation',
             'comment' => 'Grupo de Asociacion',
             'label' => 'LBL_GROUPASSOCIATION',
-          ),
-          1 => 
-          array (
-            'name' => 'lae',
-            'comment' => 'Donde escuchaste sobre LAE?',
-            'label' => 'LBL_LAE',
           ),
         ),
         6 => 
@@ -204,9 +194,10 @@ type="submit" name="button" value="Guardar">',
         array (
           0 => 
           array (
-            'name' => 'levelinterest',
-            'comment' => 'Nivel de interes',
-            'label' => 'LBL_LEVELINTEREST',
+            'name' => 'paisinterest',
+            'comment' => 'Pais de interes',
+            'label' => 'LBL_PAISINTEREST',
+            'customCode' => '<input name="paisinterest" type="text" readonly="true" id="paisinterest"  value="{$fields.paisinterest.value}"><a id="lb_paisinteres" href="javascript:void(0);">&nbspBuscar Pais</a>',
           ),
           1 => 
           array (
@@ -219,10 +210,9 @@ type="submit" name="button" value="Guardar">',
         array (
           0 => 
           array (
-            'name' => 'paisinterest',
-            'comment' => 'Pais de interes',
-            'label' => 'LBL_PAISINTEREST',
-            'customCode' => '<input name="paisinterest" type="text" readonly="true" id="paisinterest"  value="{$fields.paisinterest.value}"><a id="lb_paisinteres" href="javascript:void(0);">&nbspBuscar Pais</a>',
+            'name' => 'levelinterest',
+            'comment' => 'Nivel de interes',
+            'label' => 'LBL_LEVELINTEREST',
           ),
           1 => 
           array (
@@ -249,10 +239,7 @@ type="submit" name="button" value="Guardar">',
             'customCode' => '{$fields.registrationdate.value}',
           ),
         ),
-      ),
-      'LBL_PANEL_ASSIGNMENT' => 
-      array (
-        0 => 
+        1 => 
         array (
           0 => 
           array (

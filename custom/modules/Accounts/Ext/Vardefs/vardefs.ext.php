@@ -198,6 +198,23 @@ $dictionary['Account']['fields']['estado_estudiante']=array(
             'default'=>'Prospecto'
 );
 
+$dictionary['Account']['fields']['historico']=array(
+    'name'=>'historico',
+    'vname'=>'LBL_HISTORICO',
+    'type' => 'varchar',
+    'function' =>
+    array (
+        'name' => 'getHistoricoWidget',
+        'returns' => 'html',
+        'include' => 'include/SugarHistorico/SugarHistorico.php',
+      ),
+'source' => 'non-db',
+'group' => 'historico',
+'merge_filter' => 'enabled',
+
+    
+    
+);
 
 
 

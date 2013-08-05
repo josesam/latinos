@@ -12,5 +12,6 @@ $mod_strings['LBL_REGISTRATIONDATE'] = 'Fecha de registro';
 $mod_strings['LBL_MEDIOINGRESO']='Medio de ingreso';
 $mod_strings['LBL_ESTADOESTUDIANTE']='Estado del Estudiante';
 $mod_strings['LBL_ESTADOCLIENTE']='Estado del Estudiante';
+$mod_strings['LBL_HISTORICO']='Historico del Estudiante';
 
 ?>

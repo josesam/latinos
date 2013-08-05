@@ -22,13 +22,11 @@ array (
     'label' => 'LBL_STATUS',
     'width' => '10%',
   ),
-  'EMAIL1' => 
+  'POTENTIAL' => 
   array (
-    'width' => '15%',
-    'label' => 'LBL_EMAIL_ADDRESS',
-    'sortable' => false,
-    'link' => true,
-    'customCode' => '{$EMAIL1_LINK}{$EMAIL1}</a>',
+    'type' => 'enum',
+    'label' => 'LBL_POTENTIAL',
+    'width' => '10%',
     'default' => true,
   ),
   'LEVELINTEREST' => 
@@ -45,18 +43,19 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'GROUPASSOCIATION' => 
+  'EMAIL1' => 
   array (
-    'type' => 'varchar',
-    'label' => 'LBL_GROUPASSOCIATION',
-    'width' => '10%',
+    'width' => '15%',
+    'label' => 'LBL_EMAIL_ADDRESS',
+    'sortable' => false,
+    'link' => true,
+    'customCode' => '{$EMAIL1_LINK}{$EMAIL1}</a>',
     'default' => true,
   ),
-  'REGISTRATIONDATE' => 
+  'PHONE_ALTERNATE' => 
   array (
-    'type' => 'date',
-    'label' => 'LBL_REGISTRATIONDATE',
     'width' => '10%',
+    'label' => 'LBL_OTHER_PHONE',
     'default' => true,
   ),
   'PHONE_OFFICE' => 
@@ -167,12 +166,6 @@ array (
   array (
     'width' => '10%',
     'label' => 'LBL_RATING',
-    'default' => false,
-  ),
-  'PHONE_ALTERNATE' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_OTHER_PHONE',
     'default' => false,
   ),
   'WEBSITE' => 
