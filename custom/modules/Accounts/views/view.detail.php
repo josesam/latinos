@@ -55,8 +55,8 @@ class AccountsViewDetail extends ViewDetail {
 
         function  display() {
             global $app_list_strings;
-            echo '             <link rel="stylesheet" type="text/css" href="custom/include/css/tablas/style.css" />
-                  <link rel="stylesheet" type="text/css" href="custom/include/css/sistema.css" />
+            echo ' <link rel="stylesheet" type="text/css" href="custom/include/css/tablas/style.css" />
+                
                     ';
  		 if(file_exists('custom/include/clases/popups/modules/Accounts/popworkflowView.php')){
                     include_once 'custom/include/clases/popups/modules/Accounts/popworkflowView.php';

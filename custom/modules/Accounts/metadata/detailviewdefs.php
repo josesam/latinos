@@ -234,6 +234,14 @@ array (
             'label' => 'LBL_ASSIGNED_TO',
           ),
         ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'historico',
+            'label' => 'LBL_HISTORICO',
+          ),
+        ),
       ),
     ),
   ),

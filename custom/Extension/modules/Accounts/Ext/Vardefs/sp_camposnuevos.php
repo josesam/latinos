@@ -203,7 +203,7 @@ $dictionary['Account']['fields']['historico']=array(
     array (
         'name' => 'getHistoricoWidget',
         'returns' => 'html',
-        'include' => 'include/SugarHistorico/SugarHistorico.php',
+        'include' => 'custom/include/SugarHistorico/SugarHistorico.php',
       ),
 'source' => 'non-db',
 'group' => 'historico',

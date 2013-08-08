@@ -1,20 +1,24 @@
-<script type='text/javascript' src="custom/include/scripts/genericas/varios/scripts/knockout-2.3.0.js"></script>
+{literal}
+<style>
+    .required{
+        color: #000 !important;
+    }
+</style>
+<script type='text/javascript' src="custom/include/scripts/genericas/varios/knockout-2.3.0.js"></script>
 <script type='text/javascript' src="custom/include/scripts/genericas/varios/jquery.validate.min.js"></script>
 <script type="text/javascript">    
-/*
- *
- * Primera implementacion de Knockout en sugarcrm
- * usando la arquitectura MVVC
- * @author Jose Sambrano
- */
+
 $(function(){
-    var viewModel = new GiftModel([
-    { name: "Tall Hat", price: "39.95"},
-    { name: "Long Cloak", price: "120.00"}
-]);
+   var viewModel = new GiftModel(
+    {/literal}
+    {$datos}    
+    {literal}
+    
+    );
+
 
     ko.applyBindings(viewModel);
-    $("form").validate({ submitHandler: viewModel.save });   
+    $("#historico").validate({ submitHandler: viewModel.save });   
 }); 
  var GiftModel = function(gifts) {
     var self = this;
@@ -22,8 +26,10 @@ $(function(){
  
     self.addGift = function() {
         self.gifts.push({
-            name: "",
-            price: ""
+            id:"",
+            fecha:"",
+            origen:"",
+            datos:""
         });
     };
  
@@ -37,25 +43,29 @@ $(function(){
     };
 };
 </script>
-<form action='/someServerSideHandler'>
-    <p>You have asked for <span data-bind='text: gifts().length'>&nbsp;</span> gift(s)</p>
+{/literal}
+<form action='/someServerSideHandler' id="historico">
+    
     <table data-bind='visible: gifts().length > 0'>
         <thead>
             <tr>
-                <th>Gift name</th>
-                <th>Price</th>
-                <th />
+                <th>Origen</th>
+                <th>Fecha Creación</th>
+                <th>Descripción</th>
+                
             </tr>
         </thead>
         <tbody data-bind='foreach: gifts'>
             <tr>
-                <td><input class='required' data-bind='value: name, uniqueName: true' /></td>
-                <td><input class='required number' data-bind='value: price, uniqueName: true' /></td>
-                <td><a href='#' data-bind='click: $root.removeGift'>Delete</a></td>
+                <td><input type="hidden" data-bind='value: id' />
+                    <input class='required' data-bind='value: origen' /></td>
+                <td><input class='required' data-bind='value: fecha' /></td>
+                <td><textarea class='required' data-bind='value: datos' rows="5" cols="52"></textarea></td>
+                <td><!--<a href='#' data-bind='click: $root.removeGift'>Borrar</a>--></td>
             </tr>
         </tbody>
     </table>
  
-    <button data-bind='click: addGift'>Add Gift</button>
-    <button data-bind='enable: gifts().length > 0' type='submit'>Submit</button>
+    <!--<button data-bind='click: addGift'>Añadir </button>-->
+    <!--<button data-bind='enable: gifts().length > 0' type='submit'>Guardar</button>-->
 </form>    

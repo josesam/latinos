@@ -1,0 +1,71 @@
+{literal}
+<style>
+    .required{
+        color: #000 !important;
+    }
+</style>
+<script type='text/javascript' src="custom/include/scripts/genericas/varios/knockout-2.3.0.js"></script>
+<script type='text/javascript' src="custom/include/scripts/genericas/varios/jquery.validate.min.js"></script>
+<script type="text/javascript">    
+
+$(function(){
+   var viewModel = new GiftModel(
+    {/literal}
+    {$datos}    
+    {literal}
+    
+    );
+
+
+    ko.applyBindings(viewModel);
+    $("#historico").validate({ submitHandler: viewModel.save });   
+}); 
+ var GiftModel = function(gifts) {
+    var self = this;
+    self.gifts = ko.observableArray(gifts);
+ 
+    self.addGift = function() {
+        self.gifts.push({
+            id:"",
+            fecha:"",
+            origen:"",
+            datos:""
+        });
+    };
+ 
+    self.removeGift = function(gift) {
+        self.gifts.remove(gift);
+    };
+ 
+    self.save = function(form) {
+        alert("Could now transmit to server: " + ko.utils.stringifyJson(self.gifts));
+        // To actually transmit to server as a regular form post, write this: ko.utils.postJson($("form")[0], self.gifts);
+    };
+};
+</script>
+{/literal}
+<form action='/someServerSideHandler' id="historico">
+    
+    <table data-bind='visible: gifts().length > 0'>
+        <thead>
+            <tr>
+                <th>Origen</th>
+                <th>Fecha Creación</th>
+                <th>Descripción</th>
+                
+            </tr>
+        </thead>
+        <tbody data-bind='foreach: gifts'>
+            <tr>
+                <td><input type="hidden" data-bind='value: id' />
+                    <input class='required' data-bind='value: origen' /></td>
+                <td><input class='required' data-bind='value: fecha' /></td>
+                <td><textarea class='required' data-bind='value: datos' rows="5" cols="52"></textarea></td>
+                <td><!--<a href='#' data-bind='click: $root.removeGift'>Borrar</a>--></td>
+            </tr>
+        </tbody>
+    </table>
+ 
+    <!--<button data-bind='click: addGift'>Añadir </button>-->
+    <!--<button data-bind='enable: gifts().length > 0' type='submit'>Guardar</button>-->
+</form>    

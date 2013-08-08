@@ -83,9 +83,11 @@ class SugarHistorico extends SugarBean {
 	function getHistoricoByGUID($id, $module) {
 		$return = array();
 
-                $q = "SELECT * FROM ".$this->table_name." det
-                        where 
+                $q = "SELECT date(fecha) fecha,origen,datos FROM ".$this->table_name." det
+                        where  parent_id='$id'
                         order by det.id ";
+//                $q = "SELECT id,date(fecha) fecha,origen,datos FROM ".$this->table_name." det
+//                        order by det.id ";
 		$r = $this->db->query($q);
 		while($a = $this->db->fetchByAssoc($r)) {
 			$return[] = $a;
@@ -111,23 +113,16 @@ class SugarHistorico extends SugarBean {
 
                 $assign=array();
                 foreach($prefillDataArr as $key => $ambientes) {
-			$assign[] = array('key' => $key,
-		           		  'archivo' =>$ambientes['archivo'],
-			        	  'id'=>$ambientes['id'],
-                                          'tipo'=>$ambientes['type'],
-                                          'size'=>$ambientes['size'],
-                                          'document_id'=>$ambientes['documento_id'],
-                            'tipoarchivo'=>$ambientes['tipo_archivo']
+			$assign[] = array('id' => $key,
+		           		  'fecha' =>$ambientes['fecha'],
+			        	  'origen'=>$ambientes['origen'],
+                                          'datos'=>$ambientes['datos'],
+                                          
 
 
 			);
 		}
-                $this->smarty->assign('ambientes', $assign);
-                $this->smarty->assign('module', $module);
-		$this->smarty->assign('app_strings', $app_strings);
-		$this->smarty->assign('prefillAmbientes', $prefill);
-		$this->smarty->assign('prefillData', $prefillData);
-		$this->smarty->assign('emailView', $this->view);
+                $this->smarty->assign('datos', json_encode($assign));
                 $template = empty($tpl) ? "custom/include/SugarHistorico/templates/EditView.html" : $tpl;
 		$newEmail = $this->smarty->fetch($template);
 
@@ -142,19 +137,19 @@ class SugarHistorico extends SugarBean {
                     $prefillData = $this->getHistoricoByGUID($focus->id, $focus->module_dir);
 
                 foreach($prefillData as $key => $ambientes) {
-			$assign[] = array('key' => $key,
-		           		  'archivo' =>$ambientes['archivo'],
-			        	  'id'=>$ambientes['id'],
-                                          'tipo'=>$ambientes['type'],
-                                          'size'=>$ambientes['size'],
-                                          'document_id'=>$ambientes['document_id'],
-                                          'tipoarchivo'=>$ambientes['tipo_archivo']
+			$assign[] = array(
+                                          'id'=>$ambientes['id'],
+		           		  'fecha' =>$ambientes['fecha'],
+			        	  'origen'=>$ambientes['origen'],
+                                          'datos'=>$ambientes['datos']
+                                          
 
 
 			);
 		}
-                $this->smarty->assign('ambientes', $assign);
-                $this->smarty->assign('idOportunidad', $focus->id);
+                
+                $this->smarty->assign('datos', json_encode($assign));
+                
 
 		$templateFile = empty($tpl) ? "custom/include/SugarHistorico/templates/DetailView.html" : $tpl;
 		$return = $this->smarty->fetch($templateFile);
