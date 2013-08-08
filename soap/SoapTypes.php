@@ -828,4 +828,50 @@ $server->wsdl->addComplexType(
 	)
 );
 
+//$server->wsdl->addComplexType(
+//         'estudiantes',
+//	 'complexType',
+//   	 'struct',
+//   	 'all',
+//  	  '',
+//		array(
+//           	   
+//                    'name'=>'listado_estudiantes','type'=>'tns:listado_estudiantes',
+//                    'error' => array('name' =>'error', 'type'=>'tns:error_value'),
+//		)
+//);
+//
+//$server->wsdl->addComplexType(
+//    'listado_estudiantes',
+//	'complexType',
+//   	 'array',
+//   	 '',
+//  	  'SOAP-ENC:Array',
+//	array(),
+//    array(
+//        array('ref'=>'SOAP-ENC:arrayType', 'wsdl:arrayType'=>'tns:detalle_estudiantes[]')
+//    ),
+//	'tns:entry_value'
+//);
+//
+//
+//$server->wsdl->addComplexType(
+//         'detalle_estudiantes',
+//	 'complexType',
+//   	 'struct',
+//   	 'all',
+//  	  '',
+//		array(
+//           	    'name'=>'estudiante_id', 'type'=>'xsd:string',
+//                    'name'=>'email','type'=>'xsd:string',
+//                    'name'=>'estudiante_name','type'=>'xsd:string',
+//                    'name'=>'aplicacion_id','type'=>'xsd:string',
+//                    'name'=>'institucion','type'=>'xsd:string',
+//                    'name'=>'city','type'=>'xsd:string',
+//                    'name'=>'destination','type'=>'xsd:string',
+//                   
+//		)
+//);
+
+
 ?>
