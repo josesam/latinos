@@ -280,62 +280,61 @@ function set_relationship_v2($session, $module_name, $module_id, $link_field_nam
 	return array('created'=>$count , 'failed'=>$failed, 'deleted' => $deletedCount);
 }
 
-//$server->register(
-//    'get_entries_bymail',
-//    array('session'=>'xsd:string', 
-//          'module_name'=>'xsd:string',
-//          'select_fields'=>'tns:select_fields','email'=>'xsd:string','estudiante_name'=>'xsd:string'),
-//    array('return'=>'tns:listado_estudiantes'),
-//    $NAMESPACE);
-//
-///**
-// * Retrieve a list of SugarBean's based on provided IDs.
-// *
-// * @param String $session -- Session ID returned by a previous call to login.
-// * @param String $module_name -- The name of the module to return records from.  This name should be the name the module was developed under (changing a tab name is studio does not affect the name that should be passed into this method)..
-// * @param Array $ids -- An array of SugarBean IDs.
-// * @return Array 'listado_estudiantes' -- Var def information about the returned fields
-// *               'error' -- The SOAP error, if any
-// */
-//function get_entries_bymail($session, $module_name, $ids,$email,$estudiante_name ){
-//	global  $beanList;
-//	$error = new SoapError();
-//	$estudiantes = array();
-//	
-//	if(!validate_authenticated($session)){
-//		$error->set_error('invalid_login');
-//		
-//                 return array( 'listado_estudiantes'=>$estudiantes, 'error'=>$error->get_soap_array());
-//	}
-//        $using_cp = false;
-//        if($module_name == 'CampaignProspects'){
-//            $module_name = 'Prospects';
-//            $using_cp = true;
-//        }
-//	if(empty($beanList[$module_name])){
-//		$error->set_error('no_module');
-//		
-//                return array( 'listado_estudiantes'=>$estudiantes, 'error'=>$error->get_soap_array());
-//	}
-//	global $current_user;
-//	if(!check_modules_access($current_user, $module_name, 'read')){
-//		$error->set_error('no_access');
-//		
-//                return array( 'listado_estudiantes'=>$estudiantes, 'error'=>$error->get_soap_array());
-//	}
-//
-//        $path="custom/include/clases/varios/WebServiceHelpers.php";
-//        
-//        if (file_exists($path)){
-//            
-//            include_once $path;
-//            
-//            $helper=new WebServiceHelpers();
-//            $ids=$helper->buscarAplicaciones($email,$estudiante_name);
-//            return array( 'listado_estudiantes'=>$estudiantes, 'error'=>$error->get_soap_array());
-//        }
-//     return array( 'listado_estudiantes'=>$estudiantes, 'error'=>$error->get_soap_array());
-//}
+$server->register(
+    'get_entries_bymail',
+    array('session'=>'xsd:string', 
+          'module_name'=>'xsd:string',
+          'email'=>'xsd:string','estudiante_name'=>'xsd:string'),
+    array('return'=>'tns:estudiantes'),
+    $NAMESPACE);
+
+/**
+ * Retrieve a list of SugarBean's based on provided IDs.
+ *
+ * @param String $session -- Session ID returned by a previous call to login.
+ * @param String $module_name -- The name of the module to return records from.  This name should be the name the module was developed under (changing a tab name is studio does not affect the name that should be passed into this method)..
+ * @param Array $ids -- An array of SugarBean IDs.
+ * @return Array 'listado_estudiantes' -- Var def information about the returned fields
+ *               'error' -- The SOAP error, if any
+ */
+function get_entries_bymail($session, $module_name, $email,$estudiante_name ){
+	global  $beanList;
+	$error = new SoapError();
+	$estudiantes = array();
+	if(!validate_authenticated($session)){
+		$error->set_error('invalid_login');
+		
+                 return array('total'=>count($estudiantes), 'listado_estudiantes'=>$estudiantes, 'error'=>$error->get_soap_array());
+	}
+        $using_cp = false;
+        if($module_name == 'CampaignProspects'){
+            $module_name = 'Prospects';
+            $using_cp = true;
+        }
+	if(empty($beanList[$module_name])){
+		$error->set_error('no_module');
+		
+                return array( 'total'=>count($estudiantes),'listado_estudiantes'=>$estudiantes, 'error'=>$error->get_soap_array());
+	}
+	global $current_user;
+	if(!check_modules_access($current_user, $module_name, 'read')){
+		$error->set_error('no_access');
+		
+                return array( 'total'=>count($estudiantes),'listado_estudiantes'=>$estudiantes, 'error'=>$error->get_soap_array());
+	}
+        
+        $path="custom/include/clases/varios/WebServiceHelpers.php";
+        
+        if (file_exists($path)){
+            
+            include_once $path;
+            
+            $helper=new WebServiceHelpers();
+            $estudiantes=$helper->buscarAplicaciones($email,$estudiante_name);
+            return array('total'=>count($estudiantes),'listado_estudiantes'=>$estudiantes, 'error'=>$error->get_soap_array());
+        }
+     return array( 'total'=>count($estudiantes),'listado_estudiantes'=>$estudiantes, 'error'=>$error->get_soap_array());
+}
 
 
 $server->register(

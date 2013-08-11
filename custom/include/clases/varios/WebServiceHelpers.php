@@ -78,9 +78,9 @@ class WebServiceHelpers {
               where a.deleted=0 and ao.deleted=0 and o.deleted=0 and
                     h.bean_module = 'Accounts' 
                     and h.primary_address=1 
-                    and em.email_address='$email'
+                    $filtro order by estudiante_id
               ";
-        //$GLOBALS['log']->fatal($sql);
+        
         $result=$db->query($sql);
         while ($a =$db->fetchByAssoc($result)){
             
@@ -93,6 +93,8 @@ class WebServiceHelpers {
             $detalle['city']=$a['city'];
             $retorno[]=$detalle;
         }
+        
+        
         return $retorno;
     }
     
