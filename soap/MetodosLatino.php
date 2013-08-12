@@ -34,12 +34,12 @@ function set_file_attachment($session,$note) {
 
 $server->register(
     'set_entry_estudiantes',
-    array('session'=>'xsd:string', 'module_name'=>'xsd:string','email'=>'xsd:string',  'name_value_list'=>'tns:name_value_list'),
+    array('session'=>'xsd:string', 'module_name'=>'xsd:string','email'=>'xsd:string', 'body'=>'xsd:string', 'name_value_list'=>'tns:name_value_list'),
     array('return'=>'tns:set_entry_result'),
     $NAMESPACE);
 
 
-function set_entry_estudiantes($session,$module_name,$email,$name_value_list) {
+function set_entry_estudiantes($session,$module_name,$email,$body,$name_value_list) {
     	global  $beanList, $beanFiles;
         
 	$error = new SoapError();
@@ -108,7 +108,7 @@ function set_entry_estudiantes($session,$module_name,$email,$name_value_list) {
                 $historico->setFecha(gmdate($GLOBALS['timedate']->get_db_date_time_format()));
                 $historico->setModifiedUserId($current_user->id);
                 $historico->setOrigen($seed->medioingreso);
-                $historico->setDatos(json_encode($name_value_list));
+                $historico->setDatos($body);
            //     $GLOBALS['log']->fatal("Ingreso a historico");
             }
           //  $GLOBALS['log']->fatal("despues de historico");
@@ -283,9 +283,9 @@ function set_relationship_v2($session, $module_name, $module_id, $link_field_nam
 $server->register(
     'get_entries_bymail',
     array('session'=>'xsd:string', 
-          'module_name'=>'xsd:string', 'ids'=>'tns:select_fields', 
-          'select_fields'=>'tns:select_fields','email'=>'xsd:string'),
-    array('return'=>'tns:get_entry_result'),
+          'module_name'=>'xsd:string',
+          'email'=>'xsd:string','estudiante_name'=>'xsd:string'),
+    array('return'=>'tns:estudiantes'),
     $NAMESPACE);
 
 /**
@@ -294,19 +294,17 @@ $server->register(
  * @param String $session -- Session ID returned by a previous call to login.
  * @param String $module_name -- The name of the module to return records from.  This name should be the name the module was developed under (changing a tab name is studio does not affect the name that should be passed into this method)..
  * @param Array $ids -- An array of SugarBean IDs.
- * @param Array $select_fields -- A list of the fields to be included in the results. This optional parameter allows for only needed fields to be retrieved.
- * @return Array 'field_list' -- Var def information about the returned fields
- *               'entry_list' -- The records that were retrieved
+ * @return Array 'listado_estudiantes' -- Var def information about the returned fields
  *               'error' -- The SOAP error, if any
  */
-function get_entries_bymail($session, $module_name, $ids,$select_fields,$email ){
-	global  $beanList, $beanFiles;
+function get_entries_bymail($session, $module_name, $email,$estudiante_name ){
+	global  $beanList;
 	$error = new SoapError();
-	$field_list = array();
-	$output_list = array();
+	$estudiantes = array();
 	if(!validate_authenticated($session)){
 		$error->set_error('invalid_login');
-		return array('field_list'=>$field_list, 'entry_list'=>array(), 'error'=>$error->get_soap_array());
+		
+                 return array('total'=>count($estudiantes), 'listado_estudiantes'=>$estudiantes, 'error'=>$error->get_soap_array());
 	}
         $using_cp = false;
         if($module_name == 'CampaignProspects'){
@@ -315,72 +313,27 @@ function get_entries_bymail($session, $module_name, $ids,$select_fields,$email )
         }
 	if(empty($beanList[$module_name])){
 		$error->set_error('no_module');
-		return array('field_list'=>$field_list, 'entry_list'=>array(), 'error'=>$error->get_soap_array());
+		
+                return array( 'total'=>count($estudiantes),'listado_estudiantes'=>$estudiantes, 'error'=>$error->get_soap_array());
 	}
 	global $current_user;
 	if(!check_modules_access($current_user, $module_name, 'read')){
 		$error->set_error('no_access');
-		return array('field_list'=>$field_list, 'entry_list'=>array(), 'error'=>$error->get_soap_array());
+		
+                return array( 'total'=>count($estudiantes),'listado_estudiantes'=>$estudiantes, 'error'=>$error->get_soap_array());
 	}
-
+        
         $path="custom/include/clases/varios/WebServiceHelpers.php";
+        
         if (file_exists($path)){
             
             include_once $path;
             
             $helper=new WebServiceHelpers();
-            $ids=$helper->buscarAplicaciones($email);
+            $estudiantes=$helper->buscarAplicaciones($email,$estudiante_name);
+            return array('total'=>count($estudiantes),'listado_estudiantes'=>$estudiantes, 'error'=>$error->get_soap_array());
         }
-       // $GLOBALS['log']->fatal("ids");
-	$class_name = $beanList[$module_name];
-       // $GLOBALS['log']->fatal($class_name);
-	require_once($beanFiles[$class_name]);
-	//todo can modify in there to call bean->get_list($order_by, $where, 0, -1, -1, $deleted);
-	//that way we do not have to call retrieve for each bean
-	//perhaps also add a select_fields to this, so we only get the fields we need
-	//and not do a select *
-	if(is_array($ids)&& count($ids)>0){
-            foreach($ids as $id){
-         //       $GLOBALS['log']->fatal($id);
-		$seed = new $class_name();
-
-                if($using_cp){
-                    $seed = $seed->retrieveTarget($id);
-                }else{
-                            if ($seed->retrieve($id) == null)
-                                    $seed->deleted = 1;
-                }
-
-                if ($seed->deleted == 1) {
-                    $list = array();
-                    $list[] = array('name'=>'warning', 'value'=>'Access to this object is denied since it has been deleted or does not exist');
-                            $list[] = array('name'=>'deleted', 'value'=>'1');
-                    $output_list[] = Array('id'=>$id,
-                                                                            'module_name'=> $module_name,
-                                                                    'name_value_list'=>$list,
-                                                                    );
-                            continue;
-                }
-                    if(! $seed->ACLAccess('DetailView')){
-                            $error->set_error('no_access');
-                            return array('field_list'=>$field_list, 'entry_list'=>array(), 'error'=>$error->get_soap_array());
-                    }
-		$output_list[] = get_return_value($seed, $module_name);
-                //$GLOBALS['log']->fatal($output_list);
-		if(empty($field_list)){
-				$field_list = get_field_list($seed);
-
-		}
-            }
-        }else{
-            $GLOBALS['log']->fatal("Valores vacios");   
-        
-        }
-        
-	$output_list = filter_return_list($output_list, $select_fields, $module_name);
-	$field_list = filter_field_list($field_list,$select_fields, $module_name);
-       // $GLOBALS['log']->fatal("2  ".$output_list);
-	return array( 'field_list'=>$field_list, 'entry_list'=>$output_list, 'error'=>$error->get_soap_array());
+     return array( 'total'=>count($estudiantes),'listado_estudiantes'=>$estudiantes, 'error'=>$error->get_soap_array());
 }
 
 

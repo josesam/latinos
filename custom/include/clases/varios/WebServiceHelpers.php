@@ -42,10 +42,35 @@ class WebServiceHelpers {
      * @param <string> Correo, filtro de busqueda
      * @return <array> Matriz con el o los ids de las oportunidades
      */
-    function buscarAplicaciones($email=""){
+    function buscarAplicaciones($email="",$estudiante_name=""){
         global $db;
         $retorno=array();
-        $sql="Select o.id from 
+        if (empty($estudiante_name))
+            return $retorno;
+        $detalle=array(
+            'estudiante_id'=>'',
+            'email'=>'',
+            'estudiante_name'=>'',
+            'aplicacion_id'=>'',
+            'institucion'=>'',
+            'city'=>'',
+            'destination'=>'',
+            
+        );
+        $filtro="";
+        if (!empty($email))
+            $filtro=" and em.email_address='".$email."'";
+        if (!empty($estudiante_name))
+            $filtro=" and a.name like '%".$estudiante_name."%'";
+        
+        $sql="Select a.id estudiante_id,
+                     a.name estudiante_name,
+                     em.email_address email,
+                     o.id aplicacion_id,
+                     o.institution institucion,
+                     o.destination destination,
+                     o.city city
+                from 
               accounts a inner join accounts_opportunities ao on a.id=ao.account_id
               inner join opportunities o on o.id=ao.opportunity_id 
               INNER JOIN email_addr_bean_rel h ON a.id = h.bean_id
@@ -53,13 +78,23 @@ class WebServiceHelpers {
               where a.deleted=0 and ao.deleted=0 and o.deleted=0 and
                     h.bean_module = 'Accounts' 
                     and h.primary_address=1 
-                    and em.email_address='$email'
+                    $filtro order by estudiante_id
               ";
-        //$GLOBALS['log']->fatal($sql);
+        
         $result=$db->query($sql);
         while ($a =$db->fetchByAssoc($result)){
-            $retorno[]=$a['id'];
+            
+            $detalle['estudiante_id']=$a['estudiante_id'];
+            $detalle['email']=$a['email'];
+            $detalle['estudiante_name']=$a['estudiante_name'];
+            $detalle['aplicacion_id']=$a['aplicacion_id'];
+            $detalle['institucion']=$a['institucion'];
+            $detalle['destination']=$a['destination'];
+            $detalle['city']=$a['city'];
+            $retorno[]=$detalle;
         }
+        
+        
         return $retorno;
     }
     

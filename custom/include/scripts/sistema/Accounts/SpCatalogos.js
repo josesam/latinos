@@ -13,6 +13,7 @@ abrir_paisinteres=function(){
                             title: 'Paises de Interes',
                             width: 400
             });
+    buscarPaisInteres();        
 };
 // buscar 
 buscarPaisInteres =function (){

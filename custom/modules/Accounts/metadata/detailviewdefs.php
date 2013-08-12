@@ -64,11 +64,6 @@ array (
           'newTab' => false,
           'panelDefault' => 'expanded',
         ),
-        'LBL_PANEL_ASSIGNMENT' => 
-        array (
-          'newTab' => false,
-          'panelDefault' => 'expanded',
-        ),
       ),
       'syncDetailEditViews' => true,
     ),
@@ -118,29 +113,35 @@ array (
             'comment' => 'Medio ingreso',
             'label' => 'LBL_MEDIOINGRESO',
           ),
-        ),
-        3 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'dateofbirth',
             'comment' => 'Fecha de Nacimiento del Estudiante',
             'label' => 'LBL_DATEOFBIRTH',
           ),
-          1 => 
+        ),
+        3 => 
+        array (
+          0 => 
           array (
             'name' => 'email1',
             'studio' => 'false',
             'label' => 'LBL_EMAIL',
+          ),
+          1 => 
+          array (
+            'name' => 'phone_office',
+            'comment' => 'The office phone number',
+            'label' => 'LBL_PHONE_OFFICE',
           ),
         ),
         4 => 
         array (
           0 => 
           array (
-            'name' => 'phone_office',
-            'comment' => 'The office phone number',
-            'label' => 'LBL_PHONE_OFFICE',
+            'name' => 'phone_alternate',
+            'comment' => 'An alternate phone number',
+            'label' => 'LBL_PHONE_ALT',
           ),
           1 => 
           array (
@@ -151,42 +152,23 @@ array (
         ),
         5 => 
         array (
-          0 => 
-          array (
-            'name' => 'phone_alternate',
-            'comment' => 'An alternate phone number',
-            'label' => 'LBL_PHONE_ALT',
-          ),
-          1 => '',
-        ),
-        6 => 
-        array (
-          0 => 
+          0 => '',
+          1 => 
           array (
             'name' => 'groupassociation',
             'comment' => 'Grupo de Asociacion',
             'label' => 'LBL_GROUPASSOCIATION',
           ),
-          1 => 
+        ),
+        6 => 
+        array (
+          0 => 
           array (
             'name' => 'lae',
             'comment' => 'Donde escuchaste sobre LAE?',
             'label' => 'LBL_LAE',
           ),
-        ),
-        7 => 
-        array (
-          0 => 
-          array (
-            'name' => 'lead_source',
-            'comment' => 'Lead Source',
-            'label' => 'LBL_LEAD_SOURCE',
-          ),
-          1 => '',
-        ),
-        7 => 
-        array (
-          0 => 
+          1 => 
           array (
             'name' => 'date_modified',
             'label' => 'LBL_DATE_MODIFIED',
@@ -200,9 +182,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'levelinterest',
-            'comment' => 'Nivel de interes',
-            'label' => 'LBL_LEVELINTEREST',
+            'name' => 'paisinterest',
+            'comment' => 'Pais de interes',
+            'label' => 'LBL_PAISINTEREST',
           ),
           1 => 
           array (
@@ -215,9 +197,9 @@ array (
         array (
           0 => 
           array (
-            'name' => 'paisinterest',
-            'comment' => 'Pais de interes',
-            'label' => 'LBL_PAISINTEREST',
+            'name' => 'levelinterest',
+            'comment' => 'Nivel de interes',
+            'label' => 'LBL_LEVELINTEREST',
           ),
           1 => 
           array (
@@ -244,15 +226,20 @@ array (
             'label' => 'LBL_REGISTRATIONDATE',
           ),
         ),
-      ),
-      'LBL_PANEL_ASSIGNMENT' => 
-      array (
-        0 => 
+        1 => 
         array (
           0 => 
           array (
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO',
+          ),
+        ),
+        2 => 
+        array (
+          0 => 
+          array (
+            'name' => 'historico',
+            'label' => 'LBL_HISTORICO',
           ),
         ),
       ),

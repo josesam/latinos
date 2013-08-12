@@ -67,6 +67,12 @@ array (
         'default' => true,
         'name' => 'registrationdate',
       ),
+      'account_type' => 
+      array (
+        'name' => 'account_type',
+        'default' => true,
+        'width' => '10%',
+      ),
       'current_user_only' => 
       array (
         'name' => 'current_user_only',
@@ -100,13 +106,13 @@ array (
         'default' => true,
         'name' => 'lae',
       ),
-      'areainteres' => 
+      'areainterest' => 
       array (
         'type' => 'multienum',
         'label' => 'LBL_AREAINTEREST',
         'width' => '10%',
         'default' => true,
-        'name' => 'areainteres',
+        'name' => 'areainterest',
       ),
       'levelinterest' => 
       array (
@@ -179,6 +185,15 @@ array (
         'width' => '10%',
         'default' => true,
         'name' => 'paisinteres',
+      ),
+      'description' => 
+      array (
+        'type' => 'text',
+        'label' => 'LBL_DESCRIPTION',
+        'sortable' => false,
+        'width' => '10%',
+        'default' => true,
+        'name' => 'description',
       ),
       'assigned_user_id' => 
       array (
