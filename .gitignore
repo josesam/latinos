@@ -29,3 +29,25 @@ silentUpgrade*.php
 # Logs files can safely be ignored.
 *.log
 nbproject/*
+
+custom/include/scripts/genericas/.DS_Store
+
+custom/include/scripts/genericas/varios/.DS_Store
+
+custom/include/scripts/sistema/.DS_Store
+
+custom/modules/Accounts/.DS_Store
+
+custom/modules/Accounts/views/.DS_Store
+
+custom/modules/Documents/.DS_Store
+
+custom/modules/Opportunities/.DS_Store
+
+modules/ModuleBuilder/.DS_Store
+
+modules/ModuleBuilder/parsers/.DS_Store
+
+modules/ModuleBuilder/parsers/views/.DS_Store
+
+soap/.DS_Store
