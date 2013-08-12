@@ -15,13 +15,15 @@ function process() {
 }
 
 function display(){
+    global $sugar_config;
     echo '<script src="custom/include/scripts/genericas/varios/jquery.media.js" type="text/javascript"></script>';
     echo "<script>
             $(document).ready(function(){
                 $('a.media').media({width:1000, height:600});
             });
           </script>";
-    echo '<a class="media" href="http://localhost/latinosfinal/'.$_REQUEST['archivolink'].'">Visualización de archivo</a>';
+//    echo '<a class="media" href="http://localhost/latinosfinal/'.$_REQUEST['archivolink'].'">Visualización de archivo</a>';
+    echo '<a class="media" href="'.$sugar_config['visor_documento_url'].$_REQUEST['archivolink'].'">Visualización de archivo</a>';
 }
                 
 }
