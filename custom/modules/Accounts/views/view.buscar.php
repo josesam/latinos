@@ -105,8 +105,8 @@ function display(){
         while ($row = $db->fetchByAssoc($result)){
             echo "<tr>";
                 echo '<td><input type="checkbox" class="case" name="case[]" value="'.$row['idestudiante'].'" /></td>';
-                echo "<td><a href='/index.php?action=DetailView&module=Accounts&record=".$row['idestudiante']."' target='_blank'>".$row['estudiante']."</a></td>";
-                echo "<td><a href='/index.php?action=DetailView&module=Opportunities&record=".$row['idoportunidad']."' target='_blank'>".$row['aplicacion']."</a></td>";
+                echo "<td><a href='index.php?action=DetailView&module=Accounts&record=".$row['idestudiante']."' target='_blank'>".$row['estudiante']."</a></td>";
+                echo "<td><a href='index.php?action=DetailView&module=Opportunities&record=".$row['idoportunidad']."' target='_blank'>".$row['aplicacion']."</a></td>";
                 echo "<td>".$row['status']."</td>";
                 $filtrosEmail = '';
                 if($form['email']!='')
