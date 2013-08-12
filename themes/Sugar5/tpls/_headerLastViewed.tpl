@@ -35,7 +35,7 @@
  ********************************************************************************/
 
 *}
-<div id="lastView" class="headerList">
+<!--<div id="lastView" class="headerList">
         <b style="white-space:nowrap;">{$APP.LBL_LAST_VIEWED}:&nbsp;&nbsp;</b>
     <span>
     {foreach from=$recentRecords item=item name=lastViewed}
@@ -52,3 +52,4 @@
     {/foreach}
     </span>
 </div>
+-->
