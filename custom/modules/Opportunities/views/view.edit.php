@@ -58,6 +58,8 @@ echo '<div id="institucion_dlg" style="display:none;">
              if(file_exists('custom/include/clases/popups/EtapasPopup.php'))
                 include_once 'custom/include/clases/popups/EtapasPopup.php';
              
+            
+             
              if(!empty($this->bean->id)){
                 if (file_exists('custom/include/clases/varios/ManejoEtapasVenta.php')){
                     include_once('custom/include/clases/varios/ManejoEtapasVenta.php');
@@ -65,11 +67,18 @@ echo '<div id="institucion_dlg" style="display:none;">
                     $manejo=new ManejoEtapasVenta($this->bean->sales_stage);
                     $this->bean->sales_stage=$manejo->prepareEditField($this->bean->sales_stage);
                 }
-
-
             }
+            if(empty($this->bean->id)){
+                $idAlumno = $_REQUEST['account_id'];
+            }else
+                $idAlumno = $this->bean->account_id;
             
-             parent::display();
+            include_once('custom/include/clases/varios/Clientes.php');
+            $estudiante = new Clientes();
+            $fechaNacimiento = $estudiante->fechaNacimiento($idAlumno);
+            
+            $this->bean->fecha_nacimiento_ndb=$fechaNacimiento;
+            parent::display();
                           
              
 

@@ -82,6 +82,8 @@ class SugarFiles extends SugarBean {
 
                  $documento=new Document();
                  $documento->document_name=$data['realarchivo']['name'];
+                 $documento->status_id='Active';
+                 $documento->template_type=$data['tipo_archivo'];
                  if (empty($documento->doc_type)) {
 			$documento->doc_type = 'Sugar';
 		}

@@ -123,6 +123,23 @@ $dictionary['Opportunity']['fields']['fecha_fin_curso']=array(
     'enable_range_search' => true,
     'options' => 'date_range_search_dom',
   );
-
+$dictionary["Opportunity"]["fields"]["fecha_nacimiento_ndb"]=array(
+    'required' => false,
+    'name' => 'fecha_nacimiento_ndb',
+    'vname' => 'LBL_FECHA_NACIMIENTO_NDB',
+    'type' => 'date',
+    'massupdate' => 1,
+    'comments' => 'Fecha de nacimiento',
+    'help' => 'Fecha de nacimiento',
+    'importable' => 'true',
+    'duplicate_merge' => 'disabled',
+    'duplicate_merge_dom_value' => '0',
+    'audited' => 0,
+    'reportable' => 0,
+    'len' => '150',
+    'source'=>'non-db',
+    'enable_range_search' => true,
+    'options' => 'date_range_search_dom',
+);
 
 ?>

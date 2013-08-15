@@ -79,6 +79,7 @@ class ProspectosAlertas extends Alertas {
      * Sirve a modo de patron facade , llama las funciones necesarias para enviar el mail
      */
     public function controlador(){
+        global $db;
         $data=array();
         foreach($this->parametros[$this->scope] as $value){
             switch ($value['tipo']){
@@ -89,35 +90,53 @@ class ProspectosAlertas extends Alertas {
                            $this->ctx=array();                         
                            $this->ctx['estudiante']=$valores;
                            $text=$this->generador->generar($value['plantilla'],$this->ctx);
-                           parent::setParentId($valores['estudiante']->id);
-                           parent::setParenttype($valores['module_name']);
                            if (!empty($valores['estudiante']->email1)){
-                               parent::setEmail($valores['contacto']->email1);
+                               $email = $valores['estudiante']->email1;
                            }else{
-                               parent::setEmail($value['default']);
+                               $email = $value['default'];
                            }
-                           parent::sendMail($value['Subject'],$text);
+                           //ALMACENAR LAS ALERTAS GENERADAS
+                           $modulo = $valores['module_name'];
+                           $id_registro = $valores['estudiante']->id;
+                           $tipo_alerta = 'Contact Out After 14 days';
                            
+                           $query='INSERT INTO alertas VALUES(0,"'.$modulo.'","'.$id_registro.'","'.$text.'","'.$value['Subject'].'",
+                                                              "'.$email.'","'.$tipo_alerta.'","no") ';
+                           $result=$db->query($query);
                         }
                     }
-                    
                     break;
                 case '28_dias_despues':
                     $data=self::getDatosEstudiante($value['dias']);
                     if(count($data)>0){
                         foreach($data as $valores){
+//                           $this->ctx=array();                         
+//                           $this->ctx['estudiante']=$valores;
+//                           $text=$this->generador->generar($value['plantilla'],$this->ctx);
+//                           parent::setParentId($valores['estudiante']->id);
+//                           parent::setParenttype($valores['module_name']);
+//                           if (!empty($valores['estudiante']->email1)){
+//                               parent::setEmail($valores['estudiante']->email1);
+//                           }else{
+//                               parent::setEmail($value['default']);
+//                           }
+//                           parent::sendMail($value['Subject'],$text);
                            $this->ctx=array();                         
                            $this->ctx['estudiante']=$valores;
                            $text=$this->generador->generar($value['plantilla'],$this->ctx);
-                           parent::setParentId($valores['estudiante']->id);
-                           parent::setParenttype($valores['module_name']);
                            if (!empty($valores['estudiante']->email1)){
-                               parent::setEmail($valores['contacto']->email1);
+                               $email = $valores['estudiante']->email1;
                            }else{
-                               parent::setEmail($value['default']);
+                               $email = $value['default'];
                            }
-                           parent::sendMail($value['Subject'],$text);
+                           //ALMACENAR LAS ALERTAS GENERADAS
+                           $modulo = $valores['module_name'];
+                           $id_registro = $valores['estudiante']->id;
+                           $tipo_alerta = 'Contact Out After 28 days';
                            
+                           $query='INSERT INTO alertas VALUES(0,"'.$modulo.'","'.$id_registro.'","'.$text.'","'.$value['Subject'].'",
+                                                              "'.$email.'","'.$tipo_alerta.'","no") ';
+                           $result=$db->query($query);
                         }
                     }
                     
@@ -129,91 +148,71 @@ class ProspectosAlertas extends Alertas {
                            $this->ctx=array();                         
                            $this->ctx['estudiante']=$valores;
                            $text=$this->generador->generar($value['plantilla'],$this->ctx);
-                           parent::setParentId($valores['estudiante']->id);
-                           parent::setParenttype($valores['module_name']);
                            if (!empty($valores['estudiante']->email1)){
-                               parent::setEmail($valores['contacto']->email1);
+                               $email = $valores['estudiante']->email1;
                            }else{
-                               parent::setEmail($value['default']);
+                               $email = $value['default'];
                            }
-                           parent::sendMail($value['Subject'],$text);
+                           //ALMACENAR LAS ALERTAS GENERADAS
+                           $modulo = $valores['module_name'];
+                           $id_registro = $valores['estudiante']->id;
+                           $tipo_alerta = 'Contact Out After 42 days';
+                           
+                           $query='INSERT INTO alertas VALUES(0,"'.$modulo.'","'.$id_registro.'","'.$text.'","'.$value['Subject'].'",
+                                                              "'.$email.'","'.$tipo_alerta.'","no") ';
+                           $result=$db->query($query);
                            
                         }
                     }
-                    
                     break;
-                    
-//                 case 'dias_antes':
-//                    $data=self::getDatosEstudiante($value['dias']);
-//                    if(count($data)>0){
-//                        foreach($data as $valores){
-//                           $this->ctx=array();                         
-//                           $this->ctx['programa']=self::cargarVariables($valores['programa'],$valores['info'],"ee_Programas");
-//                           $text=$this->generador->generar($value['plantilla'],$this->ctx);
-//                           parent::setParentId($valores['programa']->id);
-//                           parent::setParenttype($valores['programa']->module_name);
-//                           $mails=parent::usuariosSistema();
-//                           if(count($mails)>0){
-//                                parent::sendMailMassive($value['Subject'],$text,$mails);
-//                           }else{
-//                             parent::sendMailMassive($value['Subject'],$text,$value['emails']);
-//                           }
-//                           parent::sendMail($value['Subject'],$text);
-//                           
-//                        }
-//                    }
-//                    
-//                    break;
-//                 case 'recordatorio':
-//                      $data=self::getProgramaInicio($value['dias']);
-//                    if(count($data)>0){
-//                        if(is_array($value['bcc'])){
-//                            foreach($value['bcc'] as $name =>$d){
-//                              parent::setBcc($d,$name);
-//                            }
-//                        }
-//                        foreach($data as $valores){
-//                           $this->ctx=array();                         
-//                           $this->ctx['programa']=self::cargarVariables($valores['contacto'],$valores['info']);
-//                           $text=$this->generador->generar($value['plantilla'],$this->ctx);
-//                           parent::setParentId($valores['contacto']->id);
-//                           parent::setParenttype($valores['contacto']->module_name);
-//                           
-//                           if (!empty($valores['contacto']->email1)){
-//                              parent::setEmail($valores['contacto']->email1);
-//                           }else{
-//                              parent::setEmail($value['default']);
-//                         }
-//                           parent::sendMail($value['Subject'],$text);
-//                           
-//                        }
-//                    }
-//                     break;
-//                case 'recordatorio_d2l':
-//                    $data=self::getCursoInicio($value['dias']);
-//                    if(count($data)>0){
-//                        if(is_array($value['bcc'])){
-//                            foreach($value['bcc'] as $name =>$d){
-//                              parent::setBcc($d,$name);
-//                            }
-//                        }
-//                        foreach($data as $valores){
-//                           $this->ctx=array();                         
-//                           $this->ctx['programa']=self::cargarVariables($valores['contacto'],$valores['info']);
-//                           $text=$this->generador->generar($value['plantilla'],$this->ctx);
-//                           parent::setParentId($valores['contacto']->id);
-//                           parent::setParenttype($valores['contacto']->module_name);
-//                           
-//                           if (!empty($valores['contacto']->email1)){
-//                              parent::setEmail($valores['contacto']->email1);
-//                           }else{
-//                              parent::setEmail($value['default']);
-//                         }
-//                           parent::sendMail($value['Subject'],$text);
-//                           
-//                        }
-//                    }
-//                     break;  
+                case 'not_attended':
+                    $data=self::getDatosNotAttended();
+                    if(count($data)>0){
+                        foreach($data as $valores){
+                           $this->ctx=array();                         
+                           $this->ctx['estudiante']=$valores;
+                           $text=$this->generador->generar($value['plantilla'],$this->ctx);
+                           if (!empty($valores['estudiante']->email1)){
+                               $email = $valores['estudiante']->email1;
+                           }else{
+                               $email = $value['default'];
+                           }
+                           //ALMACENAR LAS ALERTAS GENERADAS
+                           $modulo = $valores['module_name'];
+                           $id_registro = $valores['estudiante']->id;
+                           $tipo_alerta = 'Not Attended';
+                           
+                           $query='INSERT INTO alertas VALUES(0,"'.$modulo.'","'.$id_registro.'","'.$text.'","'.$value['Subject'].'",
+                                                              "'.$email.'","'.$tipo_alerta.'","no") ';
+                           $result=$db->query($query);
+                           
+                        }
+                    }
+                    break;
+                case 'attended':
+                    $data=self::getDatosAttended();
+                    if(count($data)>0){
+                        foreach($data as $valores){
+                           $this->ctx=array();                         
+                           $this->ctx['estudiante']=$valores;
+                           $text=$this->generador->generar($value['plantilla'],$this->ctx);
+                           if (!empty($valores['estudiante']->email1)){
+                               $email = $valores['estudiante']->email1;
+                           }else{
+                               $email = $value['default'];
+                           }
+                           //ALMACENAR LAS ALERTAS GENERADAS
+                           $modulo = $valores['module_name'];
+                           $id_registro = $valores['estudiante']->id;
+                           $tipo_alerta = 'Attended';
+                           
+                           $query='INSERT INTO alertas VALUES(0,"'.$modulo.'","'.$id_registro.'","'.$text.'","'.$value['Subject'].'",
+                                                              "'.$email.'","'.$tipo_alerta.'","no") ';
+                           $result=$db->query($query);
+                           
+                        }
+                    }
+                    break;
             }
         }
         
@@ -233,6 +232,7 @@ class ProspectosAlertas extends Alertas {
                     WHERE datediff( now( ) , date(  a.date_entered ) ) = $var
                     AND a.deleted =0 AND (status = 'new-enquiry' or status = 'event-registration')
                 ";
+//          $query="SELECT * FROM accounts ";
           $result=$db->query($query);
           $GLOBALS['log']->fatal($query);
           $data=array();
@@ -241,14 +241,6 @@ class ProspectosAlertas extends Alertas {
         
         
           while ($a=$db->fetchByAssoc($result)){
-              
-//              if (file_exists($path)){
-//                  include_once $path;
-//                  $prospectoWorkflow=new ProspectoWorkFlow('prospectos','');
-//                  if ($new)
-//                      $prospectoWorkflow->procesaWorkFlow($focus->id, $focus->module_name, '', "event_registration","excel" );
-//              }
-             
               $estudiante=new Account();
               $estudiante->disable_row_level_security=true;
               $estudiante->retrieve($a['id']);
@@ -258,8 +250,60 @@ class ProspectosAlertas extends Alertas {
                  $cont++;
               }
               if($var==42){
-                  $estudiante->potential = 'Bajo';
-                  $estudiante->save();
+                  $queryAlumno="UPDATE accounts SET potential='Bajo' WHERE id='".$a['id']."' ";
+                  $resultAlumno=$db->query($queryAlumno);
+              }
+          }
+          return $data;
+     }
+     
+     function getDatosNotAttended(){
+        global $db;
+        
+        $query="
+                    SELECT * 
+                    FROM accounts a
+                    WHERE a.deleted =0 AND status = 'not-attended' AND a.id NOT IN (SELECT id_registro FROM alertas WHERE modulo='Accounts' AND tipo_alerta='Not Attended')
+                ";
+//          $query="SELECT * FROM accounts ";
+          $result=$db->query($query);
+          $GLOBALS['log']->fatal($query);
+          $data=array();
+          $cont=0;
+          while ($a=$db->fetchByAssoc($result)){
+              $estudiante=new Account();
+              $estudiante->disable_row_level_security=true;
+              $estudiante->retrieve($a['id']);
+              if(!empty($estudiante->id)){ 
+                 $data[$cont]['module_name']='Accounts';
+                 $data[$cont]['estudiante']=$estudiante;
+                 $cont++;
+              }
+          }
+          return $data;
+     }
+     
+     function getDatosAttended(){
+        global $db;
+        
+        $query="
+                    SELECT * 
+                    FROM accounts a
+                    WHERE a.deleted =0 AND status = 'attended' AND a.id NOT IN (SELECT id_registro FROM alertas WHERE modulo='Accounts' AND tipo_alerta='Attended')
+                ";
+//          $query="SELECT * FROM accounts ";
+          $result=$db->query($query);
+          $GLOBALS['log']->fatal($query);
+          $data=array();
+          $cont=0;
+          while ($a=$db->fetchByAssoc($result)){
+              $estudiante=new Account();
+              $estudiante->disable_row_level_security=true;
+              $estudiante->retrieve($a['id']);
+              if(!empty($estudiante->id)){ 
+                 $data[$cont]['module_name']='Accounts';
+                 $data[$cont]['estudiante']=$estudiante;
+                 $cont++;
               }
           }
           return $data;

@@ -163,6 +163,13 @@ class Clientes {
             return false;
         }
     }
+    
+    function fechaNacimiento($id){
+        $this->sql="Select dateofbirth from accounts where  id='".$id."'";
+        $result=$this->db->query($this->sql);
+        $a = $this->db->fetchByAssoc($result);
+        return $a['dateofbirth'];
+    }
  
 
 }

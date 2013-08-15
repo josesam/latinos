@@ -1,3 +1,10 @@
+<script>
+function toggleChecked(status) {
+    $(".checkbox").each( function() {
+    $(this).attr("checked",status);
+    });
+}
+</script>
 <?php
 require_once('include/MVC/View/views/view.edit.php');
 require_once("include/JSON.php");
@@ -87,7 +94,7 @@ function display(){
         echo "<table width='80%' border='1' class='display' id='example'>
                 <thead>
                 <tr>
-                    <th></th>
+                    <th><input type='checkbox' onclick='toggleChecked(this.checked)'></th>
                     <th align='center'><strong>Estudiante</strong></th>
                     <th align='center'><strong>Aplicación</strong></th>
                     <th align='center'><strong>Estado del Estudiante</strong></th>
@@ -104,7 +111,7 @@ function display(){
                 <tbody>";
         while ($row = $db->fetchByAssoc($result)){
             echo "<tr>";
-                echo '<td><input type="checkbox" class="case" name="case[]" value="'.$row['idestudiante'].'" /></td>';
+                echo '<td><input type="checkbox" class="checkbox" name="case[]" value="'.$row['idestudiante'].'" /></td>';
                 echo "<td><a href='index.php?action=DetailView&module=Accounts&record=".$row['idestudiante']."' target='_blank'>".$row['estudiante']."</a></td>";
                 echo "<td><a href='index.php?action=DetailView&module=Opportunities&record=".$row['idoportunidad']."' target='_blank'>".$row['aplicacion']."</a></td>";
                 echo "<td>".$row['status']."</td>";
@@ -176,7 +183,7 @@ function display(){
         echo "<table width='80%' border='1' class='display' id='example'>
                 <thead>
                 <tr>
-                    <th></th>
+                    <th><input type='checkbox' onclick='toggleChecked(this.checked)'></th>
                     <th align='center'><strong>Estudiante</strong></th>
                     <th align='center'><strong>Estado del Estudiante</strong></th>
                     <th align='center'><strong>Dirección correo</strong></th>
@@ -192,7 +199,7 @@ function display(){
                 <tbody>";
         while ($row = $db->fetchByAssoc($result)){
             echo "<tr>";
-                echo '<td><input type="checkbox" class="case" name="case[]" value="'.$row['idestudiante'].'" /></td>';
+                echo '<td><input type="checkbox" class="checkbox" name="case[]" value="'.$row['idestudiante'].'" /></td>';
                 echo "<td><a href='index.php?action=DetailView&module=Accounts&record=".$row['idestudiante']."' target='_blank'>".$row['estudiante']."</a></td>";
                 echo "<td>".$row['status']."</td>";
                 $filtrosEmail = '';

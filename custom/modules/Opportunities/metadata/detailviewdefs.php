@@ -73,20 +73,6 @@ array (
         ),
         1 => 
         array (
-          0 => 'date_closed',
-          1 => 
-          array (
-            'name' => 'amount',
-            'label' => '{$MOD.LBL_AMOUNT} ({$CURRENCY})',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 'sales_stage',
-          1 => 'probability',
-        ),
-        3 => 
-        array (
           0 => 
           array (
             'name' => 'institution',
@@ -100,7 +86,7 @@ array (
             'label' => 'LBL_CITY',
           ),
         ),
-        4 => 
+        2 => 
         array (
           0 => 
           array (
@@ -108,14 +94,8 @@ array (
             'comment' => 'Destino',
             'label' => 'LBL_DESTINATION',
           ),
-          1 => 
-          array (
-            'name' => 'courselevel',
-            'comment' => 'Nivel del curso',
-            'label' => 'LBL_COURSELEVEL',
-          ),
         ),
-        5 => 
+        3 => 
         array (
           0 => 
           array (
@@ -125,12 +105,12 @@ array (
           ),
           1 => 
           array (
-            'name' => 'weeks',
-            'comment' => 'Semanas del curso',
-            'label' => 'LBL_WEEKS',
+            'name' => 'courselevel',
+            'comment' => 'Nivel del curso',
+            'label' => 'LBL_COURSELEVEL',
           ),
         ),
-        6 => 
+        4 => 
         array (
           0 => 
           array (
@@ -145,18 +125,44 @@ array (
             'label' => 'LBL_FECHA_FIN_CURSO',
           ),
         ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'amount',
+            'label' => '{$MOD.LBL_AMOUNT} ({$CURRENCY})',
+          ),
+          1 => 
+          array (
+            'name' => 'weeks',
+            'comment' => 'Semanas del curso',
+            'label' => 'LBL_WEEKS',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 'date_closed',
+        ),
         7 => 
         array (
-          0 => 'next_step',
-          1 => 
+          0 => 'sales_stage',
+        ),
+        8 => 
+        array (
+          0 => 
           array (
             'name' => 'description',
             'nl2br' => true,
           ),
+          1 => 'next_step',
         ),
-        8 => 
+        9 => 
         array (
-          0 => 'campaign_name',
+          0 => 
+          array (
+            'name' => 'fecha_nacimiento_ndb',
+            'label' => 'LBL_FECHA_NACIMIENTO_NDB',
+          ),
         ),
       ),
       'lbl_editview_panel1' => 
@@ -179,6 +185,7 @@ array (
             'name' => 'assigned_user_name',
             'label' => 'LBL_ASSIGNED_TO',
           ),
+          1 => 'campaign_name',
         ),
       ),
     ),

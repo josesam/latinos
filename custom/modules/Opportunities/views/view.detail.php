@@ -53,8 +53,15 @@ class OpportunitiesViewDetail extends ViewDetail
 echo '<div id="procesos_dlg" style="display:none;">
 <div id="procesos_div"></div>
 </div>';
-             
-
+             if(empty($this->bean->id)){
+                $idAlumno = $_REQUEST['account_id'];
+            }else
+                $idAlumno = $this->bean->account_id;
+            
+            include_once('custom/include/clases/varios/Clientes.php');
+            $estudiante = new Clientes();
+            $fechaNacimiento = $estudiante->fechaNacimiento($idAlumno);
+            $this->bean->fecha_nacimiento_ndb=$fechaNacimiento;
              parent::display();
                           
              

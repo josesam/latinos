@@ -43,38 +43,10 @@ array (
     'label' => 'LBL_LIST_SALES_STAGE',
     'default' => true,
   ),
-  'AMOUNT_USDOLLAR' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_LIST_AMOUNT_USDOLLAR',
-    'align' => 'right',
-    'default' => true,
-    'currency_format' => true,
-  ),
-  'DATE_CLOSED' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_LIST_DATE_CLOSED',
-    'default' => true,
-  ),
   'INSTITUTION' => 
   array (
     'type' => 'varchar',
     'label' => 'LBL_INSTITUTION',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'DESTINATION' => 
-  array (
-    'type' => 'varchar',
-    'label' => 'LBL_DESTINATION',
-    'width' => '10%',
-    'default' => true,
-  ),
-  'CITY' => 
-  array (
-    'type' => 'varchar',
-    'label' => 'LBL_CITY',
     'width' => '10%',
     'default' => true,
   ),
@@ -85,11 +57,16 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'STUDENTID' => 
+  'DATE_CLOSED' => 
   array (
-    'type' => 'int',
-    'label' => 'LBL_STUDENTID',
     'width' => '10%',
+    'label' => 'LBL_LIST_DATE_CLOSED',
+    'default' => true,
+  ),
+  'DATE_ENTERED' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_DATE_ENTERED',
     'default' => true,
   ),
   'ASSIGNED_USER_NAME' => 
@@ -100,16 +77,39 @@ array (
     'id' => 'ASSIGNED_USER_ID',
     'default' => true,
   ),
-  'DATE_ENTERED' => 
-  array (
-    'width' => '10%',
-    'label' => 'LBL_DATE_ENTERED',
-    'default' => true,
-  ),
   'OPPORTUNITY_TYPE' => 
   array (
     'width' => '15%',
     'label' => 'LBL_TYPE',
+    'default' => false,
+  ),
+  'AMOUNT_USDOLLAR' => 
+  array (
+    'width' => '10%',
+    'label' => 'LBL_LIST_AMOUNT_USDOLLAR',
+    'align' => 'right',
+    'default' => false,
+    'currency_format' => true,
+  ),
+  'CITY' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_CITY',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'STUDENTID' => 
+  array (
+    'type' => 'int',
+    'label' => 'LBL_STUDENTID',
+    'width' => '10%',
+    'default' => false,
+  ),
+  'DESTINATION' => 
+  array (
+    'type' => 'varchar',
+    'label' => 'LBL_DESTINATION',
+    'width' => '10%',
     'default' => false,
   ),
   'LEAD_SOURCE' => 

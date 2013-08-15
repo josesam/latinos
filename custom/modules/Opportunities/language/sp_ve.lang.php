@@ -101,4 +101,5 @@ $mod_strings = array (
   'LBL_DATE_CLOSED' => 'Siguiente fecha de seguimiento:',
   'LBL_FECHA_INICIO_CURSO' => 'Fecha inicio de curso:',
   'LBL_FECHA_FIN_CURSO' => 'Fecha fin de curso:',
+  'LBL_FECHA_NACIMIENTO_NDB' => 'Fecha de nacimiento:',
 );

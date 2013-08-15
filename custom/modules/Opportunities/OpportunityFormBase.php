@@ -615,7 +615,9 @@ function handleSave($prefix,$redirect=true, $useRequired=false){
         }
         
         
-        
+        //FECHA DE NACIMIENTO
+        $sql = "UPDATE accounts SET dateofbirth='".$focus->fecha_nacimiento_ndb."' WHERE id = '".$focus->account_id."'";
+        $result=$db->query($sql);
         
 	$focus->save($check_notify);
 
@@ -628,6 +630,7 @@ function handleSave($prefix,$redirect=true, $useRequired=false){
                     VALUES(0,'".$focus->id."','".$focus->sales_stage."','".date("Y-m-d H:i:s")."',0)";
             $result=$db->query($sql);
         }
+        
         
         /// Procesar workflow
         $path="custom/include/workflows/OportunidadWorkFlow.php";

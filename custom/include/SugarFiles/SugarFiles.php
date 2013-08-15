@@ -41,7 +41,8 @@ class SugarFiles extends SugarBean {
                             'archivo'=>  $_FILES['filetxt_' . $id]['name'],
                             'realarchivo'=>  $_FILES['filetxt_' . $id],
                             'oportunidad_id'=>$cotizacion,
-                            'nombre_campo'=>'filetxt_' . $id
+                            'nombre_campo'=>'filetxt_' . $id,
+                            'tipoarchivo'=>$datos['tipo_archivo_' . $id]
                         );
                         self::AddUpdateFiles($data);
 
@@ -80,6 +81,9 @@ class SugarFiles extends SugarBean {
 
                  $documento=new Document();
                  $documento->document_name=$data['realarchivo']['name'];
+                 $documento->status_id='Active';
+                 $documento->template_type=$data['tipoarchivo'];
+                 
                  if (empty($documento->doc_type)) {
 			$documento->doc_type = 'Sugar';
 		}

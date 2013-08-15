@@ -68,26 +68,6 @@ array (
         array (
           0 => 
           array (
-            'name' => 'date_closed',
-          ),
-          1 => 
-          array (
-            'name' => 'amount',
-          ),
-        ),
-        2 => 
-        array (
-          0 => 
-          array (
-            'name' => 'sales_stage',
-            'customCode' => '<input type="text" name="sales_stage" readonly="yes" size="35" id="sales_stage" value="{$fields.sales_stage.value}"/>{if $fields.sales_stage.value!="Perdido"}<a href="javascript:void(0);" onclick="javascript:openEtapas(\'{$fields.sales_stage.value}\');" >Seleccionar Etapa</a>{/if}',
-          ),
-          1 => 'probability',
-        ),
-        3 => 
-        array (
-          0 => 
-          array (
             'name' => 'institution',
             'customCode' => '<input type="text" name="institution" readonly="yes" size="35" id="institution" value="{$fields.institution.value}"/><a href="javascript:void(0);" onclick="javascript:openInstitucion();" >Seleccionar Institución</a>',
             'comment' => 'Institución',
@@ -101,7 +81,7 @@ array (
             'label' => 'LBL_CITY',
           ),
         ),
-        4 => 
+        2 => 
         array (
           0 => 
           array (
@@ -110,14 +90,8 @@ array (
             'comment' => 'Destino',
             'label' => 'LBL_DESTINATION',
           ),
-          1 => 
-          array (
-            'name' => 'courselevel',
-            'comment' => 'Nivel del curso',
-            'label' => 'LBL_COURSELEVEL',
-          ),
         ),
-        5 => 
+        3 => 
         array (
           0 => 
           array (
@@ -127,12 +101,12 @@ array (
           ),
           1 => 
           array (
-            'name' => 'weeks',
-            'comment' => 'Semanas del curso',
-            'label' => 'LBL_WEEKS',
+            'name' => 'courselevel',
+            'comment' => 'Nivel del curso',
+            'label' => 'LBL_COURSELEVEL',
           ),
         ),
-        6 => 
+        4 => 
         array (
           0 => 
           array (
@@ -147,14 +121,46 @@ array (
             'label' => 'LBL_FECHA_FIN_CURSO',
           ),
         ),
+        5 => 
+        array (
+          0 => 
+          array (
+            'name' => 'amount',
+          ),
+          1 => 
+          array (
+            'name' => 'weeks',
+            'comment' => 'Semanas del curso',
+            'label' => 'LBL_WEEKS',
+          ),
+        ),
+        6 => 
+        array (
+          0 => 
+          array (
+            'name' => 'date_closed',
+          ),
+        ),
         7 => 
         array (
-          0 => 'next_step',
-          1 => 'description',
+          0 => 
+          array (
+            'name' => 'sales_stage',
+            'customCode' => '<input type="text" name="sales_stage" readonly="yes" size="35" id="sales_stage" value="{$fields.sales_stage.value}"/>{if $fields.sales_stage.value!="Perdido"}<a href="javascript:void(0);" onclick="javascript:openEtapas(\'{$fields.sales_stage.value}\');" >Seleccionar Etapa</a>{/if}',
+          ),
         ),
         8 => 
         array (
-          0 => 'campaign_name',
+          0 => 'description',
+          1 => 'next_step',
+        ),
+        9 => 
+        array (
+          0 => 
+          array (
+            'name' => 'fecha_nacimiento_ndb',
+            'label' => 'LBL_FECHA_NACIMIENTO_NDB',
+          ),
         ),
       ),
       'lbl_editview_panel1' => 
@@ -173,6 +179,7 @@ array (
         0 => 
         array (
           0 => 'assigned_user_name',
+          1 => 'campaign_name',
         ),
       ),
     ),
