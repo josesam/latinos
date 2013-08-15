@@ -68,7 +68,7 @@ echo '<div id="institucion_dlg" style="display:none;">
 
 
             }
-
+            
              parent::display();
                           
              
