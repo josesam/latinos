@@ -4,7 +4,7 @@
           array( 
               '0'=>array( 
                   'tipo'=>'14_dias_despues',
-                  'dias'=>14,       
+                  'dias'=>15,       
                   'plantilla'=>'14_dias_despues', 
                   'Subject'=>'Envio de 14 días', 
                   'default'=>'andres.garcia@greenfieldcrm.com'

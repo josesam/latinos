@@ -75,6 +75,8 @@ cargarInstitucion=function(pais,ciudad,institucion){
     jQuery("#city").val(ciudad);
     jQuery("#institution").val(institucion);
     jQuery("#institucion_dlg").dialog("close");
+    
+    jQuery("#name").val(institucion+" - "+jQuery("#coursename").val());
 } 
 
 cargarCiudad=function(pais,ciudad){
@@ -331,6 +333,9 @@ cerrarAplicacion=function(idAplicacion){
         }else
             return false;
     });
+}
+nombreOportunidad=function(){
+    jQuery("#name").val(jQuery("#institution").val()+" - "+jQuery("#coursename").val());
 }
 
 

@@ -58,11 +58,7 @@ array (
       array (
         0 => 
         array (
-          0 => 
-          array (
-            'name' => 'name',
-          ),
-          1 => 'account_name',
+          0 => 'account_name',
         ),
         1 => 
         array (
@@ -96,6 +92,7 @@ array (
           0 => 
           array (
             'name' => 'coursename',
+            'customCode' => '<input type="text" name="coursename" size="35" id="coursename" onchange="javascript:nombreOportunidad()" value="{$fields.coursename.value}"/>',
             'comment' => 'Nombre de Curso',
             'label' => 'LBL_COURSENAME',
           ),
@@ -160,6 +157,10 @@ array (
           array (
             'name' => 'fecha_nacimiento_ndb',
             'label' => 'LBL_FECHA_NACIMIENTO_NDB',
+          ),
+          1 => 
+          array (
+            'name' => 'name',
           ),
         ),
       ),

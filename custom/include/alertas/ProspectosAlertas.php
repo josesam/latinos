@@ -101,7 +101,7 @@ class ProspectosAlertas extends Alertas {
                            $tipo_alerta = 'Contact Out After 14 days';
                            
                            $query='INSERT INTO alertas VALUES(0,"'.$modulo.'","'.$id_registro.'","'.$text.'","'.$value['Subject'].'",
-                                                              "'.$email.'","'.$tipo_alerta.'","no") ';
+                                                              "'.$email.'","'.$tipo_alerta.'","no","' . $valores['estudiante']->assigned_user_id . '") ';
                            $result=$db->query($query);
                         }
                     }
@@ -135,7 +135,7 @@ class ProspectosAlertas extends Alertas {
                            $tipo_alerta = 'Contact Out After 28 days';
                            
                            $query='INSERT INTO alertas VALUES(0,"'.$modulo.'","'.$id_registro.'","'.$text.'","'.$value['Subject'].'",
-                                                              "'.$email.'","'.$tipo_alerta.'","no") ';
+                                                              "'.$email.'","'.$tipo_alerta.'","no","' . $valores['estudiante']->assigned_user_id . '") ';
                            $result=$db->query($query);
                         }
                     }
@@ -159,7 +159,7 @@ class ProspectosAlertas extends Alertas {
                            $tipo_alerta = 'Contact Out After 42 days';
                            
                            $query='INSERT INTO alertas VALUES(0,"'.$modulo.'","'.$id_registro.'","'.$text.'","'.$value['Subject'].'",
-                                                              "'.$email.'","'.$tipo_alerta.'","no") ';
+                                                              "'.$email.'","'.$tipo_alerta.'","no","' . $valores['estudiante']->assigned_user_id . '") ';
                            $result=$db->query($query);
                            
                         }
@@ -183,7 +183,7 @@ class ProspectosAlertas extends Alertas {
                            $tipo_alerta = 'Not Attended';
                            
                            $query='INSERT INTO alertas VALUES(0,"'.$modulo.'","'.$id_registro.'","'.$text.'","'.$value['Subject'].'",
-                                                              "'.$email.'","'.$tipo_alerta.'","no") ';
+                                                              "'.$email.'","'.$tipo_alerta.'","no","' . $valores['estudiante']->assigned_user_id . '") ';
                            $result=$db->query($query);
                            
                         }
@@ -207,7 +207,7 @@ class ProspectosAlertas extends Alertas {
                            $tipo_alerta = 'Attended';
                            
                            $query='INSERT INTO alertas VALUES(0,"'.$modulo.'","'.$id_registro.'","'.$text.'","'.$value['Subject'].'",
-                                                              "'.$email.'","'.$tipo_alerta.'","no") ';
+                                                              "'.$email.'","'.$tipo_alerta.'","no","' . $valores['estudiante']->assigned_user_id . '") ';
                            $result=$db->query($query);
                            
                         }
@@ -245,7 +245,7 @@ class ProspectosAlertas extends Alertas {
               $estudiante->disable_row_level_security=true;
               $estudiante->retrieve($a['id']);
               if(!empty($estudiante->id)){ 
-                 $data[$cont]['module_name']='Accounts';
+                 $data[$cont]['module_name']='Estudiantes';
                  $data[$cont]['estudiante']=$estudiante;
                  $cont++;
               }
@@ -275,7 +275,7 @@ class ProspectosAlertas extends Alertas {
               $estudiante->disable_row_level_security=true;
               $estudiante->retrieve($a['id']);
               if(!empty($estudiante->id)){ 
-                 $data[$cont]['module_name']='Accounts';
+                 $data[$cont]['module_name']='Estudiantes';
                  $data[$cont]['estudiante']=$estudiante;
                  $cont++;
               }
@@ -301,7 +301,7 @@ class ProspectosAlertas extends Alertas {
               $estudiante->disable_row_level_security=true;
               $estudiante->retrieve($a['id']);
               if(!empty($estudiante->id)){ 
-                 $data[$cont]['module_name']='Accounts';
+                 $data[$cont]['module_name']='Estudiantes';
                  $data[$cont]['estudiante']=$estudiante;
                  $cont++;
               }

@@ -609,8 +609,10 @@ function handleSave($prefix,$redirect=true, $useRequired=false){
                         $sql = "INSERT INTO etapa_venta (id,id_oportunidad,etapa,fecha,deleted)
                                 VALUES(0,'".$focus->id."','".$focus->sales_stage."','".date("Y-m-d H:i:s")."',0)";
                         $result=$db->query($sql);
-                    }else
+                    }else{
                         $focus->sales_stage = $manejo->prepareSaveStage($focus->sales_stage);
+                    }
+                        
                 }
         }
         

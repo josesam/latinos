@@ -100,10 +100,12 @@ function toggleChecked(status) {
     </thead>
     <?php
     global $db;
+    global $current_user;
+    $user_id=$current_user->id;
     $query="
                     SELECT * 
                     FROM alertas
-                    WHERE enviado='no'
+                    WHERE enviado='no' AND usuario='".$user_id."'
                 ";
     $result=$db->query($query);
     ?>
@@ -113,10 +115,22 @@ function toggleChecked(status) {
             echo "<tr>";
                 echo '<td><input type="checkbox" class="checkbox" name="alerta[]" value="'.$row['id'].'" /></td>';
                 echo '<td>'.$row['modulo'].'</td>';
-                $query1="SELECT name FROM accounts WHERE id='".$row['id_registro']."'";
-                $result1=$db->query($query1);
-                $row1 = $db->fetchByAssoc($result1);
-                echo '<td>'.$row1['name'].'</td>';
+                if($row['modulo']=='Estudiantes'){
+                    $query1="SELECT name FROM accounts WHERE id='".$row['id_registro']."'";
+                    $result1=$db->query($query1);
+                    $row1 = $db->fetchByAssoc($result1);
+                    echo '<td>'.$row1['name'].'</td>';
+                }
+
+                if($row['modulo']=='Aplicaciones'){
+                    $query1="SELECT a.name name 
+                             FROM accounts a, accounts_opportunities ao, opportunities o 
+                             WHERE o.id='".$row['id_registro']."' AND a.id=ao.account_id AND o.id=ao.opportunity_id AND ao.deleted=0";
+                    $result1=$db->query($query1);
+                    $row1 = $db->fetchByAssoc($result1);
+                    echo '<td>'.$row1['name'].'</td>';
+                }
+                
                 echo '<td>'.$row['tipo_alerta'].'</td>';
             echo "</tr>";
         }   

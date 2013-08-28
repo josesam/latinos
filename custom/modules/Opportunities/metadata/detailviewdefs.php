@@ -68,8 +68,7 @@ array (
       array (
         0 => 
         array (
-          0 => 'name',
-          1 => 'account_name',
+          0 => 'account_name',
         ),
         1 => 
         array (
@@ -163,6 +162,7 @@ array (
             'name' => 'fecha_nacimiento_ndb',
             'label' => 'LBL_FECHA_NACIMIENTO_NDB',
           ),
+          1 => 'name',
         ),
       ),
       'lbl_editview_panel1' => 

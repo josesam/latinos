@@ -1,9 +1,124 @@
 <?php
-/*
- * Funcionalidad para cargar de clientes Escuela de Empresas
- * 
- */
+if(isset($_POST['bandera'])){
+$texto = "
+<?php return array(   
+         'prospectos'=> 
+          array( 
+              '0'=>array( 
+                  'tipo'=>'14_dias_despues',
+                  'dias'=>".$_POST['diasEstudiante14'].",       
+                  'plantilla'=>'14_dias_despues', 
+                  'Subject'=>'".$_POST['subjectEstudiante14']."', 
+                  'default'=>'andres.garcia@greenfieldcrm.com'
+                  ),
+              '1'=>array( 
+                  'tipo'=>'28_dias_despues',
+                  'dias'=>".$_POST['diasEstudiante28'].",       
+                  'plantilla'=>'28_dias_despues', 
+                  'Subject'=>'".$_POST['subjectEstudiante28']."', 
+                  'default'=>'andres.garcia@greenfieldcrm.com'
+                  ),
+              '2'=>array( 
+                  'tipo'=>'42_dias_despues',
+                  'dias'=>".$_POST['diasEstudiante42'].",       
+                  'plantilla'=>'42_dias_despues', 
+                  'Subject'=>'".$_POST['subjectEstudiante42']."', 
+                  'default'=>'andres.garcia@greenfieldcrm.com'
+                  ),
+              '3'=>array( 
+                  'tipo'=>'not_attended',
+                  'dias'=>0,       
+                  'plantilla'=>'not_attended', 
+                  'Subject'=>'".$_POST['subjectEstudianteNotAttenden']."', 
+                  'default'=>'andres.garcia@greenfieldcrm.com'
+                  ),
+              '4'=>array( 
+                  'tipo'=>'attended',
+                  'dias'=>0,       
+                  'plantilla'=>'".$_POST['subjectEstudianteAttenden']."', 
+                  'Subject'=>'Interview attended', 
+                  ),
+              ), 
+    
+    'aplicacion'=>
+        array( 
+            '0'=>array( 
+                  'tipo'=>'14_dias_incomplete',
+                  'dias'=>".$_POST['diasAplicacion14'].",       
+                  'plantilla'=>'14_dias_incomplete', 
+                  'Subject'=>'".$_POST['subjectAplicacion14']."', 
+                  'default'=>'andres.garcia@greenfieldcrm.com'
+                  ),
+            '1'=>array(    
+                'tipo'=>'35_dias_incomplete',
+                  'dias'=>".$_POST['diasAplicacion35'].",       
+                  'plantilla'=>'35_dias_incomplete', 
+                  'Subject'=>'".$_POST['subjectAplicacion35']."', 
+                  'default'=>'andres.garcia@greenfieldcrm.com'
+                ), 
+            '2'=>array( 
+                'tipo'=>'55_dias_incomplete',
+                  'dias'=>".$_POST['diasAplicacion55'].",       
+                  'plantilla'=>'55_dias_incomplete', 
+                  'Subject'=>'".$_POST['subjectAplicacion55']."', 
+                  'default'=>'andres.garcia@greenfieldcrm.com'
+                ), 
+            '3'=>array( 
+                'tipo'=>'conditional_offer',
+                  'dias'=>0,       
+                  'plantilla'=>'conditional_offer', 
+                  'Subject'=>'".$_POST['subjectConditionalOffer']."', 
+                  'default'=>'andres.garcia@greenfieldcrm.com'
+                ), 
+            '4'=>array( 
+                'tipo'=>'unconditional_offer',
+                  'dias'=>0,       
+                  'plantilla'=>'unconditional_offer', 
+                  'Subject'=>'".$_POST['subjectUnconditionalOffer']."', 
+                  'default'=>'andres.garcia@greenfieldcrm.com'
+                ), 
+            '5'=>array( 
+                'tipo'=>'acceptance_sent',
+                  'dias'=>0,       
+                  'plantilla'=>'acceptance_sent', 
+                  'Subject'=>'".$_POST['subjectAcceptanceSent']."', 
+                  'default'=>'andres.garcia@greenfieldcrm.com'
+                ), 
+            '6'=>array( 
+                'tipo'=>'coe_received',
+                  'dias'=>0,       
+                  'plantilla'=>'coe_received', 
+                  'Subject'=>'".$_POST['subjectCoeReceived']."', 
+                  'default'=>'andres.garcia@greenfieldcrm.com'
+                ), 
+            '7'=>array( 
+                'tipo'=>'visa_sent',
+                  'dias'=>0,       
+                  'plantilla'=>'visa_sent', 
+                  'Subject'=>'".$_POST['subjectVisaSent']."', 
+                  'default'=>'andres.garcia@greenfieldcrm.com'
+                ), 
+            '8'=>array( 
+                'tipo'=>'visa_received',
+                  'dias'=>0,       
+                  'plantilla'=>'visa_received', 
+                  'Subject'=>'".$_POST['subjectVisaReceived']."', 
+                  'default'=>'andres.garcia@greenfieldcrm.com'
+                ), 
+            ),
+    
+    );
 ?>
+    ";
+
+file_put_contents("custom/include/alertas/parametros.php", $texto);
+
+}
+    
+
+
+?>
+
 <style>
     label{
         width:150px;
@@ -202,32 +317,3 @@ $parametros = include 'custom/include/alertas/parametros.php';;
 <br/><br/>
 <input type="submit" id="boton_cargar" value="Modificar">
 </form>
-
-<br/><br/><br/><br/><br/><br/>
-
-<?php
-if(isset($_POST['bandera'])){
-//    $path="custom/include/cargaCliente/CargaCliente.php";
-//    if(file_exists($path)){
-//        include_once $path;
-//        $encuesta=new CargaCliente();
-//        $lista=$encuesta->procesarYGuardar($_FILES['archivo'],$_POST['bandera']);
-//        if (count($lista['error'])>0){
-//            echo "<ul>";
-//            foreach ($lista['error'] as $key =>$value){
-//                echo "<li>En la Fila:". $value['fila'] . " se genero el siguiente error ".$value['detalle']."</li>";
-//            }
-//            echo "</ul>";
-//
-//
-//        }else{
-//            echo "El proceso se ejecutó correctamente";
-//        }
-//
-//    }
-}
-    
-
-
-//file_put_contents("custom/include/alertas/parametros_1.php", $ddd)
-?>
