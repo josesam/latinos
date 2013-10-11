@@ -51,3 +51,5 @@ modules/ModuleBuilder/parsers/.DS_Store
 modules/ModuleBuilder/parsers/views/.DS_Store
 
 soap/.DS_Store
+
+upload/*
