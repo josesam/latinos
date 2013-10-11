@@ -53,3 +53,5 @@ modules/ModuleBuilder/parsers/views/.DS_Store
 soap/.DS_Store
 
 upload/*
+cache/Relationships/*
+cache/modules/Emails/*
