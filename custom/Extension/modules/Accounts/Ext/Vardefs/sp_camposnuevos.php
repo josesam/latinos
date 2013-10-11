@@ -213,4 +213,5 @@ $dictionary['Account']['fields']['historico']=array(
     
 );
 
+$dictionary['Account']['fields']['email1']['required']=true;
 ?>

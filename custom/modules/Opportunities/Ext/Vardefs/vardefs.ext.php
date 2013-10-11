@@ -102,6 +102,8 @@ $dictionary['Opportunity']['fields']['files'] = array (
 'group' => 'files',
 'merge_filter' => 'enabled',
 );
+
+
 $dictionary['Opportunity']['fields']['fecha_inicio_curso']=array(
     'name' => 'fecha_inicio_curso',
     'vname' => 'LBL_FECHA_INICIO_CURSO',
@@ -123,6 +125,7 @@ $dictionary['Opportunity']['fields']['fecha_fin_curso']=array(
     'enable_range_search' => true,
     'options' => 'date_range_search_dom',
   );
+
 $dictionary["Opportunity"]["fields"]["fecha_nacimiento_ndb"]=array(
     'required' => false,
     'name' => 'fecha_nacimiento_ndb',
@@ -141,5 +144,6 @@ $dictionary["Opportunity"]["fields"]["fecha_nacimiento_ndb"]=array(
     'enable_range_search' => true,
     'options' => 'date_range_search_dom',
 );
+
 
 ?>
