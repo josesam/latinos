@@ -1,5 +1,5 @@
 <?php
-// created: 2013-04-29 04:48:44
+// created: 2013-10-11 19:14:47
 $mod_strings = array (
   'LBL_ACCOUNT_NAME' => 'Nombre Estudiante:',
   'LBL_ACCOUNTS' => 'Estudiantes',
@@ -52,7 +52,7 @@ $mod_strings = array (
   'UPDATE_MERGE' => 'Unificar Monedas',
   'UPDATE_MERGE_TXT' => 'Unifica varias monedas en una sola. Si se ha registrado la misma moneda varias veces, podrían consolidarse los registros. Esto afecta a todos los módulos.',
   'LBL_CURRENCY' => 'Moneda:',
-  'LBL_DATE_CLOSED' => 'Fecha estimada inicio:',
+  'LBL_DATE_CLOSED' => 'Siguiente fecha de seguimiento:',
   'LBL_TYPE' => 'Tipo:',
   'LBL_NEXT_STEP' => 'Próximo paso:',
   'LBL_LEAD_SOURCE' => 'Origen Interesado:',
@@ -98,8 +98,8 @@ $mod_strings = array (
   'LBL_EXPORT_NAME' => 'Nombre',
   'LBL_CONTACT_HISTORY_SUBPANEL_TITLE' => 'Correos contactos relacionados',
   'LBL_EDITVIEW_PANEL1' => 'Documentos',
-  'LBL_DATE_CLOSED' => 'Siguiente fecha de seguimiento:',
   'LBL_FECHA_INICIO_CURSO' => 'Fecha inicio de curso:',
   'LBL_FECHA_FIN_CURSO' => 'Fecha fin de curso:',
   'LBL_FECHA_NACIMIENTO_NDB' => 'Fecha de nacimiento:',
+  'LBL_EMAILS' => 'Correo',
 );

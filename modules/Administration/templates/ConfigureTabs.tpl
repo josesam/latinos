@@ -38,7 +38,7 @@
 <link rel="stylesheet" type="text/css" href="{sugar_getjspath file='modules/Connectors/tpls/tabs.css'}"/>
 <script type="text/javascript" src="cache/include/javascript/sugar_grp_yui_widgets.js"></script>
 
-<form name="ConfigureTabs" method="POST"  method="POST" action="index.php">
+<form name="ConfigureTabs" method="POST" action="index.php">
 <input type="hidden" name="module" value="Administration">
 <input type="hidden" name="action" value="SaveTabs">
 <input type="hidden" id="enabled_tabs" name="enabled_tabs" value="">
@@ -54,7 +54,7 @@
 	<table border="0" cellspacing="1" cellpadding="1" class="actionsContainer">
 		<tr>
 			<td>
-				<input title="{$APP.LBL_SAVE_BUTTON_TITLE}" accessKey="{$APP.LBL_SAVE_BUTTON_KEY}" class="button primary" onclick="SUGAR.saveConfigureTabs();this.form.action.value='SaveTabs'; " type="submit" name="button" value="{$APP.LBL_SAVE_BUTTON_LABEL}" > 
+				<input title="{$APP.LBL_SAVE_BUTTON_TITLE}" accessKey="{$APP.LBL_SAVE_BUTTON_KEY}" class="button primary" onclick="SUGAR.saveConfigureTabs();this.form.module.value='Administration';this.form.action.value='SaveTabs'; " type="submit" name="button" value="{$APP.LBL_SAVE_BUTTON_LABEL}" > 
 				<input title="{$APP.LBL_CANCEL_BUTTON_TITLE}" accessKey="{$APP.LBL_CANCEL_BUTTON_KEY}" class="button" onclick="this.form.action.value='index'; this.form.module.value='Administration';" type="submit" name="button" value="{$APP.LBL_CANCEL_BUTTON_LABEL}">
 			</td>
 		</tr>

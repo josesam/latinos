@@ -1,5 +1,5 @@
 <?php
-// created: 2013-04-29 03:53:16
+// created: 2013-10-11 19:14:47
 $mod_strings = array (
   'LBL_ACCOUNT_NAME' => 'Nombre Estudiante:',
   'LBL_ACCOUNT_ID' => 'ID Estudiante',
@@ -9,4 +9,5 @@ $mod_strings = array (
   'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Aplicaciones',
   'LBL_OPPORTUNITY_ROLE' => 'Rol Aplicación',
   'LBL_OPPORTUNITY_ROLE_ID' => 'ID Rol Aplicación:',
+  'LBL_EMAILS' => 'Correo',
 );
