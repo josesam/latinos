@@ -11,8 +11,6 @@ cache/import/*
 cache/include/*
 cache/jsLanguage/*
 cache/modules/*
-!cache/modules/emails
-!cache/modules/Emails
 cache/pdf/*
 cache/smarty/cache/*
 cache/smarty/templates_c/*
@@ -54,4 +52,3 @@ soap/.DS_Store
 
 upload/*
 cache/Relationships/*
-cache/modules/Emails/*
