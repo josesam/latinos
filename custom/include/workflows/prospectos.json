@@ -9,6 +9,7 @@
     "registro-evento-mail":{"inicial":"event-registration","final":"contact-out"},
     "cerrar-proceso":{"inicial":"interview-attended","final":"interview-post-contact"},
     "cerrar-proceso-walk-in":{"inicial":"interview-walked-in","final":"interview-post-contact"},
-    "reagendar":{"inicial":"interview-not-attended","final":"interview-attended"}
+    "reagendar":{"inicial":"interview-not-attended","final":"interview-attended"},
+    "cambio-manual":{"inicial":"contact-out","final":"contact-in"}
 }
 }

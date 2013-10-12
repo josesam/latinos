@@ -19,6 +19,10 @@ array (
           array (
             'customCode' => '{if $fields.status.value eq "interview-not-attended"}<input type="submit" class="button" value="Reagendar" id="reagendar" name="reagendar"/>{/if}',
           ),
+          5 => 
+          array (
+            'customCode' => ' {if $fields.status.value === "contact-out"}<input type="submit" class="button" value="Contact-in" id="contactin" name="contact-in"/>{/if}',
+          ),  
         ),
       ),
       'maxColumns' => '2',
@@ -44,6 +48,10 @@ array (
         1 => 
         array (
           'file' => 'custom/include/scripts/sistema/Accounts/SpAccountsDetail.js',
+        ),
+        2 => 
+        array (
+          'file' => 'custom/include/scripts/genericas/varios/jquery.confirm.min.js',
         ),
       ),
       'useTabs' => true,
@@ -102,7 +110,10 @@ array (
             'name' => 'status',
             'comment' => 'Estado Estudiante',
             'label' => 'LBL_STATUS',
-            'customCode' => '{$fields.status.value} <input type="hidden" id="parent_id" name="parent_id" value="{$fields.id.value}">',
+            'customCode' => '{$fields.status.value} 
+             <input type="hidden" id="parent_id" name="parent_id" value="{$fields.id.value}">
+             <input type="hidden" id="estadoprospecto" name="estadoprospecto" value="{$fields.status.value}">    
+            ',
           ),
         ),
         2 => 

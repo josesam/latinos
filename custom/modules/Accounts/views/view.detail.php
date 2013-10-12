@@ -61,14 +61,17 @@ class AccountsViewDetail extends ViewDetail {
  		 if(file_exists('custom/include/clases/popups/modules/Accounts/popworkflowView.php')){
                     include_once 'custom/include/clases/popups/modules/Accounts/popworkflowView.php';
                  }
-
-             $this->bean->status=$app_list_strings['estatus_dom'][$this->bean->status];    
-            parent::display();
+                  if(file_exists('custom/include/clases/popups/modules/Accounts/popreagendar.php')){
+                    include_once 'custom/include/clases/popups/modules/Accounts/popreagendar.php';
+                 }
+             //$this->bean->status=$app_list_strings['estatus_dom'][$this->bean->status];    
+             
+             parent::display();
     }
 
 
         function  _displaySubPanels() {           
-            global $mod_strings;
+            
 
            require_once ('include/SubPanel/SubPanelTiles.php');
            $subpanel = new SubPanelTiles($this->bean, $this->module);
