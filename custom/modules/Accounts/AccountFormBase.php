@@ -513,7 +513,7 @@ function handleSave($prefix,$redirect=true, $useRequired=false){
             include_once $path;
             $prospectoWorkflow=new ProspectoWorkFlow('prospectos','');
             if ($new)
-               $prospectoWorkflow->procesaWorkFlow($focus->id, $focus->module_name, '', "event_registration","excel" );
+               $prospectoWorkflow->procesaWorkFlow($focus->id, $focus->module_name, '', "event_registration",$focus->medioingreso);
         }
         
 	$GLOBALS['log']->debug("Saved record with id of ".$return_id);

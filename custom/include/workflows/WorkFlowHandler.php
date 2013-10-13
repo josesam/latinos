@@ -42,7 +42,7 @@ class WorkFlowHandler{
     } 
     /* Devuelve el estado acutal */
     function getEstadoActual(){
-        return $this->stm->getCurrentState();
+        return $this->document->getFiniteState();
     }
     /* 
      * Setea el estado actual verificando si esta permitido
