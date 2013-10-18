@@ -616,7 +616,9 @@ function handleSave($prefix,$redirect=true, $useRequired=false){
                 }
         }
         
-        
+        $timedate = TimeDate::getInstance();  
+        $end_date = new SugarDateTime('+4 days');  
+        $task->date_due = $timedate->asUser($end_date, $GLOBALS['current_user']); 
         //FECHA DE NACIMIENTO
         $sql = "UPDATE accounts SET dateofbirth='".$focus->fecha_nacimiento_ndb."' WHERE id = '".$focus->account_id."'";
         $result=$db->query($sql);

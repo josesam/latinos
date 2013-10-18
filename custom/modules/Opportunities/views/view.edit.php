@@ -77,7 +77,12 @@ echo '<div id="institucion_dlg" style="display:none;">
             $estudiante = new Clientes();
             $fechaNacimiento = $estudiante->fechaNacimiento($idAlumno);
             
-            $this->bean->fecha_nacimiento_ndb=$fechaNacimiento;
+            global $current_user;
+            // Instantiate the TimeDate Class
+            $timeDate = new TimeDate();
+            
+            
+            $this->bean->fecha_nacimiento_ndb=$timeDate->to_display_date($fechaNacimiento, true, true, $current_user);;
             parent::display();
                           
              

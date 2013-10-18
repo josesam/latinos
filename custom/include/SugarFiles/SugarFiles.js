@@ -47,6 +47,7 @@
                     tipo_archivo += "<option value='Visa Denied'>Visa Denied</option>";
                     tipo_archivo += "<option value='Visa Received'>Visa Received</option>";
                     tipo_archivo += "<option value='Student Documents'>Student Documents</option>";
+                    tipo_archivo += "<option value='University Documents'>University Documents</option>";
                 tipo_archivo += "</select>"
                     
                     
