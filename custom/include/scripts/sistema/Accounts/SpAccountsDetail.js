@@ -100,7 +100,7 @@ contactin=function(){
                             height: 500 ,
                             hide: 'slide',
                             modal: true ,
-                            title: 'Reagenda Cita',
+                            title: 'Contact in',
                             width: 800
                             });
 
