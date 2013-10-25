@@ -11,45 +11,13 @@ array (
         'default' => true,
         'width' => '10%',
       ),
-      'estado_estudiante' => 
+      'email' => 
       array (
-        'type' => 'enum',
+        'name' => 'email',
+        'label' => 'LBL_ANY_EMAIL',
+        'type' => 'name',
         'default' => true,
-        'label' => 'LBL_ESTADOCLIENTE',
         'width' => '10%',
-        'name' => 'estado_estudiante',
-      ),
-      'lae' => 
-      array (
-        'type' => 'multienum',
-        'label' => 'LBL_LAE',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'lae',
-      ),
-      'levelinterest' => 
-      array (
-        'type' => 'enum',
-        'label' => 'LBL_LEVELINTEREST',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'levelinterest',
-      ),
-      'areainterest' => 
-      array (
-        'type' => 'multienum',
-        'label' => 'LBL_AREAINTEREST',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'areainterest',
-      ),
-      'potential' => 
-      array (
-        'type' => 'enum',
-        'label' => 'LBL_POTENTIAL',
-        'width' => '10%',
-        'default' => true,
-        'name' => 'potential',
       ),
       'status' => 
       array (
@@ -59,19 +27,13 @@ array (
         'width' => '10%',
         'name' => 'status',
       ),
-      'registrationdate' => 
+      'potential' => 
       array (
-        'type' => 'date',
-        'label' => 'LBL_REGISTRATIONDATE',
+        'type' => 'enum',
+        'label' => 'LBL_POTENTIAL',
         'width' => '10%',
         'default' => true,
-        'name' => 'registrationdate',
-      ),
-      'account_type' => 
-      array (
-        'name' => 'account_type',
-        'default' => true,
-        'width' => '10%',
+        'name' => 'potential',
       ),
       'current_user_only' => 
       array (
