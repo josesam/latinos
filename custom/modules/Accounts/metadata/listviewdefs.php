@@ -36,7 +36,7 @@ array (
     'width' => '10%',
     'default' => true,
   ),
-  'AREAINTERES' => 
+  'AREAINTEREST' => 
   array (
     'type' => 'multienum',
     'label' => 'LBL_AREAINTEREST',
