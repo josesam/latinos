@@ -18,13 +18,13 @@ class OpportunitiesViewResultadobuscarinstitucion extends ViewEdit {
             $filtroBusqueda = $_REQUEST['filtro'];
             $filtro='';
             if($filtroBusqueda ==! '')
-                    $filtro = " and (c.valor like '%$filtroBusqueda%' or p.valor like '%$filtroBusqueda%') " ;
+                    $filtro = " and (c.valor like '%$filtroBusqueda%' or p.valor like '%$filtroBusqueda%' or i.valor like '%$filtroBusqueda%') " ;
             
             $sql="SELECT i.valor as institucion ,c.id idciudad,c.valor ciudad , p.id idpais,p.valor as pais
                   FROM 
                   CATALOGO i left join CATALOGO c on i.padre_id=c.id
                   left join CATALOGO p on p.id=c.padre_id
-                  where (p.clase='paisinteres' or c.clase='ciudadinteres' or p.clase='institucion') $filtro
+                  where (p.clase='paisinteres' or c.clase='ciudadinteres' or i.clase='institucion') $filtro
                   order by ciudad, pais limit 0,20";
             $result =$db->query($sql);
             

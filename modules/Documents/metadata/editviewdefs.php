@@ -88,10 +88,10 @@ $viewdefs['Documents']['EditView'] = array(
 
     ),
 
-    array (
-      'exp_date',
-      'subcategory_id',
-    ),
+//    array (
+//      'exp_date',
+//      'subcategory_id',
+//    ),
 
     array (
       array('name'=>'description'),

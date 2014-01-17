@@ -54,6 +54,20 @@ $dictionary['Account']['fields']['areainterest']=array(
 			
             
 );
+$dictionary['Account']['fields']['phone_provider']=array(
+            'name' => 'phone_provider',
+		    'vname' => 'LBL_PHONE_PROVIDER',
+		    'type' => 'enum',
+		    'required' => false,
+			'options' => 'phone_provider_dom',
+		    'comment' => 'Phone provider',
+			'help' => 'Phone provider',
+			'importable' => 'true',
+			'duplicate_merge' => 'disabled',
+			'isMultiSelect'=>false
+			
+            
+);
 $dictionary['Account']['fields']['paisinterest']=array(
             'name' => 'paisinterest',
 		    'vname' => 'LBL_PAISINTEREST',

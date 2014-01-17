@@ -158,11 +158,20 @@ type="submit" name="button" value="Guardar">',
           ),
           1 => 
           array (
+            'name' => 'phone_provider',
+            'comment' => 'Phone provider',
+            'label' => 'LBL_PHONE_PROVIDER',
+          ),
+        ),
+        5 => 
+        array (
+          0 => 
+          array (
             'name' => 'phone_fax',
             'label' => 'LBL_FAX',
           ),
         ),
-        5 => 
+        6 => 
         array (
           0 => 
           array (
@@ -177,7 +186,7 @@ type="submit" name="button" value="Guardar">',
             'label' => 'LBL_GROUPASSOCIATION',
           ),
         ),
-        6 => 
+        7 => 
         array (
           0 => 
           array (

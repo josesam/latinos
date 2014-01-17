@@ -53,6 +53,10 @@ $subpanel_layout = array(
 			 'width'				=> '30%',
              'parent_info'          => true
 		),
+                'description'=>array(
+			 'vname' => 'LBL_DESCRIPTION',
+			 'width' => '30%',
+		),
 		'status' => array(
 			 'vname'				=> 'LBL_LIST_STATUS',
 			 'width'				=> '15%',

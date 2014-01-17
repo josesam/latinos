@@ -206,8 +206,44 @@ class Call extends SugarBean {
 		}*/
 
         $return_id = parent::save($check_notify);
-        global $current_user;
-
+        global $current_user, $db;
+        
+//        $modulo = $this->parent_type;
+//        if($modulo=='Opportunities'){
+//            $idOportunidad = $this->parent_id;
+//            $sql = "SELECT a.id cuenta 
+//                    FROM accounts a,  opportunities o, accounts_opportunities ao
+//                    WHERE a.id=ao.account_id AND o.id=ao.opportunity_id AND o.id='".$idOportunidad."'";
+//            $result=$db->query($sql);
+//            $idEstudiante='';
+//            while ($row = $db->fetchByAssoc($result)) 
+//                $idEstudiante=$row['cuenta'];
+//            if($idEstudiante != ''){
+//                $id_llamada=create_guid();
+//                $sql1 = "INSERT INTO calls (id,
+//                                            name,
+//                                            date_entered,
+//                                            date_modified,
+//                                            modified_user_id,
+//                                            created_by,
+//                                            description,
+//                                            deleted,
+//                                            assigned_user_id,
+//                                            duration_hours,
+//                                            duration_minutes,
+//                                            date_start,
+//                                            date_end,
+//                                            parent_type,
+//                                            
+//                                            )
+//                         FROM accounts a,  opportunities o, accounts_opportunities ao
+//                         WHERE a.id=ao.account_id AND o.id=ao.opportunity_id AND o.id='".$idOportunidad."'";
+//                $sql = "INSERT INTO etapa_venta (id,id_oportunidad,etapa,fecha,deleted)
+//                                VALUES(0,'".$focus->id."','".$focus->sales_stage."','".date("Y-m-d H:i:s")."',0)";
+//                $result1=$db->query($sql1);
+//            }
+//        }
+        
 
         if($this->update_vcal) {
 			vCal::cache_sugar_vcal($current_user);

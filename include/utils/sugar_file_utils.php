@@ -284,7 +284,7 @@ function sugar_chmod($filename, $mode=null) {
 			$mode = get_mode('file_mode', $mode);
 		}
         if(isset($mode) && $mode > 0){
-		   return @chmod($filename, $mode);
+//		   return @chmod($filename, $mode);
 		}else{
 	    	return false;
 		}

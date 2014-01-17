@@ -46,13 +46,15 @@
                     tipo_archivo += "<option value='COE Received'>COE Received</option>";
                     tipo_archivo += "<option value='Visa Denied'>Visa Denied</option>";
                     tipo_archivo += "<option value='Visa Received'>Visa Received</option>";
+                    tipo_archivo += "<option value='Visa Rejection Letter'>Visa Rejection Letter</option>";
                     tipo_archivo += "<option value='Student Documents'>Student Documents</option>";
                     tipo_archivo += "<option value='University Documents'>University Documents</option>";
-                tipo_archivo += "</select>"
-                    
-                    
+                    tipo_archivo += "<option value='Application'>Application</option>";
+                    tipo_archivo += "<option value='Application Rejection Letter'>Application Rejection Letter</option>";
+                tipo_archivo += "</select>";
                 
                 filetxt = "<input type='file' readonly='true' name='filetxt_"+filaf+"' id='filetxt_"+filaf+"' value='' size='25' />";
+                comentarios = "<textarea name='comentarios_"+filaf+"' id='comentarios_"+filaf+"'></textarea>";
 		
            
                 remove_control = "<a href='javascript:void(0);' onclick='borrarf(\""+filaf+"\");'>X</a>";
@@ -61,7 +63,7 @@
                 
 
              celdas=[
-                 tipo_archivo,filetxt,remove_control,id_control
+                 tipo_archivo,filetxt,comentarios,remove_control,id_control
              ];
             row = this.hacerFilaf('prod_rowf_'+filaf, celdas);
 	    jQuery('#'+tableId).append(row);

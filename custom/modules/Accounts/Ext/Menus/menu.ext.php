@@ -19,11 +19,11 @@ if(ACLController::checkAccess('Accounts', 'edit', true))
 		"Carga Excel","CampaignsWizard"
 	);
 
-if(ACLController::checkAccess('Accounts', 'edit', true))
-	$module_menu[] = array(
-		"index.php?module=Accounts&action=reportes&return_module=Accounts&return_action=index",
-		"Surveys y reportes","CampaignsWizard"
-	);
+//if(ACLController::checkAccess('Accounts', 'edit', true))
+//	$module_menu[] = array(
+//		"index.php?module=Accounts&action=reportes&return_module=Accounts&return_action=index",
+//		"Surveys y reportes","CampaignsWizard"
+//	);
 
 
 ?>

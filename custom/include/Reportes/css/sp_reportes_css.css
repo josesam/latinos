@@ -1,0 +1,55 @@
+/* 
+    Document   : sp_reportes_css
+    Created on : Oct 17, 2010, 9:20:29 PM
+    Author     : Jose Sambrano
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.odd {
+background-color: #fff; /* pale yellow for odd rows */
+}
+.even {
+background-color: #cef; /* pale blue for even rows */
+}
+.sp_reporttitle{
+    font-size: 14px;
+ 
+
+}
+.table-heading{
+background-color: #2ac405;
+
+}
+.filters{
+    background-color: #ffffff;
+    
+}
+.reportTitle{
+    background-color: #4E8CCF;
+    color:#fff;
+    font-family: sans-serif;
+    font-size: 14px;
+
+}
+
+th.header{
+ background-color: #4E8CCF;
+ color:#fff;
+ font-family: sans-serif;
+ font-size: 14px;
+
+}
+
+th.header_1{
+ background-color:#0000A0!important;
+ color:#fff;
+ font-family: sans-serif;
+ font-size: 14px;
+
+}

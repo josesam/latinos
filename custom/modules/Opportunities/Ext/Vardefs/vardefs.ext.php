@@ -145,5 +145,7 @@ $dictionary["Opportunity"]["fields"]["fecha_nacimiento_ndb"]=array(
     'options' => 'date_range_search_dom',
 );
 
-
+$dictionary["Opportunity"]["name"]=array(
+    "len"=>255
+    );
 ?>

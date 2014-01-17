@@ -1,0 +1,90 @@
+<script type='text/javascript' src='include/javascript/sugar_grp_overlib.js'></script>
+<script type='text/javascript' src='custom/include/Reportes/scripts/jquery.min.js'></script>
+<script type='text/javascript' src='custom/include/Reportes/scripts/jquery.dataTables.js'></script>
+<script type='text/javascript' src='custom/include/Reportes/scripts/sp_reportes.js'></script>
+<script type="text/javascript" charset="utf-8" src="custom/include/Reportes/scripts/tabletools/media/js/ZeroClipboard.js"></script>
+<script type='text/javascript' src='custom/include/Reportes/scripts/tabletools/media/js/TableTools.js'></script>
+
+<link rel='stylesheet' href='custom/include/Reportes/css/sp_reportes_css.css' type='text/css' />
+<link rel='stylesheet' href='custom/include/Reportes/css/demo_page.css' type='text/css' />
+<link rel='stylesheet' href='custom/include/Reportes/css/demo_table.css' type='text/css' />
+<link rel='stylesheet' href='custom/include/Reportes/scripts/tabletools/media/css/TableTools.css' type='text/css' />
+<link rel="stylesheet" type="text/css" href="custom/include/css/tablas/style.css" />
+
+<form name="SP_Reporte" id="SP_Reporte" method="POST" action="index.php?module=tr_Reportes&action=parametros" >
+<input type="hidden" name="reportes" id="reportes" value="{$reportes}">
+<input type="hidden" name="module" id="module" value="tr_Reportes">
+<input type="hidden" name="action" id="action" value="parametros">
+<table width="100%"  id="rounded-corner">
+<thead>
+<tr>
+<th scope="col" class="rounded-company"><h1>{$title}</h1></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td >
+<input type="submit" name="verreporte" id="verreporte" value="Ver Reporte">
+<input type="submit" name="descargar" id="descargar" value="Descargar">
+<td>
+
+</tr>
+
+
+
+</tbody>
+
+</table>
+</form>
+
+{if $show_data==true}
+
+
+<table width="100%" class='display' id='example'>
+<thead>
+<tr>
+<th class="header">Student Name</th>
+<th class="header">University</th>
+<th class="header">Course</th>
+<th class="header">Application Sent Date</th>
+<th class="header">Weeks Since Application Sent</th>
+</tr>
+</thead>
+<tbody>
+    {foreach key=key item=item from=$data}
+<tr>
+        {foreach key=key item=item from=$item}
+         <td>
+
+         {$item}
+        </td>
+        {/foreach}
+</tr>
+{/foreach}
+</tbody>
+</table>
+{/if}
+<script type="text/javascript">
+{literal}
+Calendar.setup ({
+	inputField : "jscal_field",
+        daFormat : '%d/%m/%Y',
+        onClose: function(cal) { cal.hide(); },
+        showsTime : false,
+        button : "jscal_trigger",
+        singleClick : true,
+        step : 1,
+        weekNumbers:false
+});
+Calendar.setup ({
+	inputField : "jscal1_field",
+        daFormat : '%d/%m/%Y',
+        onClose: function(cal) { cal.hide(); },
+        showsTime : false,
+        button : "jscal1_trigger",
+        singleClick : true,
+        step : 1,
+        weekNumbers:false
+});
+{/literal}
+</script>

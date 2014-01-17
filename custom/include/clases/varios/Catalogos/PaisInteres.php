@@ -25,7 +25,6 @@ class PaisInteres implements CatalogoInterface{
         if($limit>0)
             $limite="limit 0,$limit";
         $sql="Select id,valor from CATALOGO where clase ='".self::$contexto."' $filtro $limite";
-        echo $sql;
         $result =$db->query($sql);
         while ($a=$db->fetchByAssoc($result)){
             $data[]=$a;

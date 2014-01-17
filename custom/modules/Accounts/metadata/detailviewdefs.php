@@ -141,6 +141,15 @@ array (
           ),
           1 => 
           array (
+            'name' => 'phone_provider',
+            'comment' => 'Phone provider',
+            'label' => 'LBL_PHONE_PROVIDER',
+          ),
+        ),
+        4 => 
+        array (
+          0 => 
+          array (
             'name' => 'phone_fax',
             'comment' => 'The fax phone number of this company',
             'label' => 'LBL_FAX',

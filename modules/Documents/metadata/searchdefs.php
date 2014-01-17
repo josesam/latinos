@@ -43,12 +43,13 @@
                     'layout' => array(
                         'basic_search' => array(
                                 'document_name',
+                            'category_id', 
                                 
                             ),
                         'advanced_search' => array(
                                 'document_name', 
                                 'category_id', 
-                                'subcategory_id',
+//                                'subcategory_id',
                                 'active_date',
                                 'exp_date',
                                'assigned_user_id' => 

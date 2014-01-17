@@ -137,5 +137,6 @@ $mod_strings = array (
   'LBL_NOMBRECORTO' => 'Nombre corto:',
   'LBL_LEAD_SOURCE' => 'Medio de contacto:',
   'LBL_EMAILS' => 'Correo',
-   'LBL_STATUS'=>'Estado del Contato' 
+   'LBL_STATUS'=>'Estado del Contato' ,
+    'LBL_PHONE_PROVIDER'=>'Phone provider:' 
 );

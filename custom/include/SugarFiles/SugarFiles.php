@@ -42,7 +42,8 @@ class SugarFiles extends SugarBean {
                             'realarchivo'=>  $_FILES['filetxt_' . $id],
                             'oportunidad_id'=>$cotizacion,
                             'nombre_campo'=>'filetxt_' . $id,
-                            'tipoarchivo'=>$datos['tipo_archivo_' . $id]
+                            'tipoarchivo'=>$datos['tipo_archivo_' . $id],
+                            'comentario'=>  $datos['comentario_' . $id],
                         );
                         self::AddUpdateFiles($data);
 
@@ -83,6 +84,7 @@ class SugarFiles extends SugarBean {
                  $documento->document_name=$data['realarchivo']['name'];
                  $documento->status_id='Active';
                  $documento->template_type=$data['tipoarchivo'];
+                 $documento->description=$data['comentario'];
                  
                  if (empty($documento->doc_type)) {
 			$documento->doc_type = 'Sugar';
@@ -192,7 +194,8 @@ class SugarFiles extends SugarBean {
                            size,
                            error,
                            oportunidad_id,
-                           document_id
+                           document_id,
+                           comentario
                          )
                           values(
                           null,
@@ -205,6 +208,7 @@ class SugarFiles extends SugarBean {
                           '".$data['realarchivo']['error']."',
                           '".$data['oportunidad_id']."',
                           '".$documento->id."'
+                          '".$data['comentario']."',
                           )";
 
         	   	 $this->db->query($query);
@@ -277,7 +281,8 @@ class SugarFiles extends SugarBean {
                                           'tipo'=>$ambientes['type'],
                                           'size'=>$ambientes['size'],
                                           'document_id'=>$ambientes['documento_id'],
-                            'tipoarchivo'=>$ambientes['tipo_archivo']
+                            'tipoarchivo'=>$ambientes['tipo_archivo'],
+                            'comentario'=>$ambientes['comentario']
 
 
 			);
@@ -314,7 +319,8 @@ class SugarFiles extends SugarBean {
                                           'tipo'=>$ambientes['type'],
                                           'size'=>$ambientes['size'],
                                           'document_id'=>$ambientes['document_id'],
-                                          'tipoarchivo'=>$ambientes['tipo_archivo']
+                                          'tipoarchivo'=>$ambientes['tipo_archivo'],
+                                          'comentario'=>$ambientes['comentario']
 
 
 			);

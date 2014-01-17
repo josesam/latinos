@@ -1,0 +1,186 @@
+<script type='text/javascript' src='include/javascript/sugar_grp_overlib.js'></script>
+<script type='text/javascript' src='custom/include/Reportes/scripts/jquery.min.js'></script>
+<script type='text/javascript' src='custom/include/Reportes/scripts/jquery.dataTables.js'></script>
+<script type='text/javascript' src='custom/include/Reportes/scripts/sp_reportes.js'></script>
+<script type="text/javascript" charset="utf-8" src="custom/include/Reportes/scripts/tabletools/media/js/ZeroClipboard.js"></script>
+<script type='text/javascript' src='custom/include/Reportes/scripts/tabletools/media/js/TableTools.js'></script>
+<link rel='stylesheet' href='custom/include/Reportes/css/sp_reportes_css.css' type='text/css' />
+<link rel='stylesheet' href='custom/include/Reportes/css/demo_page.css' type='text/css' />
+<link rel='stylesheet' href='custom/include/Reportes/css/demo_table.css' type='text/css' />
+<link rel='stylesheet' href='custom/include/Reportes/scripts/tabletools/media/css/TableTools.css' type='text/css' />
+<link rel="stylesheet" type="text/css" href="custom/include/css/tablas/style.css" />
+<form name="SP_Reporte" id="SP_Reporte" method="POST" action="index.php?module=tr_Reportes&action=parametros" >
+<input type="hidden" name="reportes" id="reportes" value="{$reportes}">
+<input type="hidden" name="module" id="module" value="tr_Reportes">
+<input type="hidden" name="action" id="action" value="parametros">
+<table width="100%"  id="rounded-corner">
+<thead>
+<tr>
+<th colspan="4" scope="col" class="rounded-company"><h1>{$title}</h1><th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="4">
+<input type="submit" name="verreporte" id="verreporte" value="Ver Reporte">
+<input type="submit" name="descargar" id="descargar" value="Descargar">
+<td>
+
+</tr>
+
+
+<tr>
+<td><slot>Estado del estudiante:</slot></td>
+<td>
+<select name="estado_estudiante[]" id="estado_estudiante"  SIZE=5 multiple>
+    {$selected_estado_estudiante}
+</select>
+</td>
+
+<td><slot>Potential:</slot></td>
+<td>
+<select name="potential[]" id="potential"  SIZE=5 multiple>
+    {$selected_potential}
+</select>
+</td>
+</tr>
+<tr>
+<td><slot>Nivel interés:</slot></td>
+<td>
+<select name="nivel_interes[]" id="nivel_interes"  SIZE=5 multiple>
+    {$selected_nivel_interes}
+</select>
+</td>
+
+<td><slot>País interés:</slot></td>
+<td>
+<select name="pais_interes[]" id="pais_interes"  SIZE=5 multiple>
+    {$selected_pais_interes}
+</select>
+</td>
+</tr>
+<tr>
+<td><slot>Área interés:</slot></td>
+<td>
+<select name="area_interes[]" id="area_interes"  SIZE=5 multiple>
+    {$selected_area_interes}
+</select>
+</td>
+
+<td><slot>Grupo asociado:</slot></td>
+<td>
+    <select name="grupo_asociado[]" id="grupo_asociado"  SIZE=3 multiple>
+    {$selected_grupo_asociado}
+</select>
+</td>
+</tr>
+
+<tr>
+<td><slot>Asignado a:</slot></td>
+<td>
+    <select name="usuarios[]" id="usuarios"  SIZE=5 multiple>
+    {$selected_usuarios}
+</select>
+</td>
+
+<td></td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td><div id="texto_filtros">Fecha inicial de registro:</div></td>
+<td><input name='fecha_inicial_registro' onblur="parseDate(this, '%Y-%m-%d');" id='jscal_field' type="text" tabindex='1' size='11' maxlength='10' value="{$fecha_inicial_registro}"> <img src="{sugar_getimagepath file='jscalendar.gif'}" alt="{$APP.LBL_ENTER_DATE}"  id="jscal_trigger" align="absmiddle"> <span class="dateFormat">yyyy-mm-dd</span></slot></td></td>
+<td><div id="texto_filtros">Fecha final de registro:<span style="color:#FF0000;">*</span></div></td>
+<td><input name='fecha_final_registro' onblur="parseDate(this, '%Y-%m-%d');" id='jscal1_field' type="text" tabindex='1' size='11' maxlength='10' value="{$fecha_final_registro}"> <img src="{sugar_getimagepath file='jscalendar.gif'}" alt="{$APP.LBL_ENTER_DATE}"  id="jscal1_trigger" align="absmiddle"> <span class="dateFormat">yyyy-mm-dd</span></slot></td>
+
+</tr>
+
+<tr>
+<td><div id="texto_filtros">Fecha inicial de último contacto</div></td>
+<td><input name='fecha_inicial_ultimo_contacto' onblur="parseDate(this, '%Y-%m-%d');" id='jscal2_field' type="text" tabindex='1' size='11' maxlength='10' value="{$fecha_inicial_ultimo_contacto}"> <img src="{sugar_getimagepath file='jscalendar.gif'}" alt="{$APP.LBL_ENTER_DATE}"  id="jscal2_trigger" align="absmiddle"> <span class="dateFormat">yyyy-mm-dd</span></slot></td></td>
+<td><div id="texto_filtros">Fecha final de último contacto<span style="color:#FF0000;">*</span></div></td>
+<td><input name='fecha_final_ultimo_contacto' onblur="parseDate(this, '%Y-%m-%d');" id='jscal3_field' type="text" tabindex='1' size='11' maxlength='10' value="{$fecha_final_ultimo_contacto}"> <img src="{sugar_getimagepath file='jscalendar.gif'}" alt="{$APP.LBL_ENTER_DATE}"  id="jscal3_trigger" align="absmiddle"> <span class="dateFormat">yyyy-mm-dd</span></slot></td>
+
+</tr>
+</tbody>
+
+</table>
+</form>
+
+{if $show_data==true}
+
+
+<table width="100%" class='display' id='example'>
+<thead>
+<tr>
+<th class="header">Name</th>
+<th class="header">Email</th>
+<th class="header">Celular</th>
+<th class="header">Teléfono</th>
+<th class="header">Estado del estudiante</th>
+<th class="header">Potential</th>
+<th class="header">Nivel de interés</th>
+<th class="header">Área de interés</th>
+<th class="header">Last contact date</th>
+<th class="header">Weeks since last contact</th>
+</tr>
+</thead>
+<tbody>
+    {foreach key=key item=item from=$data}
+<tr>
+        {foreach key=key item=item from=$item}
+         <td>
+
+         {$item}
+        </td>
+        {/foreach}
+</tr>
+{/foreach}
+</tbody>
+</table>
+{/if}
+<script type="text/javascript">
+{literal}
+Calendar.setup ({
+	inputField : "jscal_field",
+        daFormat : '%Y-%m-%d',
+        onClose: function(cal) { cal.hide(); },
+        showsTime : false,
+        button : "jscal_trigger",
+        singleClick : true,
+        step : 1,
+        weekNumbers:false
+});
+Calendar.setup ({
+	inputField : "jscal1_field",
+        daFormat : '%Y-%m-%d',
+        onClose: function(cal) { cal.hide(); },
+        showsTime : false,
+        button : "jscal1_trigger",
+        singleClick : true,
+        step : 1,
+        weekNumbers:false
+});
+Calendar.setup ({
+	inputField : "jscal2_field",
+        daFormat : '%Y-%m-%d',
+        onClose: function(cal) { cal.hide(); },
+        showsTime : false,
+        button : "jscal2_trigger",
+        singleClick : true,
+        step : 1,
+        weekNumbers:false
+});
+Calendar.setup ({
+	inputField : "jscal3_field",
+        daFormat : '%Y-%m-%d',
+        onClose: function(cal) { cal.hide(); },
+        showsTime : false,
+        button : "jscal3_trigger",
+        singleClick : true,
+        step : 1,
+        weekNumbers:false
+});
+{/literal}
+</script>

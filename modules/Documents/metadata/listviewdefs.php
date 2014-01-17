@@ -70,12 +70,12 @@ $listViewDefs['Documents'] = array(
     'label' => 'LBL_LIST_CATEGORY',
     'default' => true,
   ),
-  'SUBCATEGORY_ID' => 
-  array (
-    'width' => '15%',
-    'label' => 'LBL_LIST_SUBCATEGORY',
-    'default' => true,
-  ),
+//  'SUBCATEGORY_ID' => 
+//  array (
+//    'width' => '15%',
+//    'label' => 'LBL_LIST_SUBCATEGORY',
+//    'default' => true,
+//  ),
   'LAST_REV_CREATE_DATE' => 
   array (
     'width' => '10%',
