@@ -76,6 +76,7 @@ class AccountsViewDetail extends ViewDetail {
            require_once ('include/SubPanel/SubPanelTiles.php');
            $subpanel = new SubPanelTiles($this->bean, $this->module);
 //         
+        
            $subpanel->subpanel_definitions->layout_defs['subpanel_setup']['opportunities']['top_buttons'][0]['widget_class']='SubPanelTopCreateButton';
            unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['accounts']);
            unset($subpanel->subpanel_definitions->layout_defs['subpanel_setup']['contacts']);

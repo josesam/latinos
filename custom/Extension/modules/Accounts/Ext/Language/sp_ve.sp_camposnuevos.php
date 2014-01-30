@@ -14,4 +14,10 @@ $mod_strings['LBL_ESTADOESTUDIANTE']='Estado del Estudiante';
 $mod_strings['LBL_ESTADOCLIENTE']='Estado del Estudiante';
 $mod_strings['LBL_HISTORICO']='Historico del Estudiante';
 
+$mod_strings['LBL_HISTORICO_APLICACION']='Historico Contactado';
+$mod_strings['LBL_ORIGEN']='Fuente de Ingreso';
+$mod_strings['LBL_FECHACREACION']='Fecha de ingreso';
+$mod_strings['LBL_DESCRIPCION']='Descripcion';
+
+
 ?>
