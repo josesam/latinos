@@ -9,17 +9,38 @@ class Cabecera {
            $verificarMail = '';
            $sqlVerificarMail=$db->query('SELECT ea.id email_id 
                                          FROM email_addresses ea,email_addr_bean_rel br 
-                                         WHERE ea.id=br.email_address_id AND bean_module="Accounts" AND email_address="'.(utf8_decode($lista[$i][3])).'"
+                                         WHERE ea.id=br.email_address_id AND bean_module="Accounts" AND email_address="'.(utf8_decode($lista[$i][4])).'"
                                                AND ea.deleted=0 AND br.deleted=0'); 
            while($a = $db->fetchByAssoc($sqlVerificarMail))
               $verificarMail=$a['email_id'];
            
-           if (filter_var($lista[$i][3], FILTER_VALIDATE_EMAIL)){
+           if (filter_var($lista[$i][4], FILTER_VALIDATE_EMAIL)){
            if($verificarMail == ''){
                 $id=create_guid();
-                $rr = "INSERT INTO accounts(id,name,date_entered,date_modified,modified_user_id,created_by,description,deleted,assigned_user_id,  
-                                            phone_fax,phone_office,phone_alternate,lae,levelinterest,groupassociation,potential,
-                                            status,dateofbirth,registrationdate,areainterest,paisinterest,medioingreso)
+                $rr = "INSERT INTO accounts(
+                                            id,
+                                            name,
+                                            date_entered,
+                                            date_modified,
+                                            modified_user_id,
+                                            created_by,
+                                            description,
+                                            deleted,
+                                            assigned_user_id,  
+                                            phone_fax,
+                                            phone_office,
+                                            phone_alternate,
+                                            lae,
+                                            levelinterest,
+                                            groupassociation,
+                                            potential,
+                                            status,
+                                            dateofbirth,
+                                            registrationdate,
+                                            areainterest,
+                                            paisinterest,
+                                            medioingreso
+                                         )
                        VALUES(";
                 $ff = "'".$id."',
                      '".utf8_encode($lista[$i][0])."',
@@ -27,22 +48,22 @@ class Cabecera {
                      '".gmdate($GLOBALS['timedate']->get_db_date_time_format())."',
                      '".$user_id."',
                      '".$user_id."',
-                     '".utf8_encode($lista[$i][12])."',
+                     '".utf8_encode($lista[$i][15])."',
                      '0',
                      '".$user_id."',
-                     '".$lista[$i][5]."',
-                     '".$lista[$i][4]."',
                      '".$lista[$i][6]."',
-                     '".$lista[$i][8]."',
-                     '".$lista[$i][9]."',
+                     '".$lista[$i][5]."',
                      '".$lista[$i][7]."',
-                     '".$lista[$i][13]."',
-                     'event-registration',
-                     '".$lista[$i][2]."',
-                     '".date('Y-m-d')."',
                      '".$lista[$i][10]."',
-                     '".$lista[$i][11]."',
-                     '".$lista[$i][1]."'
+                     '".$lista[$i][14]."',
+                     '".$lista[$i][9]."',
+                     '".$lista[$i][16]."',
+                     'event-registration',
+                     '".$lista[$i][3]."',
+                     '".date('Y-m-d')."',
+                     '".$lista[$i][13]."',
+                     '".$lista[$i][12]."',
+                     '".$lista[$i][2]."'
                      )";
                 $r=$db->query($rr.$ff);
 
@@ -58,8 +79,8 @@ class Cabecera {
                          ) VALUES (
 
                           '$idEmail1',
-                          '".$lista[$i][3]."',
-                          '".strtoupper($lista[$i][3])."',
+                          '".$lista[$i][4]."',
+                          '".strtoupper($lista[$i][4])."',
                           '".gmdate($GLOBALS['timedate']->get_db_date_time_format())."',
                           '".gmdate($GLOBALS['timedate']->get_db_date_time_format())."',
                           '0'
@@ -90,13 +111,13 @@ class Cabecera {
                 $r=$db->query($emailRelacion1); 
             }else{
                 $error['fila']=$i+2;
-                $error['detalle']="ESTUDIANTE DUPLICADO CON MAIL: ".$lista[$i][3];
+                $error['detalle']="ESTUDIANTE DUPLICADO CON MAIL: ".$lista[$i][4];
                 $errores[]=$error; 
             }
              
             }else{
                 $error['fila']=$i+2;
-                $error['detalle']="CORREO INVÁLIDO: ".$lista[$i][3];
+                $error['detalle']="CORREO INVÁLIDO: ".$lista[$i][4];
                 $errores[]=$error; 
             }
         }
