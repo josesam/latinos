@@ -98,7 +98,6 @@ class Cabecera {
                      '".gmdate($GLOBALS['timedate']->get_db_date_time_format())."',
                      '".$user_id."',
                      '".$user_id."',
-                     '".utf8_encode($lista[$i][15])."',
                      '0',
                      '".$user_id."',
                      '".$lista[$i][18]."',
