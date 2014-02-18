@@ -39,7 +39,10 @@ class Cabecera {
                                             registrationdate,
                                             areainterest,
                                             paisinterest,
-                                            medioingreso
+                                            medioingreso,
+                                            nombrecorto,
+                                            phone_provider,
+                                            lead_source
                                          )
                        VALUES(";
                 $ff = "'".$id."',
@@ -63,9 +66,65 @@ class Cabecera {
                      '".date('Y-m-d')."',
                      '".$lista[$i][13]."',
                      '".$lista[$i][12]."',
-                     '".$lista[$i][2]."'
+                     '".$lista[$i][2]."',
+                     '".$lista[$i][1]."',
+                     '".$lista[$i][8]."',
+                     '".$lista[$i][11]."'
                      )";
                 $r=$db->query($rr.$ff);
+                
+                if($lista[$i][17]!='NULL'){
+                    $idop=create_guid();
+                    $ins = "INSERT INTO opportunities(
+                                            id,
+                                            name,
+                                            date_entered,
+                                            date_modified,
+                                            modified_user_id,
+                                            created_by,
+                                            deleted,
+                                            assigned_user_id,
+                                            fecha_inicio_curso,
+                                            fecha_fin_curso,
+                                            amount,
+                                            courselevel,
+                                            weeks,
+                                            sales_stage
+                                       )
+                                       VALUES(";
+                    $ins1 = "'".$idop."',
+                     '".utf8_encode($lista[$i][17])."',
+                     '".gmdate($GLOBALS['timedate']->get_db_date_time_format())."',
+                     '".gmdate($GLOBALS['timedate']->get_db_date_time_format())."',
+                     '".$user_id."',
+                     '".$user_id."',
+                     '".utf8_encode($lista[$i][15])."',
+                     '0',
+                     '".$user_id."',
+                     '".$lista[$i][18]."',
+                     '".$lista[$i][19]."',
+                     ".$lista[$i][20].",
+                     '".$lista[$i][21]."',
+                     ".$lista[$i][22].",
+                     '".$lista[$i][23]."')";
+                    $q=$db->query($ins.$ins1);
+                    
+                    $id1=create_guid();
+                    $ins2 = "INSERT INTO accounts_opportunities(
+                                            id,
+                                            opportunity_id,
+                                            account_id,
+                                            date_modified,
+                                            deleted
+                                       )
+                                       VALUES(";
+                    $ins3 = "'".$id1."',
+                     '".$idop."',
+                     '".$id."',
+                     '".gmdate($GLOBALS['timedate']->get_db_date_time_format())."',
+                     '0')";
+                    $k=$db->query($ins2.$ins3);
+                }
 
                 $idEmail1=create_guid();
                 $email1="insert into email_addresses

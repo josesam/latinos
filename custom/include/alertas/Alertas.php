@@ -46,8 +46,8 @@ class Alertas {
         return $this->source;
     }
     function setEmail($var){
-        //$this->email=$var;
-        $this->email='jose.sambrano@greenfieldcrm.com';
+        $this->email=$var;
+//        $this->email='jose.sambrano@greenfieldcrm.com';
     }
     function getEmail(){
         return $this->email;
@@ -79,7 +79,7 @@ class Alertas {
         $this->mail->prepForOutbound();
 
         $this->mail->AddAddress(self::getEmail());
-        $this->mail->AddCC("jose.sambrano@greenfieldcrm.com","Jose Sambrano");
+//        $this->mail->AddCC("jose.sambrano@greenfieldcrm.com","Jose Sambrano");
     //    $this->mail->AddCC("jose.fernandez@greenfieldcrm.com","Jose Fernandez");
 //        $this->mail->AddCC("mjaramillo@usfq.edu.ec","Maria Antonieta Jaramillo");
 //        $this->mail->AddCC("gyepez@usfq.edu.ec","Giannina Yepez");
@@ -92,7 +92,7 @@ class Alertas {
         if(count($this->bcc)>0){
             foreach ($this->bcc as $nombre =>$direccion){
                 //$this->mail->AddCC($direccion,$nombre);
-                $this->mail->AddCC("josesambrano@hotmail.com","Jose Sambrano");
+//                $this->mail->AddCC("josesambrano@hotmail.com","Jose Sambrano");
                 
             }
         }

@@ -229,38 +229,4 @@ $dictionary['Account']['fields']['phone_provider']=array(
 );
 
 $dictionary['Account']['fields']['email1']['required']=true;
-
-
-
-
-$dictionary['Account']['fields']['origen']=array(
-    'name'=>'origen',
-    'vname'=>'LBL_ORIGEN',
-    'type' => 'varchar',
-    'source' => 'non-db',
-    'merge_filter' => 'enabled',
-
-    
-    
-);
-$dictionary['Account']['fields']['fecha_creacion']=array(
-    'name'=>'fecha_creacion',
-    'vname'=>'LBL_FECHACREACION',
-    'type' => 'varchar',
-    'source' => 'non-db',
-    'merge_filter' => 'enabled',
-
-    
-    
-);
-$dictionary['Account']['fields']['descripcion']=array(
-    'name'=>'descripcion',
-    'vname'=>'LBL_DESCRIPCION',
-    'type' => 'varchar',
-    'source' => 'non-db',
-    'merge_filter' => 'enabled',
-
-    
-    
-);
 ?>
